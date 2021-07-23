@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    margin: 2em 1em;
+    line-height: 1.5em;
+    color: white;
+    background-color: #23272a;
+  }
+  
+  dbl-widget {
+      position: absolute;
+      margin-left: -10%;
+  }
+
+  h1 {
+    font-style: italic;
+    color: #373fff;
+    max-width: calc(100% - 5rem);
+    line-height: 1.1;
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    background-color: #7289da;
+    display: grid;
+    grid-gap: 1em;
+    padding: 1em;
+    max-width: 40ch;
+    margin-left: 40%;
+  }
+  
+  input {
+    border: 1px solid silver;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  form button {
+    background-color: #bbbbf2;
+    border: 2px solid currentColor;
+    border-radius: .25em;
+    cursor: pointer;
+    font-size: inherit;
+    line-height: 1.4em;
+    padding: 0.25em 1em;
+    max-width: 20ch;
+    margin-left: 20%;
+  }
+  
+  form button:hover {
+    background-color: lavender;
+  }
+  
+  footer {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid lightgrey;
+    text-align: center;
+  }
+  
+  a {
+    text-align: center;
+    color: gold;
+  }
+  
+  p {
+    font-size: 19px; 
+    text-align: center;
+  }    
+  
+  .introduction {
+    font-size: 20px;   
+  }
+  
+  iframe {
+    position: absolute;
+    text-align: center;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  
+  #coords {
+    color: #7289da;
+  }
+  
+  #leftside-container {
+    po
