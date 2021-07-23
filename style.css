@@ -94,4 +94,6 @@
   }
   
   #leftside-container {
-    po
+    position: absolute;
+  }
+  
