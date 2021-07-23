@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="google-site-verification" content="2-cAQJOSc1VKY07CBVHKQh4Aj58LP2IxsAzj2O-85_A" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>shhh7612</title>
   <link rel="shortcut icon" type="image/svg+xml" href="https://cdn.discordapp.com/avatars/439039443744063488/1d72ad639bd5f49ac4f69f32dcd78ad8.png?size=1024"/>
   <link rel="stylesheet" href="./style.css">
@@ -16,17 +16,35 @@
   <meta property="og:description" content="Website for shhh7612." />
   <meta property="og:url" content="https://shhh-7612.github.io/" />
   <meta property="og:image" content="https://cdn.discordapp.com/avatars/439039443744063488/1d72ad639bd5f49ac4f69f32dcd78ad8.png?size=1024" />
-  <meta name="theme-color" content="#F3874E">
+  <meta name="theme-color" content="#5500ff">
 </head>
 <body>
   <nav>
-    <ul>
-      <li><h1 id="Title">shhh7612</h1></li>
-      <li><a class="active" href="./">Home</a></li>
-      <li><a href="./Aika/">Projects</a></li>
-    </ul>
+    <h1 id="Title">Redacted</h1>
+    <a class="active" href="./">Home</a>
+    <div class="dropdown">
+    <a class="dropbtn" onclick="myFunction()">Projects <i class="fa fa-caret-down" id="droparrow"></i></a>
+    <div class="dropdown-content" id="projects">
+      <b>Current</b>
+      <a href="#">Redacted</a>
+      <a href="#">Redacted</a>
+      <a href="#">Redacted</a>
+      <b>Abandoned</b>
+      <a href="#">Redacted</a>
+    </div>
+    </div> 
   </nav>
   <main></main>
   <footer></footer>
+  <script>
+    function myFunction() {document.getElementById("projects").classList.toggle("show");document.getElementById("droparrow").classList.toggle("droprotate");}
+    window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+      let projectsDD = document.getElementById("projects"), droparrow = document.getElementById("droparrow");;
+        if (projectsDD.classList.contains('show')) {projectsDD.classList.remove('show');}
+        if (droparrow.classList.contains('droprotate')) {droparrow.classList.remove('droprotate');}
+      }
+    }
+    </script>
 </body>
 </html>
