@@ -1,6 +1,7 @@
 function dropdown(id) {
     if(!document.getElementById("dd" + id).classList.contains('show')){
         Array.from(document.getElementsByClassName("show")).forEach(drop => {drop.classList.remove('show')});
+        Array.from(document.getElementsByClassName("droprotate")).forEach(drop => {drop.classList.remove('droprotate')});
     }
     document.getElementById("dd" + id).classList.toggle("show");
     document.getElementById("da" + id).classList.toggle("droprotate");
