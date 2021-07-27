@@ -1,9 +1,15 @@
-function dropdown() {document.getElementById("projects").classList.toggle("show");document.getElementById("droparrow").classList.toggle("droprotate");}
+function dropdown(id) {
+    if(!document.getElementById("dd" + id).classList.contains('show')){
+        Array.from(document.getElementsByClassName("show")).forEach(drop => {drop.classList.remove('show')});
+    }
+    document.getElementById("dd" + id).classList.toggle("show");
+    document.getElementById("da" + id).classList.toggle("droprotate");
+}
+
 window.onclick = function(e) {
     if (!e.target.matches('.dropbtn')) {
-        let projectsDD = document.getElementById("projects"), droparrow = document.getElementById("droparrow");;
-        if (projectsDD.classList.contains('show')) {projectsDD.classList.remove('show');}
-        if (droparrow.classList.contains('droprotate')) {droparrow.classList.remove('droprotate');}
+        Array.from(document.getElementsByClassName("show")).forEach(drop => {drop.classList.remove('show')});
+        Array.from(document.getElementsByClassName("droprotate")).forEach(drop => {drop.classList.remove('droprotate')});
     }
 }
 
