@@ -6,3 +6,12 @@ window.onclick = function(e) {
         if (droparrow.classList.contains('droprotate')) {droparrow.classList.remove('droprotate');}
     }
 }
+
+function copyall(block) {
+    let text = document.getElementById(block).children[1].innerText;
+    navigator.clipboard.writeText(text).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+  }
