@@ -41,7 +41,7 @@ a{
 }
 pre {
     font-family: Consolas,"courier new";
-    color: crimson;
+    color: #12a1e4;
     background-color: hsl(240, 4%, 15%);
     padding: 16px;
     font-size: 105%;
