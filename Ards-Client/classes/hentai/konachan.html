@@ -47,14 +47,71 @@
         <main>
             <center>
                 <a href="https://www.npmjs.com/package/ards-client"><img id="logo_a" src="https://github.com/shhh7612/ards-client/raw/main/src/imgs/Logo.svg" alt="Logo" /></a>
-                <h4>Pulls Images from Reddit, Danbooru, rule34, Konachan, and Yande.re</h4>
+                <h4>Pulls Posts from Reddit, Danbooru, rule34, Konachan, and Yande.re</h4>
                 <div>
                     <a href="https://www.npmjs.com/package/ards-client"><img src="https://img.shields.io/npm/v/ards-client?style=flat-square&color=ff3737"/></a>
                     <a href="https://www.npmjs.com/package/ards-client"><img src="https://img.shields.io/npm/dt/ards-client?style=flat-square&color=ff3737"/></a>
                     <a href="https://github.com/shhh7612/ards-client/issues"><img src="https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737"/></a>
                 </div>
             </center>
-
+            <h2>Konachan</h2>
+            <h4>Pulls Posts from <a href="https://konachan.com">Konachan</a></h4>
+            <h2>Usage</h2>
+            <h5>
+                Tags, the tags to search for. Any tag combination that works on <a href="https://konachan.com">konachan</a> will work here. This includes all the <a href="https://konachan.com/help/tags">meta-tags</a>.
+                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for konachan is 100.
+            </h5>
+            <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
+            <pre>
+const ards = require("ards-client"), ardsClient = new ards.Client();
+ardsClient.hentai.konachan(tags, limit).then(request => {
+    console.log(request);
+}).catch(error => {
+    console.log(error);
+});</pre></div>
+            <h2>Request Output</h2>
+            <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
+                <pre>
+from: "konachan",
+post: {
+    id: number,
+    tags: string,
+    created_at: number, 
+    creator_id: number, 
+    author: string, 
+    change: number,
+    source: string, 
+    score: number, 
+    md5: string,
+    file_size: number,
+    file_url: string, 
+    is_shown_in_index: boolean,
+    preview_url: string, 
+    preview_width: number, 
+    preview_height: number, 
+    actual_preview_width: number,
+    actual_preview_height: number, 
+    sample_url: string, 
+    sample_width: number, 
+    sample_height: number, 
+    sample_file_size: number,
+    jpeg_url: string, 
+    jpeg_width: number,
+    jpeg_height: number,
+    jpeg_file_size: number, 
+    rating: string,
+    has_children: boolean,
+    parent_id: number,
+    status: string,
+    width: number,
+    height: number,
+    is_held: boolean,
+    frames_pending_string: string,
+    frames_pending: array,
+    frames_string: array,
+    frames: array
+}
+</pre></div>
             <hr id="pageend">
         </main>
         <aside id="sidebar">

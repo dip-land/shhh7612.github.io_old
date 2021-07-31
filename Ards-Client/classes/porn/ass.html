@@ -54,22 +54,42 @@
                     <a href="https://github.com/shhh7612/ards-client/issues"><img src="https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737"/></a>
                 </div>
             </center>
-            <h2>Neko</h2>
-            <h4>Pulls Posts from <a href="https://danbooru.donmai.us">Danbooru</a>, <a href="https://konachan.com">Konachan</a> and <a href="https://rule34.xxx">Rule34</a></h4>
+            <h2>Ass</h2>
+            <h4>Pulls Posts from one of these subreddits, "ass", "paag", "asstastic", "buttplug", "whooties", "AssholeBehindThong", "Frogbutt", "rearpussy", "CuteLittleButts", "HungryButts", "reversecowgirl", "facedownassup", "butt", "butts", "pawg", "bigasses", "cosplaybutts", "girlsinyogapants", "BubbleButts", "assinthong", "smalltitsbigass", "CelebrityButts", "booty".</a></h4>
             <h2>Usage</h2>
             <h5>
-                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for this function is 1000, but any number over it will do nothing.
+                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for reddit is 100.
             </h5>
             <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
             <pre>
 const ards = require("ards-client"), ardsClient = new ards.Client();
-ardsClient.hentai.neko(limit).then(request => {
+ardsClient.porn.ass(limit).then(request => {
     console.log(request);
 }).catch(error => {
     console.log(error);
 });</pre></div>
             <h2>Request Output</h2>
-            <h5>Output can be Danbooru's, Konachan's or rule34's output.</h5>
+            <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
+                <pre>
+image: string, 
+permalink: string, 
+post_link: string,
+subreddit: string,
+subreddit_name_prefixed: string,
+author: string,
+uploaded_UTC: number,
+uploaded: number,
+title: string,
+score: number,
+up_votes: number,
+down_votes: number,
+comments_num: number,
+nsfw: boolean,
+tries: number,
+full_post: {
+    //This is undocumented data.
+}
+</pre></div>
             <hr id="pageend">
         </main>
         <aside id="sidebar">
