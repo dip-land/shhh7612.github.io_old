@@ -20,5 +20,8 @@
 #pgnfc{
     position: relative;
     font-size: 28px;
-    margin-bottom: 0;
+    margin-bottom: 24px;
+}
+#pgnfd{
+    height: 300px;
 }

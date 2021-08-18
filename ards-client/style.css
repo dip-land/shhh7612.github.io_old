@@ -96,3 +96,7 @@ pre {
 nav{
     z-index: 100;
 }
+p{
+    margin: 0;
+    padding: 0;
+}
