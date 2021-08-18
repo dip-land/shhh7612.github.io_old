@@ -7,7 +7,6 @@ function dropdown(id) {
     }
     document.getElementById('dd' + id).classList.toggle('showdropdown');
     document.getElementById('da' + id).classList.toggle('droprotate');
-    console.log(id)
 }
 
 window.onclick = function(e) {
@@ -15,9 +14,7 @@ window.onclick = function(e) {
         if (!e.target.matches('.dropbtn')) {
             Array.from(document.getElementsByClassName('showdropdown')).forEach(drop => {drop.classList.remove('showdropdown')});
             Array.from(document.getElementsByClassName('droprotate')).forEach(drop => {drop.classList.remove('droprotate')});
-            console.log(`closed ${e}`)
         }
-        console.log(e)
     }
 }
 function toggleNav() {
@@ -45,4 +42,13 @@ window.addEventListener('resize', ()=>{
             toggleNav()
         }
     }
+})
+
+window.addEventListener('load', ()=>{
+    if(window.location.toString().toLowerCase().includes("ardsclient")){window.location.replace("https://shhh7612.github.io/Ards-Client/")}
+    if(window.location.toString().includes("ards-client")){window.location.replace("https://shhh7612.github.io/Ards-Client/")}
+    if(window.location.toString().includes("aika")){window.location.replace("https://shhh7612.github.io/Aika/")}
+    if(window.location.toString().includes("ryoushin")){window.location.replace("https://shhh7612.github.io/Ryoushin/")}
+    if(window.location.toString().includes("yuna")){window.location.replace("https://shhh7612.github.io/Yuna/")}
+    console.log(window.location)
 })
