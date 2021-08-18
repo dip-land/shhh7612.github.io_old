@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
         <title>Ards-Client</title>
         <link rel="shortcut icon" type="image/svg+xml" href="https://github.com/shhh-7612/ards-client/raw/main/src/imgs/LogoWiki.svg"/>
         <link rel="stylesheet" href="../style.css">
@@ -20,27 +20,32 @@
         <meta name="theme-color" content="#ff3737">
     </head>
     <body>
-        <nav>
-            <h1 id="Title">shhh7612</h1>
-            <a href="../">Homepage</a>
-            <a href="../Ards-Client/">Ards-Client</a>
-            <a href="./support.html" class="active">Support</a>
+        <nav id="nav">
+            <a id="navtrigger" onclick="toggleNav()"><i id="navticon"class="fa fa-bars"></i></a>
+            <h1 id="title">shhh7612</h1>
+            <a href="../"><i class="fas fa-home"></i> Home</a>
+            <a href="../Ards-Client/" class="active"> <i class="fas fa-image"></i> Ards-Client</a>
             <div class="dropdown">
-                <a class="dropbtn" onclick="dropdown(0)">Examples <i class="fa fa-caret-down" id="da0"></i></a>
+                <a class="dropbtn" onclick="dropdown(0)"><i class="fas fa-folder"></i> Documentation <i class="fa fa-caret-down" id="da0"></i></a>
                 <div class="dropdown-content" id="dd0">
-                    <a href="./examples/hentai">Hentai</a>
-                    <a href="./examples/meme">Meme</a>
-                    <a href="./examples/porn">Porn</a>
-                    <a href="./examples/reddit">Reddit</a>
-                </div>
-            </div> 
-            <div class="dropdown">
-                <a class="dropbtn" onclick="dropdown(1)">Classes <i class="fa fa-caret-down" id="da1"></i></a>
-                <div class="dropdown-content" id="dd1">
-                    <a href="./classes/hentai">Hentai</a>
-                    <a href="./classes/meme">Meme</a>
-                    <a href="./classes/porn">Porn</a>
-                    <a href="./classes/reddit">Reddit</a>
+                    <div class="dropdown">
+                        <a class="dropbtn" onclick="dropdown(1)">Examples <i class="fa fa-caret-down" id="da1"></i></a>
+                        <div class="dropdown-content" id="dd1">
+                            <a href="./examples/hentai">Hentai</a>
+                            <a href="./examples/meme">Meme</a>
+                            <a href="./examples/porn">Porn</a>
+                            <a href="./examples/reddit">Reddit</a>
+                        </div>
+                    </div> 
+                    <div class="dropdown">
+                        <a class="dropbtn" onclick="dropdown(2)">Classes <i class="fa fa-caret-down" id="da2"></i></a>
+                        <div class="dropdown-content" id="dd2">
+                            <a href="./classes/hentai">Hentai</a>
+                            <a href="./classes/meme">Meme</a>
+                            <a href="./classes/porn">Porn</a>
+                            <a href="./classes/reddit">Reddit</a>
+                        </div>
+                    </div> 
                 </div>
             </div> 
         </nav>
@@ -58,9 +63,7 @@
             <h4><a href="https://github.com/shhh7612/ards-client/issues/new/choose">Open Github issue.</a></h4>
             <hr id="pageend">
         </main>
-        <aside id="sidebar">
-            <iframe src="https://discord.com/widget?id=708032158614159432&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        </aside>
+        
         <footer>
 
         </footer>

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
         <title>Ards-Client - </title>
         <link rel="shortcut icon" type="image/svg+xml" href="https://github.com/shhh-7612/ards-client/raw/main/src/imgs/LogoWiki.svg"/>
         <link rel="stylesheet" href="../../../style.css">
@@ -54,16 +54,17 @@
                     <a href="https://github.com/shhh7612/ards-client/issues"><img src="https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737"/></a>
                 </div>
             </center>
-            <h2>Random</h2>
-            <h4>Pulls Posts from one of these subreddits, "deepfriedmemes", "surrealmemes", "bonehurtingjuice", "dankmemes", "memes".</a></h4>
+            <h2>Rule34</h2>
+            <h4>Pulls Posts from <a href="https://rule34.xxx">Rule34</a></h4>
             <h2>Usage</h2>
             <h5>
-                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for reddit is 100.
+                Tags, the tags to seach for, vist <a href="https://rule34.xxx/index.php?page=help&topic=cheatsheet">Rule34 help:cheatsheet</a> for more info.
+                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for rule34 is 1000.
             </h5>
             <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
             <pre>
 const ards = require("ards-client"), ardsClient = new ards.Client();
-ardsClient.meme.random(limit).then(request => {
+ardsClient.hentai.rule34(tags, limit).then(request => {
     console.log(request);
 }).catch(error => {
     console.log(error);
@@ -71,30 +72,36 @@ ardsClient.meme.random(limit).then(request => {
             <h2>Request Output</h2>
             <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
                 <pre>
-image: string, 
-permalink: string, 
-post_link: string,
-subreddit: string,
-subreddit_name_prefixed: string,
-author: string,
-uploaded_UTC: number,
-uploaded: number,
-title: string,
-score: number,
-up_votes: number,
-down_votes: number,
-comments_num: number,
-nsfw: boolean,
-tries: number,
-full_post: {
-    //This is undocumented data.
+from: "rule34",
+post: {
+    height: string, 
+    score: string, 
+    file_url: string, 
+    parent_id: string, 
+    sample_url: string, 
+    sample_width: string, 
+    sample_height: string, 
+    preview_url: string,
+    rating: string, 
+    tags: string, 
+    id: string, 
+    width: string, 
+    change: string, 
+    md5: string, 
+    creator_id: string, 
+    has_children: string,
+    created_at: string, 
+    status: string,
+    source: string, 
+    has_notes: string,
+    has_comments: string, 
+    preview_width: string,
+    preview_height: string
 }
 </pre></div>
             <hr id="pageend">
         </main>
-        <aside id="sidebar">
-            <iframe src="https://discord.com/widget?id=708032158614159432&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        </aside>
+        
         <footer>
 
         </footer>

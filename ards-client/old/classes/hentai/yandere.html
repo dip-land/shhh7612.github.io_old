@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
         <title>Ards-Client - </title>
         <link rel="shortcut icon" type="image/svg+xml" href="https://github.com/shhh-7612/ards-client/raw/main/src/imgs/LogoWiki.svg"/>
         <link rel="stylesheet" href="../../../style.css">
@@ -54,17 +54,17 @@
                     <a href="https://github.com/shhh7612/ards-client/issues"><img src="https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737"/></a>
                 </div>
             </center>
-            <h2>Konachan</h2>
-            <h4>Pulls Posts from <a href="https://konachan.com">Konachan</a></h4>
+            <h2>Yandere</h2>
+            <h4>Pulls Posts from <a href="https://yande.re">Yande.re</a></h4>
             <h2>Usage</h2>
             <h5>
-                Tags, the tags to search for. Any tag combination that works on <a href="https://konachan.com">konachan</a> will work here. This includes all the <a href="https://konachan.com/help/tags">meta-tags</a>.
-                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for konachan is 100.
+                Tags, the tags to search for. Any tag combination that works on <a href="https://yande.re">yande.re</a> will work here. This includes all the <a href="https://yande.re/help/tags">meta-tags</a>.
+                Limit, number of posts grabbed. Does not change the results themselves. The maximum limit for yande.re is 100.
             </h5>
             <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
             <pre>
 const ards = require("ards-client"), ardsClient = new ards.Client();
-ardsClient.hentai.konachan(tags, limit).then(request => {
+ardsClient.hentai.yandere(tags, limit).then(request => {
     console.log(request);
 }).catch(error => {
     console.log(error);
@@ -72,51 +72,57 @@ ardsClient.hentai.konachan(tags, limit).then(request => {
             <h2>Request Output</h2>
             <div id="codeblockA" class="codeblock"><button class="copy" onclick="copyall('codeblockA')">Copy All</button>
                 <pre>
-from: "konachan",
+from: "yandere",
 post: {
     id: number,
     tags: string,
-    created_at: number, 
-    creator_id: number, 
-    author: string, 
+    created_at: number,
+    updated_at: number,
+    creator_id: number,
+    approver_id: number | null,
+    author: string,
     change: number,
-    source: string, 
-    score: number, 
+    source: string,
+    score: 9,
     md5: string,
     file_size: number,
-    file_url: string, 
+    file_ext: string,
+    file_url: string,
     is_shown_in_index: boolean,
-    preview_url: string, 
-    preview_width: number, 
-    preview_height: number, 
+    preview_url: string,
+    preview_width: number,
+    preview_height: number,
     actual_preview_width: number,
-    actual_preview_height: number, 
-    sample_url: string, 
-    sample_width: number, 
-    sample_height: number, 
+    actual_preview_height: number,
+    sample_url: string,
+    sample_width: number,
+    sample_height: number,
     sample_file_size: number,
-    jpeg_url: string, 
+    jpeg_url: string,
     jpeg_width: number,
     jpeg_height: number,
-    jpeg_file_size: number, 
+    jpeg_file_size: number,
     rating: string,
+    is_rating_locked: boolean,
     has_children: boolean,
-    parent_id: number,
+    parent_id: number | null,
     status: string,
+    is_pending: boolean,
     width: number,
     height: number,
     is_held: boolean,
     frames_pending_string: string,
     frames_pending: array,
-    frames_string: array,
-    frames: array
+    frames_string: string,
+    frames: array,
+    is_note_locked: boolean,
+    last_noted_at: number,
+    last_commented_at: number
 }
 </pre></div>
             <hr id="pageend">
         </main>
-        <aside id="sidebar">
-            <iframe src="https://discord.com/widget?id=708032158614159432&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        </aside>
+        
         <footer>
 
         </footer>

@@ -1,5 +1,9 @@
 const maxWidth = 1056
 
+function isUpper(str) {
+    return !/[a-z]/.test(str) && /[A-Z]/.test(str);
+}
+
 function dropdown(id) {
     if(!document.getElementById('dd' + id).classList.contains('showdropdown')){
         Array.from(document.getElementsByClassName('showdropdown')).forEach(drop => {drop.classList.remove('showdropdown')});
@@ -45,10 +49,27 @@ window.addEventListener('resize', ()=>{
 })
 
 window.addEventListener('load', ()=>{
-    if(window.location.toString().toLowerCase().includes("ardsclient")){window.location.replace("https://shhh7612.github.io/Ards-Client/")}
-    if(window.location.toString().includes("ards-client")){window.location.replace("https://shhh7612.github.io/Ards-Client/")}
-    if(window.location.toString().includes("aika")){window.location.replace("https://shhh7612.github.io/Aika/")}
-    if(window.location.toString().includes("ryoushin")){window.location.replace("https://shhh7612.github.io/Ryoushin/")}
-    if(window.location.toString().includes("yuna")){window.location.replace("https://shhh7612.github.io/Yuna/")}
-    console.log(window.location)
+    if(isUpper(window.location.toString())){window.location.replace(window.location.toString().toLowerCase())}
+    //hentai old
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/hentai'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/hentai")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/hentai/danbooru'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/hentai/danbooru")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/hentai/konachan'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/hentai/konachan")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/hentai/neko'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/hentai/neko")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/hentai/rule34'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/hentai/rule34")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/hentai/yandere'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/hentai/yandere")}
+    //meme old
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/meme'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/meme")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/meme/random'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/meme/random")}
+    //porn old 
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn/ass'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn/ass")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn/boobs'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn/boobs")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn/panties'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn/panties")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn/pussy'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn/pussy")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn/random'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn/random")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/porn/thighs'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/porn/thighs")}
+    //reddit old
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/reddit'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/reddit")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/reddit/custom'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/reddit/custom")}
+    if(window.location.toString() === 'https://shhh7612.github.io/Ards-Client/classes/reddit/custom_1'){window.location.replace("https://shhh7612.github.io/Ards-Client/old/classes/reddit/custom_1")}
 })
