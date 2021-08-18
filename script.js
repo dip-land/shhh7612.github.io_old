@@ -71,27 +71,29 @@ function fetchStats(){
     }
 }
 function customWidget(){
-    fetch('https://discord.com/api/guilds/708032158614159432/widget.json').then(data=>{data.json().then(data=>{
+    if(document.getElementById('discord-widget')){
+        fetch('https://discord.com/api/guilds/708032158614159432/widget.json').then(data=>{data.json().then(data=>{
         let widgetBody = document.getElementsByClassName('widget-body')[0].children[0];
         const members = []
         document.getElementsByClassName('widget-header-count')[0].children[0].innerText = data.presence_count - 1;
         data.members.forEach(member=>{
             if(member.game !== undefined){
                 members.push(`<div class="widget-member">
-            <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
-                <span class="widget-member-status widget-member-status-${member.status}"></span></div>
-            <span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span>
-        </div>`)
-            }else{
-                members.push(`<div class="widget-member">
-            <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
-                <span class="widget-member-status widget-member-status-${member.status}"></span></div>
-            <span class="widget-member-name">${member.username}</span>
-        </div>`)
-            }
-        })
-        widgetBody.innerHTML = members.join('')
-    })})
+                <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
+                    <span class="widget-member-status widget-member-status-${member.status}"></span></div>
+                <span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span>
+                </div>`)
+                }else{
+                    members.push(`<div class="widget-member">
+                <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
+                    <span class="widget-member-status widget-member-status-${member.status}"></span></div>
+                <span class="widget-member-name">${member.username}</span>
+                </div>`)
+                }
+            })
+            widgetBody.innerHTML = members.join('')
+        })})
+    }
 }
 function redirect(){
     if(isUpper(window.location.toString())){window.location.replace(window.location.toString().toLowerCase())}

@@ -403,7 +403,7 @@ main{
   height: 30px;
   border-radius: 4px;
   background-clip: padding-box;
-  background-color: var(--theme-color-secondary);
+  background-color: var(--theme-color);
   color:var(--primary-text);
   text-decoration: none;
   font-weight: 700;
