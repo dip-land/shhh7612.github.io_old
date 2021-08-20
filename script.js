@@ -54,19 +54,19 @@ function copyall(block) {
 }
 function fetchStats(){
     //https://shhh7612.github.io/ards-client/
-    if(window.location.toString() === 'file:///C:/Bots/GitHub/shhh-7612.github.io/ards-client/index.html'){
+    if(document.getElementById('contributors')){
         let downloads = 0;
         fetch('https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/ards-client').then(data=>{data.json().then(data=>{
             data.downloads.forEach(day => downloads = downloads + day.downloads);
-            document.getElementById('downloads').innerText = downloads.toLocaleString() + '+ downloads';
+            document.getElementById('downloads').innerText = downloads.toLocaleString() + ' downloads';
         })})
         fetch('https://api.github.com/repos/shhh7612/ards-client').then(data=>{data.json().then(data=>{
-            document.getElementById('stars').innerText = data.stargazers_count.toLocaleString() + '+ stars';
-            document.getElementById('forks').innerText = data.forks_count.toLocaleString() + '+ forks';
+            document.getElementById('stars').innerText = data.stargazers_count.toLocaleString() + ' stars';
+            document.getElementById('forks').innerText = data.forks_count.toLocaleString() + ' forks';
             document.getElementById('openIssues').innerText = data.open_issues_count.toLocaleString() + ' open issues'
         })})
         fetch('https://api.github.com/repos/shhh7612/ards-client/stats/contributors').then(data=>{data.json().then(data=>{
-            document.getElementById('contributors').innerText = data.length.toLocaleString() + '+ contributors';
+            document.getElementById('contributors').innerText = data.length.toLocaleString() + ' contributors';
         })})
     }
 }

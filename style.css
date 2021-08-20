@@ -21,6 +21,18 @@
   user-select: none; 
   outline: none;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-active);
+}
 
 footer{
   height: 55px;
@@ -33,6 +45,7 @@ body {
   line-height: 1.5em;
   color: var(--primary-text);
   background-color: var(--primary-background);
+  overflow: hidden;
 }
 button {
   font-size: 16px;
@@ -196,6 +209,7 @@ nav button:hover:not(.active) {
 main{
   padding: 66px;
   box-sizing: border-box;
+  overflow-y: scroll !important;
 }
 
 
@@ -248,11 +262,22 @@ main{
   font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 14px;
   color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+}
+#discord-widget ::-webkit-scrollbar {
+  width: 20px;
+}
+#discord-widget ::-webkit-scrollbar-track {
+  background: var(--secondary-background);
+}
+#discord-widget ::-webkit-scrollbar-thumb {
+  background: var(--primary-background);
+  border: 8px solid var(--secondary-background);
+  border-radius: 10px;
+  transition: ease-in-out 0.5s;
+}
+#discord-widget ::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-color);
+  transition: ease-in-out 0.5s;
 }
 #discord-widget .widget-header{
   background-color: var(--theme-color);
