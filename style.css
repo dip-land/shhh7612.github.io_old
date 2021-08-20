@@ -45,7 +45,6 @@ body {
   line-height: 1.5em;
   color: var(--primary-text);
   background-color: var(--primary-background);
-  overflow: hidden;
 }
 button {
   font-size: 16px;
@@ -82,6 +81,7 @@ nav{
   height: 45px;
   box-sizing: border-box;
   transition: ease-in-out 0.1s;
+  z-index: 20;
 }
 icon{
   position: relative;
@@ -140,7 +140,6 @@ nav button:hover:not(.active) {
   top: 40px;
   left: -25%;
   width: 150%;
-  z-index: 2;
 }
 .dropdown-content::before{
   content: '';
@@ -186,7 +185,6 @@ nav button:hover:not(.active) {
   border-radius: 6px;
   padding: 5px 0;
   position: absolute;
-  z-index: 1;
   bottom: 110%;
   left: 50%;
   margin-left: -60px;
@@ -207,13 +205,10 @@ nav button:hover:not(.active) {
 }
 
 main{
+  width: 100%;
   padding: 66px;
   box-sizing: border-box;
-  overflow-y: scroll !important;
 }
-
-
-
 
 .extend{
   height: 100%;
@@ -245,8 +240,6 @@ main{
   border-radius: 11px;
 }
 #discord-widget{
-  width: 350px !important;
-  height: 500px !important;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -343,7 +336,6 @@ main{
   position: absolute;
   right: 0px;
   width: 10px;
-  z-index: 8;
   border: 2px solid var(--theme-color);
 }
 #discord-widget .widget-body .widget-member .widget-member-status-online {
@@ -368,7 +360,6 @@ main{
   left: 172px;
   user-select: none;
   white-space: nowrap;
-  z-index: 1;
   color:var(--secondary-text);
 }
 #discord-widget .widget-body .widget-member .widget-member-name {
@@ -385,7 +376,6 @@ main{
   left: 12px;
   user-select: none;
   white-space: nowrap;
-  z-index: 1;
 }
 
 #discord-widget .widget-footer{
