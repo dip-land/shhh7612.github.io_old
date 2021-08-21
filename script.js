@@ -53,6 +53,9 @@ function copyall(block) {
     }
 }
 function fetchStats(){
+    if(window.location.toString() === 'https://shhh7612.github.io/aika/' || window.location.toString() === 'file:///C:/Bots/GitHub/shhh-7612.github.io/aika/index.html'){
+        fetch(atob('aHR0cHM6Ly90b3AuZ2cvYXBpL2JvdHMvODQ3MDMyNTY4Nzk2MTUxODI4'), {method: 'GET', headers: {"Authorization": ['eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9','eyJpZCI6Ijg0NzAzMjU2ODc5NjE1MTgyOCIsImJvdCI6dHJ1ZSwiaWF0IjoxNjI0MTI0Mjg3fQ','fdzMuwXwuAd03lLBlZ42KVCsxcM6D4a2ee4gm7v1uqk'].join('.')}}).then(data=>{data.json().then(data=>{document.getElementsByClassName(atob('Ym90LXNlcnZlci1jb3VudA=='))[0].innerText = data[atob('c2VydmVyX2NvdW50')]})})
+    }
     //https://shhh7612.github.io/ards-client/
     if(document.getElementById('contributors')){
         let downloads = 0;
@@ -71,28 +74,34 @@ function fetchStats(){
     }
 }
 function customWidget(){
-    if(document.getElementById('discord-widget')){
-        fetch('https://discord.com/api/guilds/708032158614159432/widget.json').then(data=>{data.json().then(data=>{
-        let widgetBody = document.getElementsByClassName('widget-body')[0].children[0];
-        const members = []
-        document.getElementsByClassName('widget-header-count')[0].children[0].innerText = data.presence_count - 1;
-        data.members.forEach(member=>{
-            if(member.game !== undefined){
-                members.push(`<div class="widget-member">
-                <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
-                    <span class="widget-member-status widget-member-status-${member.status}"></span></div>
-                <span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span>
-                </div>`)
-                }else{
-                    members.push(`<div class="widget-member">
-                <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
-                    <span class="widget-member-status widget-member-status-${member.status}"></span></div>
-                <span class="widget-member-name">${member.username}</span>
-                </div>`)
-                }
+    if(document.getElementsByClassName('discord-widget')[0]){
+        for (let widget of document.getElementsByClassName('discord-widget')) {
+            console.log(widget)
+            fetch(`https://discord.com/api/guilds/${widget.getAttribute('data-id')}/widget.json`).then(data=>{
+                data.json().then(data=>{
+                    let widgetBody = widget.children[1];
+                    console.log(console.log(widget.children[0].children[1]))
+                    const members = []
+                    widget.children[0].children[1].children[0].innerText = data.presence_count - 1;
+                    data.members.forEach(member=>{
+                        if(member.game !== undefined){
+                            members.push(`<div class="widget-member">
+                            <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
+                                <span class="widget-member-status widget-member-status-${member.status}"></span></div>
+                            <span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span>
+                            </div>`)
+                            }else{
+                                members.push(`<div class="widget-member">
+                            <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
+                                <span class="widget-member-status widget-member-status-${member.status}"></span></div>
+                            <span class="widget-member-name">${member.username}</span>
+                            </div>`)
+                            }
+                    })
+                    widgetBody.innerHTML = members.join('');
+                })
             })
-            widgetBody.innerHTML = members.join('')
-        })})
+        }
     }
 }
 function redirect(){
