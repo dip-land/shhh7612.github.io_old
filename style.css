@@ -516,6 +516,9 @@ main{
   nav{
     overflow: hidden;
   }
+  main{
+    padding: 50px 5px;
+  }
   #navtrigger{
     display: block;
   }
