@@ -1,5 +1,7 @@
+var scripts = document.getElementsByTagName( 'script' ), script = scripts[ scripts.length - 1 ];
 window.addEventListener('load', ()=>{
-    var script = document.querySelector('script[src="https://shhh7612.github.io/discordwidget.js"]'), parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor;
+    var parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor;
+    console.log(script, scripts)
     if(script.hasAttribute('data-id')){id=script.getAttribute('data-id');if(id === ""){return alert('DiscordWidget\nNo ID was specified')}}else{return alert('DiscordWidget\nNo ID was specified')}
     if(script.hasAttribute('data-width')){width=script.getAttribute('data-width');if(width === ""){width="350px"}}else{width="350px"}
     if(script.hasAttribute('data-height')){height=script.getAttribute('data-height');if(height === ""){height="500px"}}else{height="500px"}
@@ -30,7 +32,7 @@ window.addEventListener('load', ()=>{
         .discord-widget ::-webkit-scrollbar {width: 20px;}
         .discord-widget ::-webkit-scrollbar-track {background: ${backgroundColor};}
         .discord-widget ::-webkit-scrollbar-thumb {
-            background: ${backgroundColor};
+            background: #222222;
             border: 8px solid ${backgroundColor};
             border-radius: 10px;
             transition: ease-in-out 0.5s;
@@ -185,7 +187,7 @@ window.addEventListener('load', ()=>{
             transition: opacity .25s ease-out;
         }
         `
-        parent.innerHTML = `<style>${style}</style>${script.outerHTML}<div class="discord-widget"><div class="widget-header"><a class="widget-logo" href="https://discord.com/" target="_blank"></a><span class="widget-header-count"><strong></strong> Members Online</span></div><div class="widget-body"><div></div></div><div class="widget-footer"><span class="widget-footer-info">${footerText}</span><a class="widget-btn-join" href="" target="_blank">Join</a></div></div>`;
+        parent.innerHTML = `${script.outerHTML}<style>${style}</style><div class="discord-widget"><div class="widget-header"><a class="widget-logo" href="https://discord.com/" target="_blank"></a><span class="widget-header-count"><strong></strong> Members Online</span></div><div class="widget-body"><div></div></div><div class="widget-footer"><span class="widget-footer-info">${footerText}</span><a class="widget-btn-join" href="" target="_blank">Join</a></div></div>`;
         if(document.getElementsByClassName('discord-widget')[0]){
             for (let widget of document.getElementsByClassName('discord-widget')) {
                 widget.style.width = width; widget.style.height = height;
