@@ -1,5 +1,5 @@
 window.addEventListener('load', ()=>{
-    var script = document.querySelector('script[src="./discordwidget.js"]'), parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor;
+    var script = document.querySelector('script[src="https://shhh7612.github.io/discordwidget.js"]'), parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor;
     if(script.hasAttribute('data-id')){id=script.getAttribute('data-id');if(id === ""){return alert('DiscordWidget\nNo ID was specified')}}else{return alert('DiscordWidget\nNo ID was specified')}
     if(script.hasAttribute('data-width')){width=script.getAttribute('data-width');if(width === ""){width="350px"}}else{width="350px"}
     if(script.hasAttribute('data-height')){height=script.getAttribute('data-height');if(height === ""){height="500px"}}else{height="500px"}
