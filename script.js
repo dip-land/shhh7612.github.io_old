@@ -76,11 +76,11 @@ function fetchStats(){
 function customWidget(){
     if(document.getElementsByClassName('discord-widget')[0]){
         for (let widget of document.getElementsByClassName('discord-widget')) {
-            console.log(widget)
+            if(widget.hasAttribute('data-width')){widget.style.width = widget.getAttribute('data-width')}else{widget.style.width="350px"}
+            if(widget.hasAttribute('data-height')){widget.style.height = widget.getAttribute('data-height')}else{widget.style.height="500px"}
             fetch(`https://discord.com/api/guilds/${widget.getAttribute('data-id')}/widget.json`).then(data=>{
                 data.json().then(data=>{
                     let widgetBody = widget.children[1];
-                    console.log(console.log(widget.children[0].children[1]))
                     const members = []
                     widget.children[0].children[1].children[0].innerText = data.presence_count - 1;
                     data.members.forEach(member=>{
