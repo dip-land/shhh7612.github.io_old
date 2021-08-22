@@ -26,24 +26,20 @@ window.addEventListener('load', ()=>{
             font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
             font-size: 14px;
             color: #fff;
-          }
-          .discord-widget ::-webkit-scrollbar {
-            width: 20px;
-          }
-          .discord-widget ::-webkit-scrollbar-track {
-            background: ${backgroundColor};
-          }
-          .discord-widget ::-webkit-scrollbar-thumb {
+        }
+        .discord-widget ::-webkit-scrollbar {width: 20px;}
+        .discord-widget ::-webkit-scrollbar-track {background: ${backgroundColor};}
+        .discord-widget ::-webkit-scrollbar-thumb {
             background: ${backgroundColor};
             border: 8px solid ${backgroundColor};
             border-radius: 10px;
             transition: ease-in-out 0.5s;
-          }
-          .discord-widget ::-webkit-scrollbar-thumb:hover {
+        }
+        .discord-widget ::-webkit-scrollbar-thumb:hover {
             background: ${color};
             transition: ease-in-out 0.5s;
-          }
-          .discord-widget .widget-header{
+        }
+        .discord-widget .widget-header{
             background-color: ${color};
             padding: 20px;
             display: -webkit-box;
@@ -54,8 +50,8 @@ window.addEventListener('load', ()=>{
             align-items: center;
             -ms-flex-negative: 0;
             flex-shrink: 0;
-          }
-          .discord-widget .widget-header .widget-logo{
+        }
+        .discord-widget .widget-header .widget-logo{
             background: url(https://discord.com/assets/35d75407bd75d70e84e945c9f879bab8.svg) 50% no-repeat;
             width: 124px;
             height: 34px;
@@ -63,14 +59,14 @@ window.addEventListener('load', ()=>{
             display: inline-block;
             -webkit-transition: opacity .25s ease-out;
             transition: opacity .25s ease-out;
-          }
-          .discord-widget .widget-header .widget-header-count{
+        }
+        .discord-widget .widget-header .widget-header-count{
             -webkit-box-flex: 1;
             -ms-flex: 1;
             flex: 1;
             text-align: right;
-          }
-          .discord-widget .widget-body{
+        }
+        .discord-widget .widget-body{
             background-color: ${backgroundColor};
             -webkit-box-flex: 1;
             -ms-flex: 1;
@@ -79,28 +75,28 @@ window.addEventListener('load', ()=>{
             box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
             padding: 20px;
             overflow-y: scroll;
-          }
-          .discord-widget .widget-body .widget-member{
+        }
+        .discord-widget .widget-body .widget-member{
             position: relative;
             width: auto;
             display: flex;
             align-items: center;
             flex: 0;
             margin: 6px 0;
-          }
-          .discord-widget .widget-body .widget-member .widget-member-avatar{
+        }
+        .discord-widget .widget-body .widget-member .widget-member-avatar{
             margin-right: 4px;
             position: relative;
             contain: content;
-          }
-          .discord-widget .widget-body .widget-member .widget-member-avatar img{
+        }
+        .discord-widget .widget-body .widget-member .widget-member-avatar img{
             border-radius: 50%;
             height: 32px;
             width: 32px;
             border: 2px solid ${color};
             background-color: ${color};
-          }
-          .discord-widget .widget-body .widget-member .widget-member-status {
+        }
+        .discord-widget .widget-body .widget-member .widget-member-status {
             border-radius: 50%;
             bottom: 5px;
             height: 10px;
@@ -108,17 +104,11 @@ window.addEventListener('load', ()=>{
             right: 0px;
             width: 10px;
             border: 2px solid ${color};
-          }
-          .discord-widget .widget-body .widget-member .widget-member-status-online {
-            background-color: #43b581;
-          }
-          .discord-widget .widget-body .widget-member .widget-member-status-idle {
-            background-color: #d5b225;
-          }
-          .discord-widget .widget-body .widget-member .widget-member-status-dnd {
-            background-color: #b54343;
-          }
-          .discord-widget .widget-body .widget-member .widget-member-status-text {
+        }
+        .discord-widget .widget-body .widget-member .widget-member-status-online {background-color: #43b581;}
+        .discord-widget .widget-body .widget-member .widget-member-status-idle {background-color: #d5b225;}
+        .discord-widget .widget-body .widget-member .widget-member-status-dnd {background-color: #b54343;}
+        .discord-widget .widget-body .widget-member .widget-member-status-text {
             height: 32px;
             max-width: 80px;
             overflow: hidden;
@@ -132,8 +122,8 @@ window.addEventListener('load', ()=>{
             user-select: none;
             white-space: nowrap;
             color:${statusTextColor};
-          }
-          .discord-widget .widget-body .widget-member .widget-member-name {
+        }
+        .discord-widget .widget-body .widget-member .widget-member-name {
             font-weight: bold;
             height: 32px;
             max-width: 160px;
@@ -147,9 +137,8 @@ window.addEventListener('load', ()=>{
             left: 12px;
             user-select: none;
             white-space: nowrap;
-          }
-          
-          .discord-widget .widget-footer{
+        }
+        .discord-widget .widget-footer{
             background-color: ${backgroundColor};
             -webkit-box-shadow: 0 -1px 18px rgb(0 0 0 / 20%), 0 -1px 0 rgb(0 0 0 / 20%);
             box-shadow: 0 -1px 18px rgb(0 0 0 / 20%), 0 -1px 0 rgb(0 0 0 / 20%);
@@ -163,17 +152,16 @@ window.addEventListener('load', ()=>{
             -ms-flex-align: right;
             align-items: right;
             min-height: 30px;
-          }
-          .discord-widget .widget-footer .widget-footer-info{
+        }
+        .discord-widget .widget-footer .widget-footer-info{
             display: inline-block;
             font-weight: 500;
             opacity: .1;
             -webkit-box-flex: 1;
             -ms-flex: 1;
             flex: 1;
-          }
-          
-          .discord-widget .widget-footer .widget-btn-join{
+        }
+        .discord-widget .widget-footer .widget-btn-join{
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -195,7 +183,7 @@ window.addEventListener('load', ()=>{
             font-weight: 700;
             -webkit-transition: opacity .25s ease-out;
             transition: opacity .25s ease-out;
-          }
+        }
         `
         parent.innerHTML = `<style>${style}</style>${script.outerHTML}<div class="discord-widget"><div class="widget-header"><a class="widget-logo" href="https://discord.com/" target="_blank"></a><span class="widget-header-count"><strong></strong> Members Online</span></div><div class="widget-body"><div></div></div><div class="widget-footer"><span class="widget-footer-info">${footerText}</span><a class="widget-btn-join" href="" target="_blank">Join</a></div></div>`;
         if(document.getElementsByClassName('discord-widget')[0]){
@@ -208,18 +196,10 @@ window.addEventListener('load', ()=>{
                         widget.children[0].children[1].children[0].innerText = data.presence_count - 1;
                         data.members.forEach(member=>{
                             if(member.game !== undefined){
-                                members.push(`<div class="widget-member">
-                                <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
-                                    <span class="widget-member-status widget-member-status-${member.status}"></span></div>
-                                <span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span>
-                                </div>`)
-                                }else{
-                                    members.push(`<div class="widget-member">
-                                <div class="widget-member-avatar"><img alt="" src="${member.avatar_url}">
-                                    <span class="widget-member-status widget-member-status-${member.status}"></span></div>
-                                <span class="widget-member-name">${member.username}</span>
-                                </div>`)
-                                }
+                                members.push(`<div class="widget-member"><div class="widget-member-avatar"><img alt="" src="${member.avatar_url}"><span class="widget-member-status widget-member-status-${member.status}"></span></div><span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span></div>`)
+                            }else{
+                                members.push(`<div class="widget-member"><div class="widget-member-avatar"><img alt="" src="${member.avatar_url}"><span class="widget-member-status widget-member-status-${member.status}"></span></div><span class="widget-member-name">${member.username}</span></div>`)
+                            }
                         })
                         widgetBody.innerHTML = members.join('');
                     })
