@@ -26,6 +26,8 @@
 }
 ::-webkit-scrollbar-track {
   background: var(--primary-background);
+  border: 0.5px solid rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--theme-color);
@@ -33,7 +35,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--theme-active);
 }
-
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+}
 footer{
   padding: 4px 12px;
   position: fixed;
@@ -55,6 +59,7 @@ body {
   line-height: 1.5em;
   color: var(--primary-text);
   background-color: var(--primary-background);
+  overflow: hidden;
 }
 button {
   font-size: 16px;
@@ -221,9 +226,48 @@ nav button:hover:not(.active) {
 }
 
 main{
-  width: 100%;
   padding: 66px;
   box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 45px;
+  bottom: 0;
+  overflow: auto;
+}
+main section{
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 16.66667% 16.66667% 16.66667% 16.66667% 16.66667% 16.66667%;
+  background-color: var(--secondary-background);
+  border-radius: 9px;
+}
+.sectionHead{
+  font-size: 28px;
+  margin: 24px 0;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  text-align: center;
+  color: var(--primary-text);
+}
+.card {
+  margin: 12px;
+  border-radius: 6px;
+  border: 0.5px solid rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  transition: 0.1s;
+  text-decoration: none !important;
+  color: var(--primary-btn);
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+  color: var(--primary-text);
+}
+.card img{
+  border-radius: 6px 6px 0 0;
+}
+.card h4 {
+  text-align: center;
+  margin: 4px 16px 10px;
 }
 
 .extend{
@@ -304,8 +348,8 @@ main{
   background-color: var(--theme-color);
   text-decoration: none;
   font-weight: 700;
-  -webkit-transition: opacity .25s ease-out;
-  transition: opacity .25s ease-out;
+  -webkit-transition: opacity .1s ease-out;
+  transition: opacity .1s ease-out;
 }
 #bot-invite .bot-discords{
   grid-column-start: 1;
@@ -330,9 +374,6 @@ main{
   nav{
     overflow: hidden;
   }
-  main{
-    padding: 50px 5px;
-  }
   #navtrigger{
     display: block;
   }
@@ -342,5 +383,16 @@ main{
   .dropdown-content {
     position: unset;
     width: 100%;
+  }
+  main{
+    padding: 50px 5px;
+  }
+  main section{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .sectionHead{
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
 }

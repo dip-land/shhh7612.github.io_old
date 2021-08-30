@@ -10,11 +10,14 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg"
    version="1.1"
-   width="75"
-   height="75"
-   viewBox="0, 0, 75,75"
+   width="400"
+   height="88.6"
+   viewBox="0, 0, 400,88.6"
    sodipodi:docname="LogoGuide.svg"
-   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
+   inkscape:export-filename="C:\Bots\GitHub\shhh-7612.github.io\images\ards\Logo.png"
+   inkscape:export-xdpi="959.90002"
+   inkscape:export-ydpi="959.90002">
   <metadata
      id="metadata851">
     <rdf:RDF>
@@ -65,9 +68,9 @@
      id="namedview847"
      showgrid="false"
      inkscape:pagecheckerboard="true"
-     inkscape:zoom="5.6568543"
-     inkscape:cx="31.12306"
-     inkscape:cy="41.089609"
+     inkscape:zoom="1.4919953"
+     inkscape:cx="146.88534"
+     inkscape:cy="52.076155"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -78,14 +81,34 @@
      style="fill:#ffffff">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:72px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Heavy';letter-spacing:-25px;word-spacing:0px;opacity:0.996;mix-blend-mode:multiply;fill:#3cfc7f;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;"
-       x="1.5195312"
-       y="62.689453"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:72px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Heavy';letter-spacing:0px;word-spacing:0px;opacity:0.997;fill:#3cfc7f;fill-opacity:1;stroke:none"
+       x="-0.12695312"
+       y="53.296875"
        id="text1437"><tspan
          sodipodi:role="line"
          id="tspan1435"
-         x="1.5195312"
-         y="62.689453"
-         style="fill:#3cfc7f;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;">AC</tspan></text>
+         x="-0.12695312"
+         y="53.296875">Ards-Client</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:72px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Heavy';letter-spacing:-25px;word-spacing:0px;opacity:0.996;mix-blend-mode:multiply;fill:#3cfc7f;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       x="-80.216537"
+       y="159.23813"
+       id="text1437-4"><tspan
+         sodipodi:role="line"
+         id="tspan1435-1"
+         x="-80.216537"
+         y="159.23813"
+         style="stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers">AC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';letter-spacing:0px;word-spacing:0px;opacity:0.999;fill:#3cfc7f;fill-opacity:1;stroke:none"
+       x="144.60938"
+       y="88.111717"
+       id="text1993"><tspan
+         sodipodi:role="line"
+         id="tspan1991"
+         x="144.60938"
+         y="88.111717">Guide</tspan></text>
   </g>
 </svg>
