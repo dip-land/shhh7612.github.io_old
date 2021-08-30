@@ -4,9 +4,6 @@
     --theme-active: #df2929;
     --theme-hover: #991c1c;
 }
-nav{
-    border-right: 1px solid var(--theme-active);
-}
 #ardsHome{
     padding: 0;
 }

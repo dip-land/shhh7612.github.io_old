@@ -45,32 +45,84 @@
             </div> 
         </nav>
         <main>
-            <div id="welcome" >
-                <h2>Welcome</h2>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel itaque magni mollitia ex rerum labore laudantium quo dolorem quaerat consectetur obcaecati deleniti reprehenderit quisquam magnam, quas quia, dignissimos vitae tenetur? Sit, ipsum? Illum cumque eum molestias debitis recusandae commodi deserunt velit! Mollitia maxime beatae suscipit pariatur laudantium magni tempora perferendis deserunt, rem a sapiente molestias. Veniam maxime sed sit qui rem non! Sunt, porro quo consectetur cum labore repudiandae sed, eligendi dolores vero voluptatum facere hic, error non ipsam quidem rerum. Suscipit impedit explicabo soluta beatae. Hic cum est, assumenda, reprehenderit dolorem, debitis magni quibusdam non maxime in corrupti corporis optio quae. Commodi quasi molestias voluptates eum impedit, nam quod saepe natus nulla maxime libero nobis? Sunt quibusdam recusandae repudiandae id, esse eligendi alias? Repudiandae, perspiciatis! Fugit culpa dolores officiis iste ea voluptate dolorum laboriosam libero iure illum cumque voluptates ullam autem nobis, tempore porro, officia aut sed alias, harum aliquid natus eum? Debitis quae dolore animi, iste dolorem esse temporibus labore, minima, omnis harum alias ipsum consequuntur. Explicabo tempore aspernatur doloribus ex, quisquam inventore eius aperiam! Ducimus sequi voluptatem architecto, corrupti sunt ratione possimus cupiditate? Cum est dignissimos similique, provident harum non delectus, dolore dolores corrupti explicabo, architecto pariatur.
+            <center>
+                <a href="https://www.npmjs.com/package/ards-client"><img id="logo" src="../../../images/ards/LogoDocs.svg" alt="Logo" /></a>
+                <h4>Pulls Posts from Reddit, Danbooru, rule34, Konachan, and Yande.re</h4>
+                <div>
+                    <a href="https://www.npmjs.com/package/ards-client"><img src="https://img.shields.io/npm/v/ards-client?style=flat-square&color=ff3737" alt="NPM Version"/></a>
+                    <a href="https://www.npmjs.com/package/ards-client"><img src="https://img.shields.io/npm/dt/ards-client?style=flat-square&color=ff3737" alt="NPM Downloads"/></a>
+                    <a href="https://github.com/shhh7612/ards-client/issues"><img src="https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737" alt="GitHub Open Issues"/></a>
+                </div>
+            </center>
+            <h5>If you are upgrading from version 1.x.x and 2.x.x, please read this <a href="https://shhh7612.github.io/Ards-Client/guide/v2-to-v3">guide</a> on updating to version 3.x.x.</h5>
+            
+            <h2 id="install">Installation</h2>
+            <h5>Node.js 14.0.0 or newer is required.</h5>
+            <div id="codeblock0" class="codeblock">
+                <div class="tooltip">
+                    <button class="copy" onclick="copyall('codeblock0')">
+                        <span class="tooltiptext">Copy to Clipboard</span>
+                        Copy All
+                    </button>
+                </div>
+                <pre>npm i ards-client
+yarn add ards-client</pre>
             </div>
-            <div id="ardsclient" >
-                <h2>ArdsClient</h2>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel itaque magni mollitia ex rerum labore laudantium quo dolorem quaerat consectetur obcaecati deleniti reprehenderit quisquam magnam, quas quia, dignissimos vitae tenetur? Sit, ipsum? Illum cumque eum molestias debitis recusandae commodi deserunt velit! Mollitia maxime beatae suscipit pariatur laudantium magni tempora perferendis deserunt, rem a sapiente molestias. Veniam maxime sed sit qui rem non! Sunt, porro quo consectetur cum labore repudiandae sed, eligendi dolores vero voluptatum facere hic, error non ipsam quidem rerum. Suscipit impedit explicabo soluta beatae. Hic cum est, assumenda, reprehenderit dolorem, debitis magni quibusdam non maxime in corrupti corporis optio quae. Commodi quasi molestias voluptates eum impedit, nam quod saepe natus nulla maxime libero nobis? Sunt quibusdam recusandae repudiandae id, esse eligendi alias? Repudiandae, perspiciatis! Fugit culpa dolores officiis iste ea voluptate dolorum laboriosam libero iure illum cumque voluptates ullam autem nobis, tempore porro, officia aut sed alias, harum aliquid natus eum? Debitis quae dolore animi, iste dolorem esse temporibus labore, minima, omnis harum alias ipsum consequuntur. Explicabo tempore aspernatur doloribus ex, quisquam inventore eius aperiam! Ducimus sequi voluptatem architecto, corrupti sunt ratione possimus cupiditate? Cum est dignissimos similique, provident harum non delectus, dolore dolores corrupti explicabo, architecto pariatur.
-                <div id="danbooru">
-                    <h2>Danbooru</h2>
+            
+            <h2>Basic Usage</h2>
+            <h5>Replace method with the method you want to use, all methods can be found <a href="https://shhh7612.github.io/ards-client/docs/class/ArdsClient">here.</a></h5>
+            <div id="codeblock1" class="codeblock">
+                <div class="tooltip">
+                    <button class="copy" onclick="copyall('codeblock1')">
+                        <span class="tooltiptext">Copy to Clipboard</span>
+                        Copy All
+                    </button>
                 </div>
-                <div id="konachan">
-                    <h2>Konachan</h2>
-                </div>
-                <div id="neko">
-                    <h2>Neko</h2>
-                </div>
-                <div id="redditcustom">
-                    <h2>RedditCustom</h2>
-                </div>
-                <div id="rule34">
-                    <h2>Rule34</h2>
-                </div>
-                <div id="yandere">
-                    <h2>Yandere</h2>
-                </div>
+                <pre>const { ArdsClient } = require("ards-client");
+new ArdsClient().method().then(request => {
+    console.log(request);
+}).catch(error => {
+    console.error(error);
+});</pre>
             </div>
+            <h4>or</h4>
+            <div id="codeblock2" class="codeblock">
+                <div class="tooltip">
+                    <button class="copy" onclick="copyall('codeblock2')">
+                        <span class="tooltiptext">Copy to Clipboard</span>
+                        Copy All
+                    </button>
+                </div>
+                <pre>const ards = require("ards-client"), ardsClient = new ards.Client();
+ardsClient.method().then(request => {
+    console.log(request);
+}).catch(error => {
+    console.log(error);
+});</pre>
+            </div>
+        ### Examples
+        **[Examples](https://shhh7612.github.io/Ards-Client/examples)**
+        
+        ### Classes and Methods
+         - #### [ArdsClient Class](https://shhh7612.github.io/Ards-Client/classes/ardsclient)
+           - **[Danbooru Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/danbooru)**
+           - **[Konachan Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/konachan)**
+           - **[Neko Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/neko)**
+           - **[RedditCustom Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/redditcustom)**
+           - **[Rule34 Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/rule34)**
+           - **[Yandere Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/yandere)**
+        ## **Additional Information**
+        **[Documentation](https://shhh7612.github.io/Ards-Client/)** <br>
+        **[Support](https://shhh7612.github.io/Ards-Client/support)**
+        ### **License**
+        **The [MIT License](https://github.com/shhh7612/ards-client/blob/main/LICENSE) © 2021-present shhh-7612. All rights reserved.**
+        
+        
+        [npm-img]: https://img.shields.io/npm/v/ards-client?style=flat-square&color=ff3737
+        [npmdt-img]: https://img.shields.io/npm/dt/ards-client?style=flat-square&color=ff3737
+        [npm-url]: https://www.npmjs.com/package/ards-client
+        [openissues-img]: https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737
+        [issues]: https://github.com/shhh7612/ards-client/issues
         </main>
         <footer>
 
