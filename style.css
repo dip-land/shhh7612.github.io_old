@@ -9,6 +9,7 @@
   --primary-background: hsl(240, 4%, 10%);
   --primary-background-l15: hsl(240, 4%, 15%);
   --primary-background-l20: hsl(240, 4%, 20%);
+  --tertiary-background: hsl(240, 4%, 6%);
   --secondary-background: hsl(240, 4%, 5%);
   --transition-speed: 0.1s;
 }
@@ -254,6 +255,7 @@ main section{
   border-radius: 6px;
   border: 0.5px solid rgba(0,0,0,0.3);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  background-color: var(--tertiary-background);
   transition: 0.1s;
   text-decoration: none !important;
   color: var(--primary-btn);
