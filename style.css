@@ -115,10 +115,14 @@ icon img{
 }
 #title{
   font-size: 36px;
+  font-weight: bold;
   display: inline;
   position: relative;
   top: 4px;
   margin-right: 14px;
+  margin: 0 14px 0 -10px;
+  background: none !important;
+  border: none !important;
 }
 nav a {
   font-size: 20px;
@@ -233,7 +237,8 @@ main{
   width: 100%;
   top: 45px;
   bottom: 0;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 main section{
   margin-top: 24px;
