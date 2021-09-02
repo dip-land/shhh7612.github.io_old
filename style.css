@@ -67,7 +67,7 @@ body .vertical-centered-box {
   height: 100%;
   text-align: center;
   z-index: 1001;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 body .vertical-centered-box:after {
   content: '';
