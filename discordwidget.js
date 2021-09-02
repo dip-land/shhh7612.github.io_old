@@ -1,7 +1,7 @@
 window.addEventListener('load', ()=>{
     let i=0;
     for (let script of document.getElementsByTagName('script')){
-        if(script.getAttribute('src').includes('discordwidget.js')){
+        if(script.getAttribute('src').includes('discordwidget.min.js')){
             let parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor, identifier = `_${(Math.random() + 1).toString(26).substring(2).replace(/[0-9]/g, '')}`;
             if(parent.hasAttribute("data-done")){}else{
                 if(script.hasAttribute('data-id')){id=script.getAttribute('data-id');if(id === ""){return alert('DiscordWidget\nNo ID was specified')}}else{return alert('DiscordWidget\nNo ID was specified')}
