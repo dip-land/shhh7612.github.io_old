@@ -68,6 +68,7 @@ body .vertical-centered-box {
   text-align: center;
   z-index: 1001;
   transition: opacity 0.5s;
+  background: var(--primary-background);
 }
 body .vertical-centered-box:after {
   content: '';
@@ -121,24 +122,7 @@ body .vertical-centered-box .content {
   border-radius: 50%;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
-#particles-background,
-#particles-foreground {
-  left: -51%;
-  top: -51%;
-  width: 202%;
-  height: 202%;
-  -webkit-transform: scale3d(0.5, 0.5, 1);
-  -moz-transform: scale3d(0.5, 0.5, 1);
-  -ms-transform: scale3d(0.5, 0.5, 1);
-  -o-transform: scale3d(0.5, 0.5, 1);
-  transform: scale3d(0.5, 0.5, 1);
-}
-#particles-background {
-  background: var(--primary-background);
-  background-image: -moz-linear-gradient(45deg, var(--theme-hover) 0%, var(--primary-background) 100%);
-  background-image: -webkit-linear-gradient(45deg, var(--theme-hover) 0%, var(--primary-background) 100%);
-  background-image: linear-gradient(45deg, var(--theme-hover) 0%, var(--primary-background) 100%);
-}
+
 .hidden{
   opacity: 0;
 }
