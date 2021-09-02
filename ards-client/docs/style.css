@@ -3,9 +3,10 @@
     --theme-color-secondary:#3c75fc;
     --theme-active: #3669e1;
     --theme-hover: #2959ca;
+    --secondary-text: hsl(0, 0%, 85%);
 }
 #logo{
-    width: 65%;
+    width: 60%;
 }
 h1, h2, h3, h4, h5, h6{
     margin: 0;

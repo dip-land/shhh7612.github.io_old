@@ -20,6 +20,16 @@
         <meta name="theme-color" content="#3c75fc">
     </head>
     <body>
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle"></div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
         <nav id="nav">
             <a id="navtrigger" onclick="toggleNav()"><i id="navticon"class="fa fa-bars"></i></a>
             <a id="title" href="../../../ards-client/">Ards-Client</a>
@@ -69,8 +79,8 @@
 yarn add ards-client</pre>
             </div>
             
-            <h2>Basic Usage</h2>
-            <h5>Replace method with the method you want to use, all methods can be found <a href="https://shhh7612.github.io/ards-client/docs/class/ArdsClient">here.</a></h5>
+            <h2 id="basic_usage">Basic Usage</h2>
+            <h3 id="bu_reddit">For Reddit</h3>
             <div id="codeblock1" class="codeblock">
                 <div class="tooltip">
                     <button class="copy" onclick="copyall('codeblock1')">
@@ -78,55 +88,36 @@ yarn add ards-client</pre>
                         Copy All
                     </button>
                 </div>
-                <pre>const { ArdsClient } = require("ards-client");
-new ArdsClient().method().then(request => {
-    console.log(request);
+                <pre>const { redditCustom } = require("ards-client");
+// subreddit can be a string or an array
+let subreddit = ['subreddit1', 'subreddit2'];
+let limit = 50;
+new redditCustom(subreddit, limit).then(data => {
+    console.log(data);
 }).catch(error => {
-    console.error(error);
+    console.log(error);
 });</pre>
-            </div>
-            <h4>or</h4>
-            <div id="codeblock2" class="codeblock">
+            <h3 id="bu_danbooru">For Danbooru</h3>
+            <div id="codeblock1" class="codeblock">
                 <div class="tooltip">
-                    <button class="copy" onclick="copyall('codeblock2')">
+                    <button class="copy" onclick="copyall('codeblock1')">
                         <span class="tooltiptext">Copy to Clipboard</span>
                         Copy All
                     </button>
                 </div>
-                <pre>const ards = require("ards-client"), ardsClient = new ards.Client();
-ardsClient.method().then(request => {
-    console.log(request);
+                <pre>const { danbooru } = require("ards-client");
+let tags = ['tag1', 'tag2'];
+let limit = 50;
+new danbooru(tags, limit).then(data => {
+    console.log(data);
 }).catch(error => {
     console.log(error);
 });</pre>
             </div>
-        ### Examples
-        **[Examples](https://shhh7612.github.io/Ards-Client/examples)**
-        
-        ### Classes and Methods
-         - #### [ArdsClient Class](https://shhh7612.github.io/Ards-Client/classes/ardsclient)
-           - **[Danbooru Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/danbooru)**
-           - **[Konachan Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/konachan)**
-           - **[Neko Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/neko)**
-           - **[RedditCustom Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/redditcustom)**
-           - **[Rule34 Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/rule34)**
-           - **[Yandere Method](https://shhh7612.github.io/Ards-Client/classes/ardsclient/yandere)**
-        ## **Additional Information**
-        **[Documentation](https://shhh7612.github.io/Ards-Client/)** <br>
-        **[Support](https://shhh7612.github.io/Ards-Client/support)**
-        ### **License**
-        **The [MIT License](https://github.com/shhh7612/ards-client/blob/main/LICENSE) © 2021-present shhh-7612. All rights reserved.**
-        
-        
-        [npm-img]: https://img.shields.io/npm/v/ards-client?style=flat-square&color=ff3737
-        [npmdt-img]: https://img.shields.io/npm/dt/ards-client?style=flat-square&color=ff3737
-        [npm-url]: https://www.npmjs.com/package/ards-client
-        [openissues-img]: https://img.shields.io/github/issues-raw/shhh7612/ards-client?style=flat-square&color=ff3737
-        [issues]: https://github.com/shhh7612/ards-client/issues
         </main>
         <footer>
 
         </footer>
-        <script src="../../../script.js"></script>
+        <script src="../../../script.min.js"></script>
     </body>
 </html>

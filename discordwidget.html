@@ -16,9 +16,28 @@
         <meta property="og:description" content="DiscordWidget" />
         <meta property="og:url" content="https://shhh7612.github.io/" />
         <meta property="og:image" content="https://cdn.discordapp.com/avatars/439039443744063488/1d72ad639bd5f49ac4f69f32dcd78ad8.png?size=1024" />
-        <meta name="theme-color" content="#ff0070">
+        <meta name="theme-color" content="#5865f2">
+
+        <style>
+            :root {
+                --theme-color: #5865f2;
+                --theme-color-secondary:#5865f2;
+                --theme-active: #4c58da;
+                --theme-hover: #454fc4;
+            }
+        </style>
       </head>
     <body>
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle"></div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
         <nav id="nav">
             <a id="navtrigger" onclick="toggleNav()"><i id="navticon"class="fa fa-bars"></i></a>
             <h1 id="title">shhh7612</h1>
@@ -53,6 +72,6 @@
         <footer>
 
         </footer>
-        <script src="../script.js"></script>
+        <script src="./script.min.js"></script>
     </body>
 </html>
