@@ -18,6 +18,8 @@
         <meta property="og:url" content="https://shhh7612.github.io/" />
         <meta property="og:image" content="../../../images/ards/Favicon.png" />
         <meta name="theme-color" content="#3c75fc">
+
+        <link href="../../../plugins/prism.css" rel="stylesheet" />
     </head>
     <body>
         <div id="particles-background" class="vertical-centered-box"></div>
@@ -30,8 +32,6 @@
                 </div>
             </div>
         </div>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/styles/default.min.css">
-        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
         <nav id="nav">
             <a id="navtrigger" onclick="toggleNav()"><i id="navticon"class="fa fa-bars"></i></a>
             <a id="title" href="../../../ards-client/">Ards-Client</a>
@@ -70,27 +70,27 @@
             
             <h2 id="install">Installation</h2>
             <h5>Node.js 14.0.0 or newer is required.</h5>
-            <div id="codeblock0" class="codeblock">
+            <div id="codeblock0">
                 <div class="tooltip">
-                    <button class="copy" onclick="copyall('codeblock0')">
-                        <span class="tooltiptext">Copy to Clipboard</span>
+                    <button class="copy">
+                        <span class="tooltiptext">Copied</span>
                         Copy All
                     </button>
                 </div>
-                <pre>npm i ards-client
-yarn add ards-client</pre>
+                <pre><code class="language-js">npm i ards-client
+yarn add ards-client</code></pre>
             </div>
             
             <h2 id="basic_usage">Basic Usage</h2>
             <h3 id="bu_reddit">For Reddit</h3>
-            <div id="codeblock1" class="codeblock">
+            <div id="codeblock1">
                 <div class="tooltip">
-                    <button class="copy" onclick="copyall('codeblock1')">
-                        <span class="tooltiptext">Copy to Clipboard</span>
+                    <button class="copy">
+                        <span class="tooltiptext">Copied</span>
                         Copy All
                     </button>
                 </div>
-                <pre>const { redditCustom } = require("ards-client");
+                <pre><code class="language-js">const { redditCustom } = require("ards-client");
 // subreddit can be a string or an array
 let subreddit = ['subreddit1', 'subreddit2'];
 let limit = 50;
@@ -98,28 +98,30 @@ new redditCustom(subreddit, limit).then(data => {
     console.log(data);
 }).catch(error => {
     console.log(error);
-});</pre>
+});</code></pre>
+            </div>
             <h3 id="bu_danbooru">For Danbooru</h3>
-            <div id="codeblock1" class="codeblock">
+            <div id="codeblock2">
                 <div class="tooltip">
-                    <button class="copy" onclick="copyall('codeblock1')">
-                        <span class="tooltiptext">Copy to Clipboard</span>
+                    <button class="copy">
+                        <span class="tooltiptext">Copied</span>
                         Copy All
                     </button>
                 </div>
-                <pre>const { danbooru } = require("ards-client");
+                <pre><code class="language-js">const { danbooru } = require("ards-client");
 let tags = ['tag1', 'tag2'];
 let limit = 50;
 new danbooru(tags, limit).then(data => {
     console.log(data);
 }).catch(error => {
     console.log(error);
-});</pre>
+});</code></pre>
             </div>
         </main>
         <footer>
 
         </footer>
-        <script src="../../../script.min.js"></script>
+        <script src="../../../plugins/prism.js"></script>
+        <script src="../../../script.js"></script>
     </body>
 </html>

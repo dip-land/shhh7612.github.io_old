@@ -1,6 +1,6 @@
 :root {
     --theme-color: #fb047c;
-    --theme-color-secondary:#fb047c;
+    --theme-color-secondary:#fb047c80;
     --theme-active: #e1036e;
     --theme-hover: #d80069;
 }

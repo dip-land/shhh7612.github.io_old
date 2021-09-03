@@ -1,6 +1,6 @@
 :root {
   --theme-color:#ff0070;
-  --theme-color-secondary:#ff0070;
+  --theme-color-secondary:#ff006f80;
   --theme-active: #c7004c;
   --theme-hover: #800031;
   --primary-text: #ffffff;
@@ -14,12 +14,6 @@
   --transition-speed: 0.1s;
 }
 *{
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; 
   outline: none;
 }
 ::-webkit-scrollbar {
@@ -173,6 +167,12 @@ nav{
   box-sizing: border-box;
   transition: ease-in-out 0.1s;
   z-index: 20;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
 }
 icon{
   position: relative;
@@ -297,6 +297,18 @@ nav button:hover:not(.active) {
 }
 .tooltip:hover .tooltiptext {
   opacity: 1;
+}
+.tooltip:hover .copy .tooltiptext {
+  opacity: 0;
+}
+.copied {
+  opacity: 1 !important;
+  background-color: var(--theme-color-secondary) !important;
+  border-color: var(--theme-color-secondary) transparent transparent transparent !important;
+}
+.copied::after {
+  opacity: 1 !important;
+  border-color: var(--theme-color-secondary) transparent transparent transparent !important;
 }
 
 main{
@@ -461,7 +473,7 @@ main section{
     width: 100%;
   }
   main{
-    padding: 50px 5px;
+    padding: 50px 10px;
   }
   main section{
     display: grid;
