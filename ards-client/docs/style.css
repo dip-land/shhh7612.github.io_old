@@ -30,7 +30,6 @@ h5{
     background-color: hsl(240, 4%, 15%);
     border-radius: 6px;
     border-left: 3px solid var(--theme-color);
-    width: 75%;
 }
 
 pre {

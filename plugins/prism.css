@@ -1,6 +1,6 @@
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #2aba9f;
+	color: #2aba94;
     font-family: Consolas,"courier new";
 }
 
@@ -71,12 +71,14 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: #569cd6;
+	color: #5678d6;
 }
 
-.token.function,
+.token.function{
+    color: #e9cc6d;
+}
 .token.class-name {
-	color: #29cdf2;
+	color: #58b4df;
 }
 
 .token.regex,
