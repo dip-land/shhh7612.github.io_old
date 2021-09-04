@@ -1,7 +1,7 @@
 window.addEventListener('load', ()=>{
     let i=0;
     for (let script of document.getElementsByTagName('script')){
-        if(script.getAttribute('src').includes('discordwidget.min.js')){
+        if(script.getAttribute('src').includes('discordwidget.js')){
             let parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor, identifier = `_${(Math.random() + 1).toString(26).substring(2).replace(/[0-9]/g, '')}`;
             if(parent.hasAttribute("data-done")){}else{
                 if(script.hasAttribute('data-id')){id=script.getAttribute('data-id');if(id === ""){return alert('DiscordWidget\nNo ID was specified')}}else{return alert('DiscordWidget\nNo ID was specified')}
@@ -187,6 +187,9 @@ window.addEventListener('load', ()=>{
                         font-weight: 700;
                         -webkit-transition: opacity .25s ease-out;
                         transition: opacity .25s ease-out;
+                    }
+                    .shhh7612DiscordWidget${identifier} .widget-footer .widget-btn-join:hover{
+                        background-color: #${(parseInt(`0x${color.replace('#', '')}FF`) - parseInt(`0x00000022`)).toString(16)}!important;
                     }
                     `
                     parent.innerHTML = `${script.outerHTML}<style>${style}</style><div class="shhh7612DiscordWidget${identifier}""><div class="widget-header"><a class="widget-logo" href="https://discord.com/" target="_blank"></a><span class="widget-header-count"><strong></strong> Members Online</span></div><div class="widget-body"><div></div></div><div class="widget-footer"><span class="widget-footer-info">${footerText}</span><a class="widget-btn-join" href="" target="_blank">Join</a></div></div>`;
