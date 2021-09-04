@@ -109,9 +109,9 @@ window.addEventListener('load', ()=>{
                         width: 10px;
                         border: 2px solid ${color};
                     }
-                    .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-online {background-color: #43b581;}
-                    .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-idle {background-color: #d5b225;}
-                    .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-dnd {background-color: #b54343;}
+                    .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-online {background-color: #57f287;}
+                    .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-idle {background-color: #fee75c;}
+                    .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-dnd {background-color: #ed4245;}
                     .shhh7612DiscordWidget${identifier} .widget-body .widget-member .widget-member-status-text {
                         height: 32px;
                         max-width: 80px;
