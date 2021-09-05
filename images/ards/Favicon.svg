@@ -22,8 +22,8 @@
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -35,11 +35,11 @@
       <stop
          style="stop-color:#000000;stop-opacity:1;"
          offset="0"
-         id="stop1439" />
+         id="stop1439"/>
       <stop
          style="stop-color:#000000;stop-opacity:0;"
          offset="1"
-         id="stop1441" />
+         id="stop1441"/>
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
@@ -49,7 +49,7 @@
        y1="45.319534"
        x2="71.841797"
        y2="45.319534"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpaceOnUse"/>
   </defs>
   <sodipodi:namedview
      pagecolor="#1d1d1d"
@@ -72,7 +72,7 @@
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svgg"
-     inkscape:document-rotation="0" />
+     inkscape:document-rotation="0"/>
   <g
      id="svgg"
      style="fill:#ffffff">
