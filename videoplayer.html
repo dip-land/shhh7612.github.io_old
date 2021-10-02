@@ -90,14 +90,14 @@
     <body>
         <div id="videoContainer">
             <div id="controls">
-                <button onclick="playPause()">Play/Pause</button> 
+                <button onclick="playPause()"><i class="fas fa-play"></i></button> 
                 <span id="videoTime"></span>
                 <div id="seekbar">
                     <span></span>
                 </div>
-                <button onclick="fullscreen()">Fullscreen</button>
+                <button onclick="fullscreen()"><i class="fas fa-expand-alt"></i></button>
             </div>
-            <video onclick="playPause()">
+            <video onclick="playPause()" oncontextmenu="return false;">
                 <source src="./videos/sample1080.mp4" type="video/mp4">
                 <source src="./videos/sample1080.webm" type="video/webm">
                 <source src="./videos/sample1080.ogg" type="video/ogg">
@@ -108,70 +108,110 @@
             </video>
         </div>
         <script> 
+            function getOS() {
+                let userAgent = window.navigator.userAgent;
+                let platform = window.navigator.platform;
+                let macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+                let windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+                let iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+                let os = null;
+                if (macosPlatforms.indexOf(platform) !== -1) {
+                    os = 'Mac OS';
+                } else if (iosPlatforms.indexOf(platform) !== -1) {
+                    os = 'iOS';
+                } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                    os = 'Windows';
+                } else if (/Android/.test(userAgent)) {
+                    os = 'Android';
+                } else if (!os && /Linux/.test(platform)) {
+                    os = 'Linux';
+                }
+                return os;
+            }
             let video = document.getElementsByTagName('VIDEO').item(0); 
             let seekbar = document.getElementById('seekbar');
             let videoTime = document.getElementById('videoTime');
             let container = video.parentElement;
             let controls = seekbar.parentElement;
             let playButton = controls.children[0];
+            let fullscreenButton = controls.children[3].children[0];
             let timeout;
             let duration = 3000;
-            video.addEventListener("mouseover", function (event) {
-                document.addEventListener('mousemove', function() {
-                    playButton.focus();
-                    controls.style.opacity = "1";
-                    video.style.cursor = "initial";
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function() {
-                        if(isVideoInFullscreen()){
-                            controls.style.opacity = "0";
-                        }
-                        video.style.cursor = "none";
-                    }, duration)
-                });
-            }, false);
-            window.addEventListener(`load`, ()=>{
-                try{
-                    videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
-                }catch(e){
+            console.log(video.parentElement.childNodes)
+            if(getOS() === 'Mac OS' || getOS() === 'iOS'){
+                controls.remove();
+                video.setAttribute('controls', 'true');
+            } else {
+                video.removeAttribute("controls");
+                video.addEventListener("mouseover", function (event) {
+                    document.addEventListener('mousemove', function() {
+                        playButton.focus();
+                        controls.style.opacity = "1";
+                        video.style.cursor = "initial";
+                        clearTimeout(timeout);
+                        timeout = setTimeout(function() {
+                            if(isVideoInFullscreen()){
+                                controls.style.opacity = "0";
+                            }
+                            video.style.cursor = "none";
+                        }, duration)
+                    });
+                }, false);
+                window.addEventListener(`load`, ()=>{
                     try{
                         videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
                     }catch(e){
-                        setTimeout(()=>{
+                        try{
                             videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
-                        }, 500)
+                        }catch(e){
+                            setTimeout(()=>{
+                                videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
+                            }, 500)
+                        }
                     }
-                }
-            })
+                })
 
-            video.ontimeupdate = function(){
-                let percentage = ( video.currentTime / video.duration ) * 100;
-                seekbar.children[0].style.width = percentage + "%";
-                videoTime.innerHTML = `${format(video.currentTime)} / ${format(video.duration)}`;
-            };
+                video.ontimeupdate = function(){
+                    let percentage = ( video.currentTime / video.duration ) * 100;
+                    seekbar.children[0].style.width = percentage + "%";
+                    videoTime.innerHTML = `${format(video.currentTime)} / ${format(video.duration)}`;
+                };
 
-            seekbar.addEventListener('click', function(click) {
-                let left = click.pageX - seekbar.offsetLeft;
-                let totalWidth = seekbar.offsetWidth;
-                let percentage = left / totalWidth;
-                let vidTime = video.duration * percentage;
-                video.currentTime = vidTime;
-            })
+                seekbar.addEventListener('click', function(click) {
+                    let left = click.pageX - seekbar.offsetLeft;
+                    let totalWidth = seekbar.offsetWidth;
+                    let percentage = left / totalWidth;
+                    let vidTime = video.duration * percentage;
+                    video.currentTime = vidTime;
+                })
+            }
 
             function format(num) {
                 return new Date(Math.round(num) * 1000).toISOString().substr(11, 8);
             }
             function playPause() { 
                 playButton.focus();
-                if(video.paused) video.play(); else video.pause(); 
+                if(video.paused) {
+                    video.play();
+                    playButton.children[0].classList.toggle('fa-play');
+                    playButton.children[0].classList.toggle('fa-pause');
+                } else {
+                    video.pause(); 
+                    playButton.children[0].classList.toggle('fa-play');
+                    playButton.children[0].classList.toggle('fa-pause');
+                }
             }
 
             function fullscreen() {
                 playButton.focus();
                 if(isVideoInFullscreen()){
                     document.exitFullscreen();
+                    fullscreenButton.classList.toggle('fa-expand-alt');
+                    fullscreenButton.classList.toggle('fa-compress-alt');
                 } else {
                     container.requestFullscreen();
+                    fullscreenButton.classList.toggle('fa-expand-alt');
+                    fullscreenButton.classList.toggle('fa-compress-alt');
                 }
             }
 
