@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="google-site-verification" content="xEw_CL9H26pODRswlA5GvDN47ohNPnt17cg44WFb0rs"/>
+
+        <meta charset="UTF-8">
+        <meta name="language" content="English">
+        <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
+        <title>shhh7612</title>
+        <link rel="shortcut icon" type="image/svg+xml" href="https://cdn.discordapp.com/avatars/439039443744063488/1d72ad639bd5f49ac4f69f32dcd78ad8.png?size=1024"/>
+        <link rel="stylesheet" href="./style.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="robots" content="index, follow">
+        
+        <meta property="og:site_name" content="shhh7612 homepage">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="shhh7612"/>
+        <meta property="og:description" content=""/>
+        <meta property="og:url" content="https://shhh7612.github.io/"/>
+        <meta property="og:image" content="https://cdn.discordapp.com/avatars/439039443744063488/1d72ad639bd5f49ac4f69f32dcd78ad8.png?size=1024"/>
+        <meta name="theme-color" content="#ff0070">
+        <style>
+            body {
+                background: white !important;
+                box-shadow: none !important;
+            }
+            #videoContainer {
+                position: relative;
+                width: 520px;
+                height: auto;
+            }
+            #videoContainer #controls {
+                background-color: black;
+                display: grid;
+                grid-template-columns: max-content max-content auto max-content;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                position: absolute;
+                z-index: 200;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            video {
+                position: relative;
+                width: 100%;
+            }
+            #seekbar {  
+                cursor: pointer;
+                height: 10px;
+                margin-bottom: 10px;
+                outline: 1px solid rgb(255, 255, 255);
+                overflow: hidden;
+                position: relative;
+                top: 22px;
+            }
+            #videoTime {
+                font-weight: 700;
+                font-size: 16px;
+                text-align: center;
+                padding: 14px 16px;
+            }
+            #seekbar span {
+                background-color: rgb(255, 255, 255);
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 10px;
+                width: 0px;
+            }
+            button {
+                font-size: 16px;
+                background: none !important;
+                color: var(--buttonText) !important;
+                text-align: center;
+                padding: 14px 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="videoContainer">
+            <div id="controls">
+                <button onclick="playPause()">Play/Pause</button> 
+                <span id="videoTime"></span>
+                <div id="seekbar">
+                    <span></span>
+                </div>
+                <button onclick="fullscreen()">Fullscreen</button>
+            </div>
+            <video onclick="playPause()">
+                <source src="./videos/sample1080.mp4" type="video/mp4">
+                <source src="./videos/sample1080.webm" type="video/webm">
+                <source src="./videos/sample1080.ogg" type="video/ogg">
+                <source src="./videos/sample1080.mov" type="video/quicktime">
+                <source src="./videos/sample1080.avi" type="video/avi">
+                <source src="./videos/sample1080.wmv" type="video/x-ms-asf">
+                I'm sorry; your browser doesn't support HTML5 video.
+            </video>
+        </div>
+        <script> 
+            let video = document.getElementsByTagName('VIDEO').item(0); 
+            let seekbar = document.getElementById('seekbar');
+            let videoTime = document.getElementById('videoTime');
+            let container = video.parentElement;
+            let controls = seekbar.parentElement;
+            let playButton = controls.children[0];
+            let timeout;
+            let duration = 3000;
+            video.addEventListener("mouseover", function (event) {
+                document.addEventListener('mousemove', function() {
+                    playButton.focus();
+                    controls.style.opacity = "1";
+                    video.style.cursor = "initial";
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        if(isVideoInFullscreen()){
+                            controls.style.opacity = "0";
+                        }
+                        video.style.cursor = "none";
+                    }, duration)
+                });
+            }, false);
+            window.addEventListener(`load`, ()=>{
+                try{
+                    videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
+                }catch(e){
+                    try{
+                        videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
+                    }catch(e){
+                        setTimeout(()=>{
+                            videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
+                        }, 500)
+                    }
+                }
+            })
+
+            video.ontimeupdate = function(){
+                let percentage = ( video.currentTime / video.duration ) * 100;
+                seekbar.children[0].style.width = percentage + "%";
+                videoTime.innerHTML = `${format(video.currentTime)} / ${format(video.duration)}`;
+            };
+
+            seekbar.addEventListener('click', function(click) {
+                let left = click.pageX - seekbar.offsetLeft;
+                let totalWidth = seekbar.offsetWidth;
+                let percentage = left / totalWidth;
+                let vidTime = video.duration * percentage;
+                video.currentTime = vidTime;
+            })
+
+            function format(num) {
+                return new Date(Math.round(num) * 1000).toISOString().substr(11, 8);
+            }
+            function playPause() { 
+                playButton.focus();
+                if(video.paused) video.play(); else video.pause(); 
+            }
+
+            function fullscreen() {
+                playButton.focus();
+                if(isVideoInFullscreen()){
+                    document.exitFullscreen();
+                } else {
+                    container.requestFullscreen();
+                }
+            }
+
+            function isVideoInFullscreen() {
+                if (document.fullscreenElement && document.fullscreenElement.children[1].nodeName == 'VIDEO') {
+                    return true;
+                }
+                return false;
+            }
+        </script> 
+        <script src="script.js"></script>
+    </body>
+</html>
