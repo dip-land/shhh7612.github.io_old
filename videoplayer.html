@@ -178,6 +178,9 @@
                     let vidTime = video.duration * percentage;
                     video.currentTime = vidTime;
                 })
+                video.addEventListener('ended', ()=>{
+                    playButton.children[0].classList.replace('fa-play', 'fa-pause');
+                });
             }
 
             function format(num) {
@@ -187,12 +190,10 @@
                 playButton.focus();
                 if(video.paused) {
                     video.play();
-                    playButton.children[0].classList.toggle('fa-play');
-                    playButton.children[0].classList.toggle('fa-pause');
+                    playButton.children[0].classList.replace('fa-play', 'fa-pause');
                 } else {
-                    video.pause(); 
-                    playButton.children[0].classList.toggle('fa-play');
-                    playButton.children[0].classList.toggle('fa-pause');
+                    video.pause();
+                    playButton.children[0].classList.replace('fa-pause', 'fa-play'); 
                 }
             }
 
@@ -200,12 +201,10 @@
                 playButton.focus();
                 if(isVideoInFullscreen()){
                     document.exitFullscreen();
-                    fullscreenButton.classList.toggle('fa-expand-alt');
-                    fullscreenButton.classList.toggle('fa-compress-alt');
+                    fullscreenButton.classList.replace('fa-expand-alt', 'fa-compress-alt');
                 } else {
                     container.requestFullscreen();
-                    fullscreenButton.classList.toggle('fa-expand-alt');
-                    fullscreenButton.classList.toggle('fa-compress-alt');
+                    fullscreenButton.classList.replace('fa-compress-alt', 'fa-expand-alt');
                 }
             }
 
