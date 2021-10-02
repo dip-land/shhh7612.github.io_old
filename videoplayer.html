@@ -178,8 +178,9 @@
                     let vidTime = video.duration * percentage;
                     video.currentTime = vidTime;
                 })
-                video.addEventListener('ended', ()=>{
-                    playButton.children[0].classList.replace('fa-play', 'fa-pause');
+                video.addEventListener('ended', end=>{
+                    console.log(end)
+                    playButton.children[0].classList.replace('fa-pause', 'fa-redo-alt');
                 });
             }
 
@@ -190,7 +191,11 @@
                 playButton.focus();
                 if(video.paused) {
                     video.play();
-                    playButton.children[0].classList.replace('fa-play', 'fa-pause');
+                    if(playButton.children[0].classList.contains('fa-redo-alt')){
+                        playButton.children[0].classList.replace('fa-redo-alt', 'fa-pause');
+                    } else {
+                        playButton.children[0].classList.replace('fa-play', 'fa-pause');
+                    }
                 } else {
                     video.pause();
                     playButton.children[0].classList.replace('fa-pause', 'fa-play'); 
