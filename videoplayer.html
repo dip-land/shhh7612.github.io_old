@@ -24,6 +24,8 @@
         }
 
         #videoContainer {
+            border-radius: 6px;
+            overflow: hidden;
             text-align: center;
             background: hsl(0, 0%, 1%);
             position: relative;
@@ -38,19 +40,13 @@
             }
         }
 
-        #videoContainer #controls {
-            padding: 5px;
-            background: rgb(0, 0, 0);
-            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-            display: grid;
-            grid-template-rows: auto auto;
-            grid-template-columns: max-content max-content max-content auto max-content max-content max-content max-content;
-            row-gap: 10px;
+        #videoContainer #bottom {
+            z-index: 200;
+            position: absolute;
             left: 0;
             right: 0;
-            bottom: 0;
-            position: absolute;
-            z-index: 200;
+            bottom:0;
+            text-align: center;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -59,6 +55,35 @@
             -webkit-transition: all ease-in-out 0.2s;
             -o-transition: all ease-in-out 0.2s;
             transition: all ease-in-out 0.2s;
+        }
+        #videoContainer #subtitles {
+            position: relative;
+            font-size: 1.5rem;
+            width: auto;
+            height: max-content;
+            max-width: 75%;
+            padding: 7.5px 12.5px;
+            border-radius: 6px;
+            background: rgba(140, 20, 20, 0.5);
+        }
+        #videoContainer #subtitles span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            font-size: 1.5rem;
+            padding: 7.5px 12.5px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+        }
+        #videoContainer #controls {
+            padding: 5px;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.05) 100%);
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: max-content max-content max-content auto max-content max-content max-content max-content;
         }
 
         video {
@@ -75,14 +100,14 @@
             background-color: rgba(255, 255, 255, 0.25);
             overflow: hidden;
             position: relative;
-            top: 22px;
+            top: 16px;
         }
 
         #videoTime {
             font-weight: 700;
             font-size: 16px;
             text-align: center;
-            padding: 10px 16px;
+            padding: 12px 16px 0px;
         }
 
         #seekbar span {
@@ -128,6 +153,9 @@
             width: 140px;
             text-align: left;
         }
+        #volume i {
+            vertical-align: text-bottom;
+        }
         #volume input{
             position: absolute;
             display: block;
@@ -165,10 +193,15 @@
         .videoMenu{
             display: none;
             padding: 10px;
-            background: rgba(0, 0, 0, 1);
+            background: rgba(0, 0, 0, 0.75);
             position: absolute;
             right: 10px;
             bottom: 80px;
+            border-radius: 6px;
+        }
+        #captionsMenu button, #playbackSpeedMenu button{
+            display: block;
+            font-size: 16px;
         }
     </style>
     <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
@@ -176,34 +209,45 @@
 
 <body>
     <div id="videoContainer">
-        <div id="controls">
-            <div class="videoMenu" id="videoSettings">
-                <button><i class="fas fa-closed-captioning"></i></button>
-                <button onclick="openMenu(playbackSpeedMenu, this)"><i class="fas fa-clock"></i></button>
+        <div id="bottom">
+            <center>
+                <div id="subtitles">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, corporis!</span>
+                </div>
+            </center>
+            <div id="controls">
+                <div class="videoMenu" id="videoSettings">
+                    <button onclick="openMenu(captionsMenu, this)"><i class="fas fa-closed-captioning"></i></button>
+                    <button onclick="openMenu(playbackSpeedMenu, this)"><i class="fas fa-clock"></i></button>
+                </div>
+                <div class="videoMenu" id="playbackSpeedMenu">
+                    <button onclick="openMenu(videoSettings, this)">Back</button>
+                    <input id="playbackSpeed" type="range" min="0.1" max="2" value="1" step="0.1">
+                </div>
+                <div class="videoMenu" id="captionsMenu">
+                    <button onclick="openMenu(videoSettings, this)">Back</button>
+                </div>
+                <div id="seekbar">
+                    <span></span>
+                    <span id="buffered"></span>
+                </div>
+                <button id="playpauseButton" onclick="playPause()"><i class="fas fa-play"></i></button>
+                <div id="volume">
+                    <i class="fas fa-volume-up"></i>
+                    <input id="volumeControl" type="range" min="1" max="100" value="100" step="1">
+                </div>
+                <span id="videoTime"></span>
+                <span style="width: 100%;"></span>
+                <button onclick="openMenu(videoSettings, this)"><i class="fas fa-cog"></i></button>
+                <google-cast-launcher></google-cast-launcher>
+                <button id="pipButton" onclick="pip()"><svg style="width:25px; vertical-align: text-bottom;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 136"><path fill="currentColor" d="m 83.077846,71.433945 h 33.261504 c 2.34527,0 4.23334,1.888066 4.23334,4.233333 v 17.991668 c 0,2.345266 -1.88807,4.233333 -4.23334,4.233333 H 83.077846 c -2.345266,0 -4.233333,-1.888067 -4.233333,-4.233333 V 75.667278 c 0,-2.345267 1.888067,-4.233333 4.233333,-4.233333 z M 5.9140625 22.490234 A 5.9146415 5.9146415 0 0 0 0 28.404297 L 0 106.79883 A 5.9146415 5.9146415 0 0 0 5.9140625 112.71289 L 129.55273 112.71289 A 5.9146415 5.9146415 0 0 0 135.4668 106.79883 L 135.4668 28.404297 A 5.9146415 5.9146415 0 0 0 129.55273 22.490234 L 5.9140625 22.490234 z M 11.828125 34.318359 L 123.63867 34.318359 L 123.63867 100.88477 L 11.828125 100.88477 L 11.828125 34.318359 z " id="pip" /></svg></button>
+                <button id="fullscreenButton" onclick="fullscreen()"><i class="fas fa-expand-alt"></i></button>
             </div>
-            <div class="videoMenu" id="playbackSpeedMenu">
-                <button onclick="openMenu(videoSettings, this)"><i class="fas fa-clock"></i></button>
-                <input id="playbackSpeed" type="range" min="0.1" max="2" value="1" step="0.1">
-            </div>
-            <div id="seekbar">
-                <span></span>
-                <span id="buffered"></span>
-            </div>
-            <button id="playpauseButton" onclick="playPause()"><i class="fas fa-play"></i></button>
-            <div id="volume">
-                <i class="fas fa-volume-up"></i>
-                <input id="volumeControl" type="range" min="1" max="100" value="100" step="1">
-            </div>
-            <span id="videoTime"></span>
-            <span style="width: 100%;"></span>
-            <button onclick="openMenu(videoSettings, this)"><i class="fas fa-cog"></i></button>
-            <google-cast-launcher></google-cast-launcher>
-            <button id="pipButton" onclick="pip()"><svg style="width:20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="m 160,208 v 256 a 48,-48 0 0 0 48,48 h 256 a 48,-48 0 0 0 48,-48 V 208 A 48,-48 0 0 0 464,160 H 208 a 48,-48 0 0 0 -48,48 z M 48,352 h 80 V 288 H 64 V 64 h 224 v 64 h 64 V 48 A 48,-48 0 0 0 304,0 H 48 A 48,-48 0 0 0 0,48 v 256 a 48,-48 0 0 0 48,48 z" id="pip" /></svg></button>
-            <button id="fullscreenButton" onclick="fullscreen()"><i class="fas fa-expand-alt"></i></button>
         </div>
-        <video onclick="playPause()" oncontextmenu="return false;">
-            <source src="./videos/sample_1280x720_surfing_with_audio.mp4" type="video/mp4">
-            I'm sorry; your browser doesn't support HTML5 video.
+        <video playsinline onclick="playPause()" oncontextmenu="return false;">
+            <source src="./videos/the-web-is-always-changing.webm" type="video/webm">
+            <track label="English subtitles" kind="subtitles" srclang="en" src="./videos/the-web-is-always-changing.vtt" default="">
+            HTML5 video not supported. See <a href="https://en.wikipedia.org/wiki/HTML5_video#Browser_support">this article</a> for supported browsers.
         </video>
     </div>
     <script>
@@ -216,6 +260,7 @@
         let fullscreenButton = document.getElementById('fullscreenButton').children[0];
         let timeout;
         let duration = 2500;
+        let subtitles = document.getElementById('subtitles');
         document.querySelectorAll('input[type="range"]').forEach(input => {
             let val = parseFloat(input.value);
             input.style.backgroundSize = (val - input.min) * 100 / (input.max - input.min) + '% 100%'
@@ -227,9 +272,7 @@
                     Math.round(100 * (((val - target.min) * 100 / (target.max - target.min)) / 100))/100;
                     video.volume = Math.round(100 * (((val - target.min) * 100 / (target.max - target.min)) / 100))/100;
                 }
-                console.log(target.id)
                 if(target.id === "playbackSpeed") {
-                    console.log(val)
                     video.playbackRate = val;
                 }
             })
@@ -255,7 +298,7 @@
             return os;
         }
         if (getOS() === 'Mac OS' || getOS() === 'iOS') {
-            controls.remove();
+            controls.parentElement.remove();
             video.setAttribute('controls', 'true');
         } else {
 
@@ -272,10 +315,12 @@
                     playButton.focus();
                     controls.style.opacity = "1";
                     video.style.cursor = "initial";
+                    // subtitles.style.transform = "translateY(25px)"
                     clearTimeout(timeout);
                     timeout = setTimeout(function () {
                         if (isVideoInFullscreen()) {
                             controls.style.opacity = "0";
+                            // subtitles.style.transform = "translateY(52px)"
                         }
                         video.style.cursor = "none";
                     }, duration)
@@ -341,9 +386,11 @@
         function fullscreen() {
             playButton.focus();
             if (isVideoInFullscreen()) {
+                container.style.borderRadius = "6px";
                 fullscreenButton.classList.replace('fa-compress-alt', 'fa-expand-alt');
                 document.exitFullscreen();
             } else {
+                container.style.borderRadius = "0";
                 fullscreenButton.classList.replace('fa-expand-alt', 'fa-compress-alt');
                 container.requestFullscreen();
             }
