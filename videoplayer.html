@@ -24,7 +24,7 @@
 
         #videoContainer {
             text-align: center;
-            background: black;
+            background: hsl(0, 0%, 1%);
             position: relative;
             width: 768px;
             height: 432px;
@@ -43,7 +43,7 @@
             background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
             display: grid;
             grid-template-rows: auto auto;
-            grid-template-columns: max-content max-content max-content auto max-content;
+            grid-template-columns: max-content max-content max-content auto max-content max-content max-content max-content;
             row-gap: 10px;
             left: 0;
             right: 0;
@@ -67,7 +67,7 @@
 
         #seekbar {
             margin: 20px 5px;
-            grid-column: 1 / 6;
+            grid-column: 1 / 9;
             grid-row: 1 / 1;
             cursor: pointer;
             height: 7.5px;
@@ -81,7 +81,7 @@
             font-weight: 700;
             font-size: 16px;
             text-align: center;
-            padding: 14px 16px;
+            padding: 10px 16px;
         }
 
         #seekbar span {
@@ -101,10 +101,10 @@
         }
 
         button {
-            font-size: 16px;
+            font-size: 20px;
             background: none !important;
             color: var(--buttonText) !important;
-            padding: 14px;
+            padding: 10px;
         }
 
         button:hover {
@@ -114,25 +114,23 @@
 
         #volume {
             position: relative;
-            padding: 14px;
-            font-size: 16px;
+            padding: 10px;
+            font-size: 20px;
             color: var(--buttonText) !important;
             overflow: hidden;
             -webkit-transition: all ease-in-out 0.4s;
             -o-transition: all ease-in-out 0.4s;
             transition: all ease-in-out 0.4s;
         }
-
         #volume:hover {
             color: var(--primaryText) !important;
             width: 120px;
             text-align: left;
         }
-
         #volume input {
             display: block;
             position: absolute;
-            top: calc(50% - 2.5px);
+            top: calc(50% - 5px);
             left: 55px;
             right: 0;
             height: 5px;
@@ -143,7 +141,6 @@
             -webkit-appearance: none;
             width: calc(100% - 18px - 55px);
         }
-
         #volume input::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -152,29 +149,35 @@
             width: 0;
             height: 0;
         }
-
         #volume input::-moz-range-thumb {
             background-color: white;
             cursor: pointer;
         }
-
-        #volumeBar span {
-            background-color: rgb(255, 255, 255);
+        google-cast-launcher {
+            width: 20px;
+            --connected-color: rgba(255,255,255);
+            --disconnected-color: rgba(255,255,255,0.5);
+        }
+        .videoMenu{
+            display: none;
+            padding: 10px;
+            background: rgba(0, 0, 0, 1);
             position: absolute;
-            top: 0;
-            left: 0;
-            height: 5px;
-            width: 0px;
-            -webkit-transition: all ease-in-out 0.2s;
-            -o-transition: all ease-in-out 0.2s;
-            transition: all ease-in-out 0.2s;
+            right: 10px;
+            bottom: 80px;
         }
     </style>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </head>
 
 <body>
     <div id="videoContainer">
         <div id="controls">
+            <div class="videoMenu" id="videoSettings">
+                <button><i class="fas fa-closed-captioning"></i></button>
+                <button><i class="fas fa-clock"></i></button>
+            </div>
+            <div class="videoMenu" id="castMenu"><span>No devices to cast to...</span></div>
             <div id="seekbar">
                 <span></span>
                 <span id="buffered"></span>
@@ -186,6 +189,10 @@
             </div>
             <span id="videoTime"></span>
             <span style="width: 100%;"></span>
+            <button onclick="openMenu(videoSettings, this)"><i class="fas fa-cog"></i></button>
+            <google-cast-launcher></google-cast-launcher>
+            <!-- <button id="castButton" onclick="openMenu(castMenu, this)"><i class="fab fa-chromecast"></i></button> -->
+            <button id="pipButton" onclick="pip()"><svg style="width:20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="m 160,208 v 256 a 48,-48 0 0 0 48,48 h 256 a 48,-48 0 0 0 48,-48 V 208 A 48,-48 0 0 0 464,160 H 208 a 48,-48 0 0 0 -48,48 z M 48,352 h 80 V 288 H 64 V 64 h 224 v 64 h 64 V 48 A 48,-48 0 0 0 304,0 H 48 A 48,-48 0 0 0 0,48 v 256 a 48,-48 0 0 0 48,48 z" id="pip" /></svg></button>
             <button id="fullscreenButton" onclick="fullscreen()"><i class="fas fa-expand-alt"></i></button>
         </div>
         <video onclick="playPause()" oncontextmenu="return false;">
@@ -329,9 +336,29 @@
                 container.requestFullscreen();
             }
         }
+        function pip() {
+            if(isInPiP()) {
+                document.exitPictureInPicture();
+            } else {
+                video.requestPictureInPicture();
+            }
+        }
+        function openMenu(menu, button){
+            if(menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
 
         function isVideoInFullscreen() {
             if (document.fullscreenElement && document.fullscreenElement.children[1].nodeName == 'VIDEO') {
+                return true;
+            }
+            return false;
+        }
+        function isInPiP() {
+            if(document.pictureInPictureElement) {
                 return true;
             }
             return false;
