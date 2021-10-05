@@ -18,7 +18,8 @@
     <meta property="og:description" content="" />
     <style>
         body {
-            background: white !important;
+            padding: 12px;
+            background: rgb(56, 56, 60) !important;
             box-shadow: none !important;
         }
 
@@ -32,8 +33,8 @@
 
         @media screen and (max-width:768px) {
             #videoContainer {
-                width: 100vw;
-                height: calc(100vw / 1.777777777777778);
+                width: 100%;
+                height: calc(100vw / 1.777777777777778 - 14px);
             }
         }
 
@@ -124,34 +125,37 @@
         }
         #volume:hover {
             color: var(--primaryText) !important;
-            width: 120px;
+            width: 140px;
             text-align: left;
         }
-        #volume input {
-            display: block;
+        #volume input{
             position: absolute;
+            display: block;
             top: calc(50% - 5px);
             left: 55px;
             right: 0;
-            height: 5px;
+            width: calc(100% - 18px - 55px);
+        }
+        input {
+            height: 7.5px;
             background: rgba(255, 255, 255, 0.1);
             background-image: linear-gradient(rgba(255, 255, 255), rgba(255, 255, 255));
             background-size: 70% 100%;
             background-repeat: no-repeat;
             -webkit-appearance: none;
-            width: calc(100% - 18px - 55px);
         }
-        #volume input::-webkit-slider-thumb {
+        input:hover {
+            cursor: pointer;
+        }
+        input::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
             background-color: white;
-            cursor: pointer;
             width: 0;
             height: 0;
         }
-        #volume input::-moz-range-thumb {
+        input::-moz-range-thumb {
             background-color: white;
-            cursor: pointer;
         }
         google-cast-launcher {
             width: 20px;
@@ -175,9 +179,12 @@
         <div id="controls">
             <div class="videoMenu" id="videoSettings">
                 <button><i class="fas fa-closed-captioning"></i></button>
-                <button><i class="fas fa-clock"></i></button>
+                <button onclick="openMenu(playbackSpeedMenu, this)"><i class="fas fa-clock"></i></button>
             </div>
-            <div class="videoMenu" id="castMenu"><span>No devices to cast to...</span></div>
+            <div class="videoMenu" id="playbackSpeedMenu">
+                <button onclick="openMenu(videoSettings, this)"><i class="fas fa-clock"></i></button>
+                <input id="playbackSpeed" type="range" min="0.1" max="2" value="1" step="0.1">
+            </div>
             <div id="seekbar">
                 <span></span>
                 <span id="buffered"></span>
@@ -185,13 +192,12 @@
             <button id="playpauseButton" onclick="playPause()"><i class="fas fa-play"></i></button>
             <div id="volume">
                 <i class="fas fa-volume-up"></i>
-                <input id="volumeControl" type="range" min="1" max="100" value="70" step="1">
+                <input id="volumeControl" type="range" min="1" max="100" value="100" step="1">
             </div>
             <span id="videoTime"></span>
             <span style="width: 100%;"></span>
             <button onclick="openMenu(videoSettings, this)"><i class="fas fa-cog"></i></button>
             <google-cast-launcher></google-cast-launcher>
-            <!-- <button id="castButton" onclick="openMenu(castMenu, this)"><i class="fab fa-chromecast"></i></button> -->
             <button id="pipButton" onclick="pip()"><svg style="width:20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="m 160,208 v 256 a 48,-48 0 0 0 48,48 h 256 a 48,-48 0 0 0 48,-48 V 208 A 48,-48 0 0 0 464,160 H 208 a 48,-48 0 0 0 -48,48 z M 48,352 h 80 V 288 H 64 V 64 h 224 v 64 h 64 V 48 A 48,-48 0 0 0 304,0 H 48 A 48,-48 0 0 0 0,48 v 256 a 48,-48 0 0 0 48,48 z" id="pip" /></svg></button>
             <button id="fullscreenButton" onclick="fullscreen()"><i class="fas fa-expand-alt"></i></button>
         </div>
@@ -201,7 +207,6 @@
         </video>
     </div>
     <script>
-        const rangeInputs = document.querySelectorAll('input[type="range"]')
         let video = document.getElementsByTagName('VIDEO').item(0);
         let container = video.parentElement;
         let seekbar = document.getElementById('seekbar');
@@ -211,14 +216,21 @@
         let fullscreenButton = document.getElementById('fullscreenButton').children[0];
         let timeout;
         let duration = 2500;
-        rangeInputs.forEach(input => {
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+            let val = parseFloat(input.value);
+            input.style.backgroundSize = (val - input.min) * 100 / (input.max - input.min) + '% 100%'
             input.addEventListener('input', function handleInputChange(e) {
                 let target = e.target
-                let val = parseInt(target.value);
+                let val = parseFloat(target.value);
                 target.style.backgroundSize = (val - target.min) * 100 / (target.max - target.min) + '% 100%'
                 if(target.id === 'volumeControl'){
                     Math.round(100 * (((val - target.min) * 100 / (target.max - target.min)) / 100))/100;
                     video.volume = Math.round(100 * (((val - target.min) * 100 / (target.max - target.min)) / 100))/100;
+                }
+                console.log(target.id)
+                if(target.id === "playbackSpeed") {
+                    console.log(val)
+                    video.playbackRate = val;
                 }
             })
         })
@@ -345,6 +357,9 @@
         }
         function openMenu(menu, button){
             if(menu.style.display === "none" || menu.style.display === "") {
+                Array.from(document.getElementsByClassName('videoMenu')).forEach(menu => {
+                    menu.style.display = "none";
+                })
                 menu.style.display = "block";
             } else {
                 menu.style.display = "none";
