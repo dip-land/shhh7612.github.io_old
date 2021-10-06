@@ -59,23 +59,11 @@
         #videoContainer #subtitles {
             position: relative;
             font-size: 1.5rem;
-            width: auto;
+            width: max-content;
             height: max-content;
             max-width: 75%;
-            padding: 7.5px 12.5px;
             border-radius: 6px;
-            background: rgba(140, 20, 20, 0.5);
-        }
-        #videoContainer #subtitles span {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            font-size: 1.5rem;
-            padding: 7.5px 12.5px;
             background: rgba(0, 0, 0, 0.5);
-            border-radius: 6px;
         }
         #videoContainer #controls {
             padding: 5px;
@@ -202,6 +190,7 @@
         #captionsMenu button, #playbackSpeedMenu button{
             display: block;
             font-size: 16px;
+            padding: 4px 10px;
         }
     </style>
     <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
@@ -212,7 +201,6 @@
         <div id="bottom">
             <center>
                 <div id="subtitles">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, corporis!</span>
                 </div>
             </center>
             <div id="controls">
@@ -246,7 +234,8 @@
         </div>
         <video playsinline onclick="playPause()" oncontextmenu="return false;">
             <source src="./videos/the-web-is-always-changing.webm" type="video/webm">
-            <track label="English subtitles" kind="subtitles" srclang="en" src="./videos/the-web-is-always-changing.vtt" default="">
+            <track label="English" kind="subtitles" srclang="en" src="./videos/the-web-is-always-changing.vtt">
+            <track label="Japanese" kind="subtitles" srclang="jp" src="./videos/the-web-is-always-changing-jp.vtt">
             HTML5 video not supported. See <a href="https://en.wikipedia.org/wiki/HTML5_video#Browser_support">this article</a> for supported browsers.
         </video>
     </div>
@@ -260,7 +249,9 @@
         let fullscreenButton = document.getElementById('fullscreenButton').children[0];
         let timeout;
         let duration = 2500;
+        let currentTrack = null;
         let subtitles = document.getElementById('subtitles');
+        let subtitleMenu = document.getElementById('captionsMenu');
         document.querySelectorAll('input[type="range"]').forEach(input => {
             let val = parseFloat(input.value);
             input.style.backgroundSize = (val - input.min) * 100 / (input.max - input.min) + '% 100%'
@@ -278,7 +269,6 @@
             })
         })
         function getOS() {
-            let userAgent = window.navigator.userAgent;
             let platform = window.navigator.platform;
             let macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
             let windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
@@ -290,7 +280,7 @@
                 os = 'iOS';
             } else if (windowsPlatforms.indexOf(platform) !== -1) {
                 os = 'Windows';
-            } else if (/Android/.test(userAgent)) {
+            } else if (/Android/.test(window.navigator.userAgent)) {
                 os = 'Android';
             } else if (!os && /Linux/.test(platform)) {
                 os = 'Linux';
@@ -301,7 +291,6 @@
             controls.parentElement.remove();
             video.setAttribute('controls', 'true');
         } else {
-
             container.addEventListener('dblclick', function (e) {
                 if (isVideoInFullscreen()) {
                     document.exitFullscreen();
@@ -309,38 +298,44 @@
                     container.requestFullscreen();
                 }
             });
-            video.removeAttribute("controls");
-            video.addEventListener("mouseover", function (event) {
-                document.addEventListener('mousemove', function () {
+            container.addEventListener("mouseover", function (event) {
+                container.addEventListener('mousemove', function () {
                     playButton.focus();
                     controls.style.opacity = "1";
                     video.style.cursor = "initial";
-                    // subtitles.style.transform = "translateY(25px)"
+                    subtitles.style.transform = "translateY(12px)"
                     clearTimeout(timeout);
                     timeout = setTimeout(function () {
-                        if (isVideoInFullscreen()) {
-                            controls.style.opacity = "0";
-                            // subtitles.style.transform = "translateY(52px)"
-                        }
+                        controls.style.opacity = "0";
+                        subtitles.style.transform = "translateY(75px)"
                         video.style.cursor = "none";
                     }, duration)
                 });
             }, false);
             window.addEventListener(`load`, () => {
-                try {
-                    videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
-                } catch (e) {
-                    try {
-                        videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
-                    } catch (e) {
-                        setTimeout(() => {
-                            videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
-                        }, 500)
-                    }
+                for (var i = 0; i < video.textTracks.length; i++) {
+                    let button = document.createElement('button');
+                    button.setAttribute('onclick', 'subtitle(this)');
+                    button.setAttribute('data-id', i);
+                    button.innerText = video.textTracks[i].label;
+                    video.textTracks[i].mode = 'hidden';
+                    subtitleMenu.appendChild(button)
                 }
+                setTimeout(() => {
+                    videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
+                }, 550)
             })
 
             video.ontimeupdate = function () {
+                if(currentTrack){
+                    if(video.textTracks[currentTrack].activeCues.length === 1) {
+                        subtitles.innerHTML = video.textTracks[currentTrack].activeCues[0].text;
+                        subtitles.style.padding = "7.5px 12.5px";
+                    } else {
+                        subtitles.innerHTML = "";
+                        subtitles.style.padding = "0px";
+                    }
+                }
                 let percentage = (video.currentTime / video.duration) * 100;
                 let buffPercent = (video.buffered.end(video.buffered.length - 1) / video.duration) * 100;
                 seekbar.children[0].style.width = percentage + "%";
@@ -349,7 +344,7 @@
             };
 
             seekbar.addEventListener('click', function (click) {
-                let left = click.pageX - seekbar.offsetLeft;
+                let left = click.pageX - seekbar.offsetLeft - 10;
                 let totalWidth = seekbar.offsetWidth;
                 let percentage = left / totalWidth;
                 let vidTime = video.duration * percentage;
@@ -411,6 +406,9 @@
             } else {
                 menu.style.display = "none";
             }
+        }
+        function subtitle(button){
+            currentTrack = button.getAttribute('data-id')
         }
 
         function isVideoInFullscreen() {
