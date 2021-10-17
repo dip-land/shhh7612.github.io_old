@@ -16,7 +16,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background-color: hsl(240, 4%, 15%);
+	background-color: var(--quaternaryBG);
 }
 
 /* Inline code */
@@ -34,7 +34,7 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-	color: rgb(255, 255, 255);
+	color: var(--primaryText);
 }
 
 .token.namespace {
@@ -65,7 +65,7 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	color: #ffffff;
+	color: var(--primaryText);
 }
 
 .token.atrule,

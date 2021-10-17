@@ -1,7 +1,7 @@
 window.addEventListener('load', ()=>{
     let i=0;
     for (let script of document.getElementsByTagName('script')){
-        if(script.getAttribute('src').includes('discordwidget.js')){
+        if(`${script.getAttribute('src')}`.includes('discordwidget.js')){
             let parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor, identifier = `_${(Math.random() + 1).toString(26).substring(2).replace(/[0-9]/g, '')}`;
             if(parent.hasAttribute("data-done")){}else{
                 if(script.hasAttribute('data-id')){id=script.getAttribute('data-id');if(id === ""){return alert('DiscordWidget\nNo ID was specified')}}else{return alert('DiscordWidget\nNo ID was specified')}
@@ -56,7 +56,7 @@ window.addEventListener('load', ()=>{
                         flex-shrink: 0;
                     }
                     .shhh7612DiscordWidget${identifier} .widget-header .widget-logo{
-                        background: url(https://discord.com/assets/35d75407bd75d70e84e945c9f879bab8.svg) 50% no-repeat;
+                        background: url(https://shhh7612.github.io/images/discord/WordmarkWhite.svg) 50% no-repeat;
                         width: 124px;
                         height: 34px;
                         background-size: 124px 34px;
@@ -78,6 +78,7 @@ window.addEventListener('load', ()=>{
                         -webkit-box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
                         box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
                         padding: 20px;
+                        overflow-x: hidden;
                         overflow-y: scroll;
                     }
                     .shhh7612DiscordWidget${identifier} .widget-body .widget-member{
@@ -182,7 +183,7 @@ window.addEventListener('load', ()=>{
                         border-radius: 4px;
                         background-clip: padding-box;
                         background-color: ${color};
-                        color: ${textColor};
+                        color: ${textColor} !important;
                         text-decoration: none;
                         font-weight: 700;
                         -webkit-transition: opacity .25s ease-out;

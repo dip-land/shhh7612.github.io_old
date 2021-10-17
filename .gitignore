@@ -1,2 +1,6 @@
 script.js
-.gitignore
+.git*
+package*
+node_modules
+index.js
+bs-config.js
