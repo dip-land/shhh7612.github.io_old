@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
         <title>Home Ards-Client</title>
-        <link rel="shortcut icon" type="image/svg+xml" href="../images/ards/Favicon.png"/>
+        <link rel="shortcut icon" type="image/svg+xml" href="../img/ards/Favicon.png"/>
         <link rel="stylesheet" href="../style.css">
         <link rel="stylesheet" href="./style.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -16,57 +16,74 @@
         <meta property="og:title" content="Home Ards-Client"/>
         <meta property="og:description" content="Ards-Client, NPM package that Pulls Posts from Reddit, Danbooru, rule34, Konachan, and Yande.re"/>
         <meta property="og:url" content="https://shhh7612.github.io/"/>
-        <meta property="og:image" content="../images/ards/Favicon.png"/>
+        <meta property="og:image" content="../img/ards/Favicon.png"/>
         <meta name="theme-color" content="#ff3737">
     </head>
     <body>
-        <div id="particles-background" class="vertical-centered-box"></div>
-        <div id="particles-foreground" class="vertical-centered-box"></div>
-        <div class="vertical-centered-box">
-            <div class="content">
-                <div class="loader-circle"></div>
-                <div class="loader-line-mask">
-                    <div class="loader-line"></div>
-                </div>
-            </div>
-        </div>
-        <nav id="nav">
-            <a id="navtrigger" onclick="toggleNav()"><i id="navticon"class="fa fa-bars"></i></a>
-            <a id="title" href="../">shhh7612</a>
-            <a href="../ards-client/" class="active"> <icon><img src="../images/ards/FaviconWhite.png"></icon> Ards-Client</a>
-            <a href="./support.html"> <i class="fas fa-question"></i> Support</a>
-            <a href="./docs/"><icon><img src="../images/ards/FaviconDocs.png"></icon> Documentation</a>
-            <a href="./guide/"><icon><img src="../images/ards/FaviconGuide.png"></icon> Guide</a>
+        <nav role="navigation">
+            <ul>
+                <li><a id="navtrigger" onclick="toggleNav()"><i id="navicon" class="fa fa-bars"></i></a></li>
+                <li><a id="title" href="../">shhh7612</a></li>
+                <li><a id="title" class="active" href="../">Ards-Client</a></li>
+                <li><a href="./support.html">Support</a></li>
+                <li><a href="./docs/">Documentation</a></li>
+                <li><a href="./guide/">Guide</a></li>
+                <li>
+                    <a onclick="openDropdown(this.parentElement)">Settings</a>
+                    <ul class="dropdown ddr ">
+                        <li class="settings al">
+                            <h4>- Dark Mode / Light Mode <b style="color: red;">Experimental</b></h4><input
+                                id="theme_toggler" type="checkbox" class="sm" onclick="darkModeToggle()">
+                            <h4>- Hidden Scrollbars</h4><input id="hd_scroll" type="checkbox" class="sm tip"
+                                onclick="hideScrollToggle(this)">
+                            <h4>- Save Settings</h4> <input id="setting_save" type="checkbox" class="sm"
+                                onclick="saveSettingsToggle()">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
-        <main id="ardsHome">
-            <div id="ardsTop" align="center">
-                <a href="https://www.npmjs.com/package/ards-client"><img id="logo_main" src="../images/ards/LogoWhite.png" alt="Logo"/></a>
-                <div id="installCommand" class="codeblockInstall">
+        <section class="main" align="center">
+            <a href="https://www.npmjs.com/package/ards-client"><img id="logo_main" src="../img/ards/LogoWhite.png" alt="Logo"/></a>
+                <div id="installCommand" class="codeblockInstall" align="center">
                     <pre>npm install ards-client</pre>
                     <div class="tooltip">
                         <button onclick="copyall('installCommand')" aria-label="Copy install command"><i class="fa fa-clone"></i></button>
                         <span class="tooltiptext">Copy to Clipboard</span>
                     </div>
                 </div>
+        </section>
+        <section id="info">
+            <h2>About</h2>
+            <div>
+                ards-client is an npm module that allows you to get posts from Reddit, Danbooru, Konachan, rule34 and Yande.re, very easily.
             </div>
-            <div id="homeText">
-                <h2>About</h2>
-                <div>
-                    ards-client is an npm module that allows you to get posts from Reddit, Danbooru, Konachan, rule34 and Yande.re, very easily.
-                </div>
-                <h2>Statistics</h2>
-                <div>
-                    <p id='downloads'>3000 downloads</p>
-                    <p id='stars'>0 stars</p>
-                    <p id='openIssues'>0 open issues</p>
-                    <p id='contributors'>0 contributors</p>
-                    <p id='forks'>0 forks</p>
-                </div>
+            <h2>Statistics</h2>
+            <div>
+                <noscript>JS not enabled/supported</noscript>
+                <p id='downloads'>3000 downloads</p>
+                <p id='stars'>0 stars</p>
+                <p id='openIssues'>0 open issues</p>
+                <p id='contributors'>0 contributors</p>
+                <p id='forks'>0 forks</p>
             </div>
-        </main>
+        </section>
         <footer>
-            <a href="https://shhh7612.github.io/LICENSE">MIT License</a> ©2021-Present shhh7612
+            <section id="help">
+                <h2 class="sectionHead"><a href="../">shhh7612</a></h2>
+                Copyright © shhh7612
+            </section>
+            <section id="help">
+                <h2 class="sectionHead">Help</h2>
+                <a href="../about.html">About</a>
+                <a href="../faq.html">FAQ</a>
+                <a href="../legal.html">Copyright & License</a>
+            </section>
+            <section id="links">
+                <h2 class="sectionHead">Links</h2>
+                <a href="https://github.com/shhh7612/shhh7612.github.io" target="_blank">Website Source</a>
+            </section>
         </footer>
-        <script src="../script.min.js"></script>
+        <script src="../scripts/main.min.js"></script>
     </body>
 </html>
