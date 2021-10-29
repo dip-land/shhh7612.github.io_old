@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: black;">
     <head>
         <meta name="google-site-verification" content="xEw_CL9H26pODRswlA5GvDN47ohNPnt17cg44WFb0rs"/>
-
         <meta charset="UTF-8">
         <meta name="language" content="English">
-        <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
-        <title>shhh7612</title>
-        <link rel="shortcut icon" type="image/svg+xml" href="./img/favicon.png"/>
-        <link rel="stylesheet" href="./style.css">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <meta name="robots" content="index, follow">
         
+        <title>shhh7612</title>
+        <link rel="shortcut icon" type="image/svg+xml" href="./img/favicon.png"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="description" content="">
         <meta property="og:site_name" content="shhh7612 homepage">
         <meta property="og:type" content="website">
         <meta property="og:title" content="shhh7612"/>
@@ -21,143 +18,262 @@
         <meta property="og:url" content="https://shhh7612.github.io/"/>
         <meta property="og:image" content="./img/favicon.png"/>
         <meta name="theme-color" content="hsl(333, 100%, 50%)">
+
+        <script src="https://kit.fontawesome.com/3daa711dc6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/scripts/main.js"></script>
+        <script src="/scripts/index.js"></script>
+        <base href="/">
     </head>
     <body>
-        <nav role="navigation">
-            <ul>
-                <li><a id="navtrigger" onclick="toggleNav()"><i id="navicon"class="fa fa-bars"></i></a></li>
-                <li><a id="title" class="active" href="./">shhh7612</a></li>
-                <li>
-                    <a onclick="openDropdown(this.parentElement)">Projects</a>
-                    <ul class="dropdown ddc">
-                        <li>
-                            <a href="./aika/" class="al"><img src="./img/aika/Aika_PFP_Upscaled.png" style="width:16px"> Aika</a>
-                            <a href="./ards-client/" class="al"><img src="./img/ards/Favicon1.png" style="width:16px"> Ards-Client</a>
-                            <a href="./discordwidget.html" class="al"><img src="./img/discord/LogoColor256.png" style="width:16px"> Custom Discord Widget</a>
-                            <a href="./oreiinazuke/" class="al"><img src="./img/oreiinazuke/Oreiinazuke_PFP_Upscaled.png" style="width:16px"> Oreiinazuke</a>
-                            <a href="./ryoushin/" class="al"><img src="./img/ryoushin/Ryoushin_PFP_Upscaled.png" style="width:16px"> Ryoushin</a>
-                            <a href="./tbg/" class="al"><img src="./img/tbg/BritishGF_PFP_Upscaled.png" style="width:16px"> British Girlfriend</a>                            
-                            <a href="./yuna/" class="al"><img src="./img/yuna/Yuna_PFP.png" style="width:16px"> Yuna</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="./about.html">About</a></li>
-                <li>
-                    <a onclick="openDropdown(this.parentElement)">Settings</a> 
-                    <ul class="dropdown ddr ">
-                        <li class="settings al">
-                            <h4>- Dark Mode / Light Mode <b style="color: red;">Experimental</b></h4><input id="theme_toggler" type="checkbox" class="sm" onclick="darkModeToggle(this)">
-                            <h4>- Hidden Scrollbars</h4><input id="hd_scroll" type="checkbox" class="sm tip" onclick="hideScrollToggle(this)">
-                            <h4>- Save Settings</h4> <input id="setting_save" type="checkbox" class="sm" onclick="saveSettingsToggle(this)">
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        
-        <section id="main" class="main">
-            <h1 class="sectionHead">Welcome</h1>
-            <p>Greetings, I'm just a human that lives in the United States and I have made several <a href="#discordbots">Discord bots</a>, a couple of web plugins like my <a href="./discordwidget.html">Custom Discord Widget</a>, and I have made a couple of NPM Packages like <a href="./ards-client/">ards-client</a>. <br></p>
-        </section>
-        
-        <section id="projects" class="grid">
-            <h2 class="sectionHead"><abbr title="Work in progress">WIP</abbr> Projects</h2>
-            <a href="./aika/" class="card">
-                <img src="./img/aika/Aika_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Aika</b></h4>
-            </a>
-            <a href="./ards-client/" class="card">
-                <img src="./img/ards/Favicon1.png" alt="Avatar" style="width:100%">
-                <h4><b>Ards-Client</b></h4>
-            </a>
-            <a href="./discordwidget.html" class="card">
-                <img src="./img/discord/LogoColor256.png" alt="Avatar" style="width:100%">
-                <h4><b>Custom Discord Widget</b></h4>
-            </a>
-            <a href="./ryoushin/" class="card">
-                <img src="./img/ryoushin/Ryoushin_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Ryoushin</b></h4>
-            </a>
-            <a href="./tbg/" class="card">
-                <img src="./img/tbg/BritishGF_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>British Girlfriend</b></h4>
-            </a>
-        </section>
-            
-        <section id="plugins" class="grid">
-            <h2 class="sectionHead">Web Plugins</h2>
-            <a href="./discordwidget.html" class="card">
-                <img src="./img/discord/LogoColor256.png" alt="Avatar" style="width:100%">
-                <h4><b>Custom Discord Widget</b></h4>
-            </a>
-        </section>
-
-        <section id="npmpackages" class="grid">
-            <h2 class="sectionHead">NPM Packages</h2>
-            <a href="./ards-client/" class="card">
-                <img src="./img/ards/Favicon1.png" alt="Avatar" style="width:100%">
-                <h4><b>Ards-Client</b></h4>
-            </a>
-        </section>
-
-        <section id="discordbots" class="grid">
-            <h2 class="sectionHead">Discord Bots</h2>
-            <a href="./aika/" class="card">
-                <img src="./img/aika/Aika_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Aika</b></h4>
-            </a>
-            <a href="./oreiinazuke/" class="card">
-                <img src="./img/oreiinazuke/Oreiinazuke_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Oreiinazuke</b></h4>
-            </a>
-            <a href="./ryoushin/" class="card">
-                <img src="./img/ryoushin/Ryoushin_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Ryoushin</b></h4>
-            </a>
-            <a href="./tbg/" class="card">
-                <img src="./img/tbg/BritishGF_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>British Girlfriend</b></h4>
-            </a>
-            <a href="./yuna/" class="card">
-                <discon>Discontinued</discon>
-                <img src="./img/yuna/Yuna_PFP.png" alt="Avatar" style="width:100%">
-                <h4><b>Yuna</b></h4>
-            </a>
-        </section>
-
-        <section id="projects" class="grid">
-            <h2 class="sectionHead">All Projects</h2>
-            <a href="./aika/" class="card">
-                <img src="./img/aika/Aika_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Aika</b></h4>
-            </a>
-            <a href="./ards-client/" class="card">
-                <img src="./img/ards/Favicon1.png" alt="Avatar" style="width:100%">
-                <h4><b>Ards-Client</b></h4>
-            </a>
-            <a href="./discordwidget.html" class="card">
-                <img src="./img/discord/LogoColor256.png" alt="Avatar" style="width:100%">
-                <h4><b>Custom Discord Widget</b></h4>
-            </a>
-            <a href="./oreiinazuke/" class="card">
-                <img src="./img/oreiinazuke/Oreiinazuke_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Oreiinazuke</b></h4>
-            </a>
-            <a href="./ryoushin/" class="card">
-                <img src="./img/ryoushin/Ryoushin_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>Ryoushin</b></h4>
-            </a>
-            <a href="./tbg/" class="card">
-                <img src="./img/tbg/BritishGF_PFP_Upscaled.png" alt="Avatar" style="width:100%">
-                <h4><b>British Girlfriend</b></h4>
-            </a>
-            <a href="./yuna/" class="card">
-                <discon>Discontinued</discon>
-                <img src="./img/yuna/Yuna_PFP.png" alt="Avatar" style="width:100%">
-                <h4><b>Yuna</b></h4>
-            </a>
-        </section>
-
+        <header>
+            <nav class="navTop">
+                <div class="left navLogo h1">
+                    <div class="smallMenu"></div>
+                    <h1>
+                        <a href="/" class="ir logo">shhh7612</a>
+                    </h1>
+                </div>
+                <div id="navItems" class="left">
+                    <div class="navBucket">
+                        <a href="" class="">Projects</a>
+                        <i class="materialIcons expand">expand_more</i>
+                        <div class="navBucketItems">
+                            <a href="https://github.com/shhh7612/shhh7612.github.io" target="_blank">
+                                <div class="secondaryLabel">shhh7612.github.io</div>
+                                <div>This Website's Source Code</div>
+                            </a>
+                            <hr>
+                            <a href="/">
+                                <div>Aika</div>
+                            </a>
+                            <a href="/">
+                                <div>British Girlfriend</div>
+                            </a>
+                            <a href="/">
+                                <div>Custom Discord Widget</div>
+                            </a>
+                            <a href="/">
+                                <div class="secondaryLabel">Discontinued</div>
+                                <div>Oreiinazuke</div>
+                            </a>
+                            <a href="/">
+                                <div>Ryoushin</div>
+                            </a>
+                            <a href="/">
+                                <div class="secondaryLabel">Discontinued</div>
+                                <div>Yuna</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="navBucket mleftauto">
+                        <a href="" class=""><i class="icon fas fa-cog"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div id="content">
+            <div id="mainContent">
+                <div class="featured-item featured-product-item parallax-banner left-aligned on">
+                    <div class="image" style="background-image: url(&quot;/pubassets/pkgs/152/152526/d2_witch_queen_reveal_homepage_hero_bg.jpg&quot;); top: 0px; opacity: 1;">
+                        <video autoplay="" loop="" muted="">
+                            <source src="/pubassets/pkgs/152/152526/d2_witch_queen_reveal_homepage_hero_bg.mp4?cv=3983621215&amp;av=3845432549" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="image mobile-only" style="background-image: url(&quot;/pubassets/pkgs/152/152526/d2_witch_queen_reveal_homepage_hero_bg_mobile.jpg&quot;); top: 0px; opacity: 1;"></div>
+                    <div class="featured-text-content ">
+                        <div class="title-image" style="background-image: url('/pubassets/pkgs/152/152526/hero_logo_en.png');"></div>
+                        <div class="subtitle ">
+                            Survive the Truth
+                        </div>
+                        <div class="button-container">
+                            <a class="button-button-two control-kit button  gold medium  js-button-two   clickable" href="https://www.bungie.net:443/7/en/Destiny/WitchQueen?ciid=50638" data-identifier="button-two">
+                            Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="explore-container">
+                    <div class="emailmessage bungiereward-message grid flex">
+                        <div class="emailmessage-container grid-col-12">
+                            <p class="email-title"><span></span>Receive gifts, exclusive rewards and more from Bungie.<a href="/7/en/Direct/Rewards?utm_campaign=bungierewards-homepage-banner">Visit Bungie Rewards to learn more.</a></p>
+                            <i class="hide-emailmessage material-icons">cancel</i>
+                        </div>
+                    </div>
+                    <div class="emailmessage newsletter-message grid flex">
+                        <div class="emailmessage-container grid-col-12">
+                            <p class="email-title"><span></span>Don't have an account? Want to stay up to date with Bungie and our games?<a href="/en/Emails/SignUp?utm_campaign=newsletter-homepage-banner">Sign up for our Newsletter.</a></p>
+                            <i class="hide-emailmessage material-icons">cancel</i>
+                        </div>
+                    </div>
+                    <div class="basic-sub-nav-explore-subnav nav-kit basic-sub-nav  js-explore-subnav" data-identifier="explore-subnav">
+                        <div class="sub-nav-wrapper grid">
+                            <div class="sub-nav-items grid-col-12">
+                                <a class="current js-subnav-link" href="/en/Explore/News">News</a><a class=" js-subnav-link" href="/en/Explore/Category?category=Creations">Creations</a><a class=" js-subnav-link" href="/en/Explore/Category?category=Communities">Communities</a>	
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-container grid flex">
+                        <div class="news-header grid-col-12">
+                            <span>Featured</span>
+                        </div>
+                        <div class="pinned-items-container grid-col-12" data-count="4">
+                            <a class="pinned-item" href=" https://www.bungie.net/7/en/Seasons/Events/FestivalOfTheLost" data-index="0">
+                                <div class="background" style="background-image: url('/pubassets/pkgs/154/154217/d2_fotl_Feature-Banner_1920x622.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                <div class="featured-text-content ">
+                                    <div class="title"></div>
+                                    <div class="subtitle">Festival of the Lost 2021</div>
+                                </div>
+                            </a>
+                            <a class="pinned-item" href="https://www.bungie.net/7/en/Seasons/SeasonOfTheLost" data-index="1">
+                                <div class="background" style="background-image: url('/pubassets/pkgs/152/152524/FrontpageBanner_1920x590.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                <div class="featured-text-content ">
+                                    <div class="title"></div>
+                                    <div class="subtitle">Season of the Lost</div>
+                                </div>
+                            </a>
+                            <a class="pinned-item" href="https://www.bungie.net/Anniversary" data-index="2">
+                                <div class="background" style="background-image: url('/pubassets/pkgs/152/152527/FrontpageBanner_1920x590_1.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                <div class="featured-text-content ">
+                                    <div class="title"></div>
+                                    <div class="subtitle">30th Anniversary</div>
+                                </div>
+                            </a>
+                            <a class="pinned-item" href="/en/Explore/Detail/News/50543" data-index="3">
+                                <div class="background" style="background-image: url('/pubassets/pkgs/152/152384/FrontpageBanner_1920x590.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                <div class="featured-text-content ">
+                                    <div class="title">The big beats.</div>
+                                    <div class="subtitle">Destiny 2 Showcase Recap</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="recent-news-container">
+                            <div class="news-header grid-col-12">
+                                <span>Latest</span>
+                            </div>
+                            <div class="news-items grid-col-8 grid-col-12-mobile">
+                                <a class="news-item " href="/en/Explore/Detail/News/50788">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/154/154332/ArticleBanner_997x500.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date">Scary Spider Sparrows  – 10/21/2021</div>
+                                        <div class="subtitle">This Week At Bungie – 10/21/2021 </div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <a class="news-item " href="/en/Explore/Detail/News/50787">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/154/154331/Update_Hotfix_Blog.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date">The one about Elevators – 10/21/2021</div>
+                                        <div class="subtitle">Destiny 2 Hotfix 3.3.1.1</div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <a class="news-item " href="/en/Explore/Detail/News/50782">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/154/154290/ArticleBanner_997x500.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date">Headless Horsepower.  – 10/14/2021</div>
+                                        <div class="subtitle">This Week At Bungie – 10/14/2021 </div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <a class="news-item mini" href="/en/Explore/Detail/News/50771">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/150/150808/Update_Patch_Blog.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date">The one about... a whole bunch of stuff.  – 10/12/2021</div>
+                                        <div class="subtitle">Destiny 2 Update 3.3.1</div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <a class="news-item mini" href="/en/Explore/Detail/News/50764">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/154/154054/ArticleBanner_997x500.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date">The Calm Before the Festival  – 10/7/2021</div>
+                                        <div class="subtitle">This Week At Bungie – 10/07/2021 </div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <a class="news-item mini" href="/en/Explore/Detail/News/50752">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/154/154047/d2_forsaken_banners_997x500_Compressed.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date"> – 10/7/2021</div>
+                                        <div class="subtitle">Destiny Content Vault Update</div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <a class="news-item mini" href="/en/Explore/Detail/News/50749">
+                                    <div class="thumbnail" style="background-image: url('/pubassets/pkgs/153/153998/ArticleBanner_997x500_1.jpg?cv=3983621215&amp;av=3845432549');"></div>
+                                    <div class="text-content">
+                                        <div class="title-date">Iron Banner – 9/30/2021</div>
+                                        <div class="subtitle">This Week At Bungie – 9/30/2021</div>
+                                        <div class="summary"> [...]</div>
+                                    </div>
+                                </a>
+                                <div class="more-news-container">
+                                    <a class="button-more-news control-kit button  none medium  js-more-news   clickable" href="/en/News/Index" data-identifier="more-news">
+                                    More News
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="spacer grid-col-1 grid-hide-medium">
+                                &nbsp;
+                            </div>
+                            <div class="twitter-feed grid-col-3 grid-hide-medium">
+                                <div class="content">
+                                    <a class="tweet-item" href="https://twitter.com/Bungie/status/1451303177660272645" target="_null">
+                                        <div class="main-account">
+                                            <div class="icon"></div>
+                                            <div class="account-name">Bungie</div>
+                                            <div class="handle">@Bungie</div>
+                                        </div>
+                                        <div class="tweet-image" style="background-image: url('https://pbs.twimg.com/media/FCQQi-eXMAsuKuw.jpg:small')"></div>
+                                        <span class="date">Oct 21</span>
+                                        This week at Bungie, we look to Trials Freelance, fashion, and pumpkins.
+                                        https://t.co/kA9...
+                                    </a>
+                                    <a class="tweet-item" href="https://twitter.com/Bungie/status/1449091774677323779" target="_null">
+                                        <div class="main-account">
+                                            <div class="icon"></div>
+                                            <div class="account-name">Bungie</div>
+                                            <div class="handle">@Bungie</div>
+                                        </div>
+                                        <span class="date">Oct 15</span>
+                                        #TeamDino is here and stampeding the Tower.
+                                        Commemorate your prehistoric power with a wal...
+                                    </a>
+                                    <a href="https://twitter.com/Bungie/" target="_null" class="view-more-tweets">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/html" id="crossplay-modal">
+                    <div class="crossplay-modal">
+                        <div class="top-panel">
+                            <h2>Cross Play</h2>
+                            <p>Cross Play is here! Check out your Account settings where you can invite platform friends to your Bungie Friends list, confirm your privacy settings, and import any muted users to your block list.</p>
+                        </div>
+                        <div class="bottom-panel">
+                             
+                    
+                    
+                    <a class="button-btn-review-account control-kit button  gold large  js-btn-review-account   clickable" href="/7/en/User/Account/IdentitySettings"   data-identifier="btn-review-account" >
+                    
+                    
+                    
+                    Review Account
+                    </a>
+                        </div>
+                    </div>
+                </script>
+                <div id="toast-container">
+                    <script type="text/html" id="toast-message-template">
+                        <div class="toast-message">
+                            <div class="text"></div>
+                        </div>
+                    </script>
+                </div>
+            </div>
+        </div>
         <footer>
             <section id="help">
                 <h2 class="sectionHead"><a href="./">shhh7612</a></h2>

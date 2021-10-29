@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700;900&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 html {
     padding-top: 92px;
 }
@@ -9,7 +10,7 @@ html {
     transition: background 0.25s;
 }
 body {
-    font-family: -apple-system,BlinkMacSystemFont,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: 'Noto Sans', 'Noto Sans HK', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -17,8 +18,11 @@ body {
 }
 
 *, *:after, *:before {
-    transition-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
-    animation-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
+    -webkit-transition-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
+         -o-transition-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
+            transition-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
+    -webkit-animation-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
+            animation-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
 }
 ::-webkit-scrollbar {
     width: 1rem;
@@ -55,9 +59,8 @@ header {
     -webkit-transition: top 0.25s;
     -o-transition: top 0.25s;
     transition: top 0.25s;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(18,23,28,0.75)), to(transparent));
-    background: -webkit-linear-gradient(top, rgba(18,23,28,0.75), transparent);
     background: -o-linear-gradient(top, rgba(18,23,28,0.75), transparent);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(18,23,28,0.75)), to(transparent));
     background: linear-gradient(to bottom, rgba(18,23,28,0.75), transparent);
 }
 html:not([data-scroll="0"]) header:before, html.navOpen header:before {
@@ -90,10 +93,17 @@ header:before {
     text-align: left;
     text-indent: -9999px;
 }
+.mleftauto {
+    margin-left:auto;
+}
 /* General Navigation*/
 a {
     cursor: pointer;
     text-decoration: none;
+}
+a i.icon {
+    font-size: 1.7rem;
+    margin-top: 26px;
 }
 .navLogo {
     float: left;
@@ -113,21 +123,17 @@ a {
     padding: 0;
     z-index: 2;
     vertical-align: middle;
-    -webkit-background-size: contain;
     background-size: contain;
     background: url(/img/mainLogo.svg) no-repeat center 45%/100%;
 }
 #navItems {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 auto;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
     font-size: 0;
@@ -271,7 +277,6 @@ a {
     min-width: 960px;
     height: 78px;
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     padding: 0 1rem;
