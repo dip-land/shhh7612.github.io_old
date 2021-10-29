@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700;900&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+    --themeColor:hsl(305, 80%, 50%);
+    --themeColor60:hsl(305, 60%, 45%);
+    --themeColor40:hsl(305, 40%, 40%);
+    --themeColor20:hsl(305, 20%, 35%);
+
+    --textColor:hsl(240, 80%, 90%);
+    --textColor55:hsl(240, 55%, 80%);
+    --textColor30:hsl(240, 30%, 70%);
+    --textColor5:hsl(240, 5%, 60%);
+
+    
+}
 html {
     padding-top: 92px;
 }
@@ -14,7 +27,7 @@ body {
     font-size: 1rem;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    color: hsl(240, 78%, 91%);
+    color: hsl(240, 80%, 90%);
 }
 
 *, *:after, *:before {
@@ -173,7 +186,7 @@ a i.icon {
 .navBucket:hover:after, .navBucket.on:after, .navBucket.open:after {
     left: 0;
     width: 100%;
-    background: #ffce1f;
+    background: var(--themeColor);
 }
 .navBucket .navBucketItems hr {
     margin: 0;
@@ -197,7 +210,7 @@ a i.icon {
     color: #f5f5f5;
 }
 .navBucket .navBucketItems a:hover, .navBucket .navBucketItems a.on {
-    background: #b78c25;
+    background: var(--themeColor60);
     color: #f5f5f5;
 }
 .navBucket .expand {
