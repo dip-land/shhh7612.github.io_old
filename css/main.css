@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100;300;400;500;700;900&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');
 :root {
     --themeColor:hsl(305, 80%, 50%);
     --themeColor60:hsl(305, 60%, 45%);
@@ -10,10 +10,10 @@
     --textColor30:hsl(240, 30%, 70%);
     --textColor5:hsl(240, 5%, 60%);
 
-    
+
 }
 html {
-    padding-top: 92px;
+    background-color: hsl(222, 21%, 10%);
 }
 * {
     margin: 0;
@@ -23,11 +23,11 @@ html {
     transition: background 0.25s;
 }
 body {
-    font-family: 'Noto Sans', 'Noto Sans HK', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+    font-family: 'Noto Sans Display', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    color: hsl(240, 80%, 90%);
+    color: var(--textColor);
 }
 
 *, *:after, *:before {
@@ -41,13 +41,13 @@ body {
     width: 1rem;
 }
 ::-webkit-scrollbar-thumb {
-    border: 1px solid #181c25;
-    background: #232936;
+    border: 1px solid hsl(222, 21%, 12%);
+    background: hsl(222, 21%, 17%);
     -webkit-box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
     box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
 }
 ::-webkit-scrollbar-track {
-    background: #181c25;
+    background: hsl(222, 21%, 12%);
     -webkit-box-shadow: inset 0 0 5px #12171c;
     box-shadow: inset 0 0 5px #12171c;
 }
@@ -68,7 +68,7 @@ header {
     left: 0;
     width: 100%;
     min-width: 954px;
-    height: 78px;
+    height: 62px;
     -webkit-transition: top 0.25s;
     -o-transition: top 0.25s;
     transition: top 0.25s;
@@ -116,7 +116,7 @@ a {
 }
 a i.icon {
     font-size: 1.7rem;
-    margin-top: 26px;
+    margin-top: 18px;
 }
 .navLogo {
     float: left;
@@ -132,7 +132,7 @@ a i.icon {
     display: block;
     margin-right: 2rem;
     width: 9rem;
-    height: 78px;
+    height: 68px;
     padding: 0;
     z-index: 2;
     vertical-align: middle;
@@ -151,12 +151,6 @@ a i.icon {
     flex: 1 0 auto;
     font-size: 0;
 }
-.navBucket[data-show-collapsed-at] {
-    display: none !important;
-}
-.navBucket[data-show-collapsed-at="max"] {
-    display: inline-block !important;
-}
 .navBucket {
     position: relative;
     display: inline-block;
@@ -169,7 +163,7 @@ a i.icon {
     color: rgba(245,245,245,0.5);
     font-size: 13px;
     font-weight: 500;
-    line-height: 78px;
+    line-height: 62px;
 }
 .navBucket:after {
     position: absolute;
@@ -228,7 +222,7 @@ a i.icon {
     position: absolute;
     z-index: 5;
     overflow: hidden;
-    top: 78px;
+    top: 62px;
     left: 50%;
     -webkit-transform: translateY(-10px) translateX(-50%);
     -ms-transform: translateY(-10px) translateX(-50%);
@@ -268,27 +262,11 @@ a i.icon {
     font-weight: bold;
     opacity: 0.65;
 }
-.materialIcons {
-    display: inline-block;
-    white-space: nowrap;
-    letter-spacing: normal;
-    text-transform: none;
-    word-wrap: normal;
-    font-family: 'Material Icons';
-    font-style: normal;
-    line-height: 1;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-feature-settings: 'liga';
-    font-feature-settings: 'liga';
-}
 /* Top Navigation */
 .navTop {
     position: relative;
     min-width: 960px;
-    height: 78px;
+    height: 62px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
