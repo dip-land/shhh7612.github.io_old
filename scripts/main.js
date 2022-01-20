@@ -1,5 +1,17 @@
 loadSettings();
 
+function openNav() {
+    let x = document.getElementById("navigation");
+    let y = document.getElementById("main");
+    if (x.className === "normal") {
+        x.className += " responsive";
+        y.className += " hidden";
+    } else {
+        x.className = "normal";
+        y.className = "mainSection";
+    }
+}
+
 const debounce = (fn) => {
     let frame;
     return(...params) => {
