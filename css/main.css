@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 :root {
-    --themeColor: hsl(0, 100%, 45%);
+    
+    --themeColor: hsl(208, 100%, 35%);
     --textColor: hsl(0, 0%, 100%);
-    --backgroundColor1: hsl(0, 0%, 3%);
-    --backgroundColor2: hsl(0, 0%, 8%);
-    --backgroundColor3: hsl(0, 0%, 13%);
+    --backgroundColor1: hsl(208, 100%, 4%);
+    --backgroundColor2: hsl(208, 100%, 12%);
+    --backgroundColor3: hsl(208, 100%, 16%);
 }
 *{
     transition: all 100ms, 150ms filter linear;
+    user-select: none;
 }
 *:focus {
-    outline: 3px solid red;
-    -moz-outline-radius: 14px;
+    outline: 3px solid var(--themeColor);
+    -moz-outline-radius: 12px;
 }
 
 html {
@@ -52,13 +54,13 @@ a:hover {
 }
 .clickable:hover {
     cursor: pointer !important;
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
 }
 .clickable:focus {
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
 }
 
@@ -68,7 +70,7 @@ a:hover {
     padding: 0;
     border: none;
     border-radius: 0;
-    background-color: red;
+    background-color: var(--themeColor);
     margin: 0;
 }
 #SNButton:focus {
@@ -76,7 +78,7 @@ a:hover {
     font-size: unset;
     padding: 6px 14px;
     border: 2px solid var(--themeColor);
-    border-radius: 14px;
+    border-radius: 12px;
     width: auto;
 }
 
@@ -85,8 +87,8 @@ nav {
     background-color: var(--backgroundColor3);
     position: fixed;
     z-index: 100;
-    -webkit-box-shadow: 2px 2px 2px 1px hsla(0, 0%, 3%, 0.5);
-    box-shadow: 2px 2px 2px 1px hsla(0, 0%, 3%, 0.5);
+    -webkit-box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
+    box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
     text-transform: uppercase;
 }
 nav .toggleNav {
@@ -107,75 +109,89 @@ nav>ul li a {
     display: block;
     padding: 6px 14px;
     border: 2px solid var(--themeColor);
-    border-radius: 14px;
+    border-radius: 12px;
     font-weight: bold;
 }
 nav details>summary {
     box-sizing: border-box;
     padding: 6px 14px;
     border: 2px solid var(--themeColor);
-    border-radius: 14px;
+    border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
 }
 nav details>summary:hover {
     background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
 }
 nav details>summary:focus {
     background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
 }
 nav details>.dropdown {
     position: absolute;
     background-color: var(--backgroundColor3);
     z-index: 100;
-    -webkit-box-shadow: 2px 2px 2px 1px hsla(0, 0%, 3%, 0.5);
-    box-shadow: 2px 2px 2px 1px hsla(0, 0%, 3%, 0.5);
+    -webkit-box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
+    box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
     padding: 12px 12px 6px 12px;
 }
 nav details>.dropdown {
-    max-height: 200px;
-    overflow-y: auto;
+    border-radius: 12px;
 }
 nav details>.dropdown a{
     margin-bottom: 6px;
 }
-nav>ul li a:active .active, nav>ul li a.active {
+nav .active, nav>ul li a:active .active, nav>ul li a.active {
     background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
 }
 nav>ul li a:hover {
     background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
 }
 nav>ul li a:focus {
     background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
     transform: translate(-2px, -2px);
+}
+
+.sectionHeader {
+    margin: 3rem 0 1rem;
+    font-weight: 800;
+    border-top: 1px solid var(--textColor);
+}
+.sectionHeader span {
+    display: inline-block;
+    padding: 3px 6px;
+    font-size: smaller;
+    text-transform: uppercase;
+    background-color: var(--textColor);
+    color: var(--backgroundColor2);
 }
 
 .hidden {
     display: none !important;
 }
-.mainSection {
+.main {
+    height: 100%;
     display: block;
-    padding: 74px 10px 20px;
+    padding: calc(74px - 2rem) 2rem 20px;
     margin-bottom: 2px;
 }
 .flexBlock {
     display: block;
     width: 100%;
-    height: 30rem;
+    height: 28rem;
 }
 .flexItem {
     box-sizing: border-box; 
@@ -183,7 +199,7 @@ nav>ul li a:focus {
     display: flex;
     float: left;
     height: 100%;
-    border-radius: 14px;
+    border-radius: 12px;
     background-color: var(--backgroundColor1);
     flex-direction: column;
     justify-content: flex-start;
@@ -217,39 +233,39 @@ nav>ul li a:focus {
 }
 .bigBlock_left {
     width: 50%;
-    margin: 0 0 0 1rem;
+    margin: 0 0 0 0.5rem;
 }
 .bigBlock_middle {
     width: 50%;
-    margin: 0 1rem 0 1rem;
+    margin: 0 0.5rem 0 0.5rem;
 }
 .mediumBlock_left {
-    width: -webkit-calc(25% - 2rem);
-    width: calc(25% - 2rem);
-    margin: 0 1rem 0 0;
+    width: -webkit-calc(25% - 1rem);
+    width: calc(25% - 1rem);
+    margin: 0 0.5rem 0 0;
 }
 .smallBlock_left {
-    width: -webkit-calc(25% - 2rem);
-    width: calc(25% - 2rem);
-    height: -webkit-calc(50% - 1rem);
-    height: calc(50% - 1rem);
-    margin: 0 1rem 2rem 0;
+    width: -webkit-calc(25% - 1rem);
+    width: calc(25% - 1rem);
+    height: -webkit-calc(50% - 0.5rem);
+    height: calc(50% - 0.5rem);
+    margin: 0 0.5rem 1rem 0;
 }
 .bigBlock_right{
     width: 50%;
-    margin: 0 1rem 0 0;
+    margin: 0 0.5rem 0 0;
 }
 .mediumBlock_right {
     width: -webkit-calc(25% - 2rem);
     width: calc(25% - 2rem);
-    margin: 0 1rem;
+    margin: 0 0.5rem;
 }
 .smallBlock_right {
-    width: -webkit-calc(25% - 2rem);
-    width: calc(25% - 2rem);
-    height: -webkit-calc(50% - 1rem);
-    height: calc(50% - 1rem);
-    margin: 0 0 2rem 1rem;
+    width: -webkit-calc(25% - 1rem);
+    width: calc(25% - 1rem);
+    height: -webkit-calc(50% - 0.5rem);
+    height: calc(50% - 0.5rem);
+    margin: 0 0 1rem 0.5rem;
 }
 
 footer {
@@ -276,7 +292,7 @@ footer ul>li, footer ul>li a {
     margin: 0;
 }
 footer ul>li a:hover {
-    color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 90%) !important;
 }
 
 /*Medias*/
@@ -284,7 +300,10 @@ footer ul>li a:hover {
     
 }
 @media all and (max-width: 1024px) {
-    .mainSection {
+    .sectionHeader {
+        margin: 0 6px 6px;
+    }
+    .main {
         padding: 74px 10px 0;
     }
     .flexItem {
