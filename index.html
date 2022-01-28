@@ -7,25 +7,43 @@
         <meta name="language" content="English" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        <title>shhh7612</title>
-        <link rel="shortcut icon" type="image/svg+xml" href="./img/favicon.png" />
-        <link rel="apple-touch-icon" href="/img/favicon.png">
         <meta http-equiv=" X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="description" content="A webiste made to share all my projects to the world!" />
-        <meta property="og:site_name" content="shhh7612 homepage" />
-        <meta property="og:type" content="website" />
+        <link rel="preconnect" />
+        <title>shhh7612</title>
         <meta property="og:title" content="shhh7612" />
-        <meta property="og:description" content="A webiste made to share all my projects to the world!" />
-        <meta property="og:url" content="https://shhh7612.github.io/" />
+        <meta property="twitter:title" content="shhh7612" />
+        <meta property="og:site_name" content="shhh7612 homepage" />
+        <link rel="shortcut icon" type="image/svg+xml" href="./img/favicon.png" />
         <meta property="og:image" content="/img/favicon.png" />
-        <meta name="theme-color" content="#ff0000" />
+        <link rel="apple-touch-icon" href="/img/favicon.png">
+        <meta name="description" content="A webiste made to share all my projects to the world!" />
+        <meta property="og:description" content="A webiste made to share all my projects to the world!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://shhh7612.github.io/" />
+        <meta name="theme-color" content="#002c52" />
         <link rel="stylesheet" href="/css/main.css" preload />
+        <script defer src="https://kit.fontawesome.com/8bbb202c47.js" crossorigin="anonymous"></script>
         <meta name="google-site-verification" content="xEw_CL9H26pODRswlA5GvDN47ohNPnt17cg44WFb0rs" />
         <meta name="google-site-verification" content="l9SZk5mQeykA9dL6uR-GZ5HMMrk6NsJMZghndTgWh-E" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9668088754221394" crossorigin="anonymous"></script>
+        <script defer async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9668088754221394" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     </head>
 
     <body>
+        <popup-container>
+            <popup-box>
+                <popup-title>Title</popup-title>
+                <popup-text>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos provident praesentium
+                    sapiente, quas soluta tempore odit reiciendis ullam quae. Blanditiis voluptas minus enim saepe, non
+                    et libero quae quasi? Alias.
+                </popup-text>
+                <popup-buttons>
+                    <popup-button id="popButton1">Button 1</popup-button>
+                    <popup-button id="popButton2">Button 2</popup-button>
+                </popup-buttons>
+            </popup-box>
+        </popup-container>
         <nav id="navigation" class="normal">
             <ul>
                 <li><a href="#first_clickable" id="SNButton">Skip Navigation</a></li>
@@ -43,11 +61,11 @@
                     </details>
                 </li>
                 <li><a href="/ards-client/">Ards-Client</a></li>
-                <li><a href="https://github.com/shhh7612" target="_blank">github</a></li>
+                <li><a href="https://github.com/shhh7612" target="_blank" rel="noopener">github</a></li>
                 <li class="toggleNav">
-                    <a href="javascript:void(0);" onclick="openNav()">
+                    <button onclick="openNav()" aria-label="Open mobile navigation button">
                         <i class="fa fa-bars"></i>
-                    </a>
+                    </button>
                 </li>
             </ul>
         </nav>
@@ -57,7 +75,8 @@
             </div>
             <div class="flexBlock">
                 <a id="first_clickable" class="bigBlock_right flexItem clickable" href="/projects/siva/">
-                    <img src="./img/siva/SivaCropped.jpeg" onerror="this.src='./img/siva/SivaCropped.png'"
+                    <img loading="eager" src="./img/siva/SivaCropped.avif"
+                        onerror="this.src='./img/siva/SivaCropped.jpeg'"
                         alt="Siva Discord bot logo; Trademarked by Bungie. https://www.bungie.net/7/en/Legal/Terms" />
                     <div class="flexItemText">
                         <h1>Siva | </h1>
@@ -65,21 +84,23 @@
                     </div>
                 </a>
                 <a class="mediumBlock_right flexItem clickable" href="/projects/ards-client/">
-                    <img src="./img/ards/Favicon.png" onerror="this.src='./img/siva/Siva2.jpeg'" />
+                    <img loading="lazy" src="./img/ards/Favicon.avif" onerror="this.src='./img/ards/Favicon.jpeg'"
+                        alt="Image" />
                     <div class="flexItemText">
                         <h1>Ards-client | </h1>
                         <span>An NPM package that lets you get posts from Reddit, Danbooru, rule34 and more.</span>
                     </div>
                 </a>
                 <a class="smallBlock_right flexItem clickable" href="/projects/widget/">
-                    <img src="./img/discord/WordmarkColor.png" onerror="this.src='./img/siva/Siva2.jpeg'" />
+                    <img loading="lazy" src="./img/discord/WordmarkColor.avif"
+                        onerror="this.src='./img/discord/WordmarkColor.jpeg'" alt="Image" />
                     <div class="flexItemText">
                         <h1>Discord Widget | </h1>
                         <span>A customizable Discord Widget.</span>
                     </div>
                 </a>
                 <a class="smallBlock_right flexItem clickable" href="/projects/osu2/">
-                    <img src="./img/favicon.png" onerror="this.src='./img/siva/Siva2.jpeg'" />
+                    <img loading="lazy" src="./img/favicon.avif" onerror="this.src='./img/favicon.jpeg'" alt="Image" />
                     <div class="flexItemText">
                         <h1>osuV2 | </h1>
                         <span>An NPM package that lets you interact with osu's v2 api.</span>
@@ -92,7 +113,7 @@
             <ul>
                 <li class="sectionHead"><a href="/">shhh7612</a></li>
                 <li><a href="/ards-client/">Ards-Client</a></li>
-                <li><a href="https://github.com/shhh7612" target="_blank">Github</a></li>
+                <li><a href="https://github.com/shhh7612" target="_blank" rel="noopener">Github</a></li>
                 <li>© 2022 shhh7612</li>
             </ul>
             <ul>
@@ -115,7 +136,7 @@
                 <li><a href="/support/feedback/bug/">Submit Bug Report</a></li>
             </ul>
         </footer>
-        <script src="/scripts/main.js" preload></script>
+        <script defer src="/scripts/main.js"></script>
     </body>
 
 </html>
