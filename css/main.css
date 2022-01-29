@@ -119,6 +119,7 @@ popup-buttons {
     margin: 18px;
 }
 popup-button {
+    margin: 0 5px;
     padding: 6px 14px;
     border: 2px solid var(--themeColor);
     border-radius: 12px;

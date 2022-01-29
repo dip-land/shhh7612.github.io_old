@@ -27,6 +27,48 @@ const storeScroll = () => {
 document.addEventListener('scroll', debounce(storeScroll), { passive: true });
 storeScroll();
 
+function createPopup(title, text, buttonText, buttonData) {
+    let popup_container = document.createElement('popup-container');
+    let popup_box = document.createElement('popup-box');
+    let popup_title = document.createElement('popup-title');
+    let popup_text = document.createElement('popup-text');
+    let popup_buttons = document.createElement('popup-buttons');
+
+    popup_title.innerText = title;
+    popup_text.innerHTML = text;
+
+    buttonText.forEach((item, index) => {
+        let b = document.createElement('popup-button');
+        b.innerText = item;
+        b.setAttribute('onclick', buttonData[index]);
+        popup_buttons.append(b);
+    })
+
+    popup_container.append(popup_box);
+    popup_box.append(popup_title, popup_text, popup_buttons);
+    document.body.prepend(popup_container);
+}
+
+if (localStorage.getItem('cookies') === null) {
+    createPopup(
+        'Cookies',
+        "We have some cookies for you! <br> Our cookies are used to save your settings for this website, and so you won't have to see this pop up for quite a while.",
+        ['Accept', 'Decline'],
+        ['acceptCookies(this.parentElement.parentElement.parentElement)', 'declineCookies(this.parentElement.parentElement.parentElement)']
+    );
+} else {
+    console.log(`its ${localStorage.getItem('cookies')}`)
+}
+
+function acceptCookies(popup) {
+    popup.remove();
+    localStorage.setItem('cookies', true);
+}
+function declineCookies(popup) {
+    popup.remove();
+    localStorage.setItem('cookies', false);
+}
+
 function copyall(block) {
     let element = document.getElementById(block);
     for (let i = 0; i < element.children.length; i++) {
@@ -88,10 +130,3 @@ function redirect() {
     if (location.toString() === `${location.origin}/Ards-Client/classes/reddit/custom`) { location.replace(`${location.origin}/ards-client/docs/v2/classes/reddit/custom`) }
     if (location.toString() === `${location.origin}/Ards-Client/classes/reddit/custom_1`) { location.replace(`${location.origin}/ards-client/docs/v2/classes/reddit/custom_1`) }
 }
-
-setTimeout(a => {
-    document.cookie = 'hello=world;'
-    document.cookie = 'world=hello;'
-    document.cookie = 'test=test;'
-    console.log(document.cookie)
-}, 2500)
