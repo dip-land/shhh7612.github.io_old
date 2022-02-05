@@ -5,14 +5,18 @@
     --backgroundColor1: hsl(208, 100%, 4%);
     --backgroundColor2: hsl(208, 100%, 12%);
     --backgroundColor3: hsl(208, 100%, 16%);
+    --backgroundTransparent: hsla(208, 100%, 35%, 0.25);
+
+    --scroll: -100px;
 }
 *{
     transition: all 100ms, 150ms filter linear;
     user-select: none;
 }
 *:focus {
-    outline: 3px solid var(--themeColor);
-    -moz-outline-radius: 12px;
+    outline: 2px solid var(--textColor);
+    background-color: var(--backgroundTransparent);
+    backdrop-filter: blur(5px);
 }
 
 html {
@@ -23,7 +27,7 @@ body::before {
     background-image: url('/img/Background.webp');
     background-size: cover;
     position: fixed;
-    top: 0px;
+    top: var(--scroll);
     right: 0px;
     bottom: 0px;
     left: 0px;
@@ -56,13 +60,13 @@ body {
     background: var(--backgroundColor3);
 }
 
-a, button {
+a, button, nav-item, nav-dropdown > dropdown-title {
     background: none;
     color: var(--textColor);
     text-decoration: none;
     border: none;
 }
-a:hover, button:hover {
+a:hover, button:hover, nav-item:hover, nav-dropdown > dropdown-title:hover {
     cursor: pointer !important;
 }
 .clickable:hover {
@@ -81,17 +85,12 @@ a:hover, button:hover {
     transform: translateX(-400%);
     font-size: 0;
     padding: 0;
-    border: none;
-    border-radius: 0;
-    background-color: var(--themeColor);
     margin: 0;
 }
 #SNButton:focus {
     transform: translateX(0%);
     font-size: unset;
     padding: 6px 14px;
-    border: 2px solid var(--themeColor);
-    border-radius: 12px;
     width: auto;
 }
 
@@ -108,7 +107,7 @@ popup-container {
 }
 popup-box {
     background-color: var(--backgroundColor2);
-    border-radius: 12px;
+    border-radius: 6px;
     text-align: center;
     line-height: 1;
     max-width: 40%;
@@ -134,7 +133,7 @@ popup-button {
     margin: 0 5px;
     padding: 6px 14px;
     border: 2px solid var(--themeColor);
-    border-radius: 12px;
+    border-radius: 6px;
     font-weight: bold;
 }
 popup-button:hover {
@@ -146,68 +145,62 @@ popup-button:hover {
 }
 
 nav {
-    width: 100%;
-    background-color: var(--backgroundColor3);
     position: fixed;
+    top: 1rem;
+    right: 0;
     z-index: 100;
-    -webkit-box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
-    box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
     text-transform: uppercase;
+    padding: 0.7rem 2rem;
+    background-color: var(--backgroundTransparent);
+    backdrop-filter: blur(5px);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
-nav .toggleNav {
+nav-item, nav-dropdown > dropdown-title {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+nav-item:hover, nav-dropdown > dropdown-title:hover {
+    background-color: var(--backgroundTransparent);
+    backdrop-filter: blur(5px);
+}
+nav-dropdown {
+    display: inline-block;
+    position: relative;
+}
+nav-dropdown > * {
     display: none;
 }
-nav>ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-nav>ul li {
-    display: inline-block;
-    height: 100%;
-    padding: 12px 10px;
-}
-nav>ul li a, nav>ul li button {
-    box-sizing: border-box;
+nav-dropdown[open] > * {
     display: block;
-    padding: 6px 14px;
-    border: 2px solid var(--themeColor);
-    border-radius: 12px;
-    font-weight: bold;
 }
-nav details>summary {
-    box-sizing: border-box;
-    padding: 6px 14px;
-    border: 2px solid var(--themeColor);
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
+nav-dropdown > dropdown-title:first-of-type {
+    display: list-item;
+    counter-increment: list-item 0;
+    list-style: inside disclosure-closed;
 }
-nav details>summary:hover, nav details>summary:focus {
-    background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    transform: translate(-2px, -2px);
+nav-dropdown[open] > dropdown-title:first-of-type {
+    list-style: inside disclosure-open;
 }
-nav details>.dropdown {
+nav-dropdown > dropdown-items {
     position: absolute;
-    background-color: var(--backgroundColor3);
+    top: 3rem;
+    left: 0;
+    width: max-content;
     z-index: 100;
-    -webkit-box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
-    box-shadow: 2px 2px 4px 2px hsla(0, 0%, 3%, 0.5);
-    padding: 12px 12px 6px 12px;
+    padding: 1rem;
+    background-color: var(--backgroundTransparent);
+    backdrop-filter: blur(5px);
+    border-radius: 6px;
 }
-nav details>.dropdown {
-    border-radius: 12px;
+nav-dropdown > dropdown-items > nav-item {
+    display: block;
 }
-nav details>.dropdown a{
-    margin-bottom: 6px;
-}
-nav .active, nav>ul li a:hover, nav>ul li a:focus, nav>ul li button:hover, nav>ul li button:focus {
-    background-color: var(--themeColor);
-    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    transform: translate(-2px, -2px);
+nav nav-item[onclick = "openNav()"] {
+    display: none;
 }
 
 .sectionHeader {
@@ -228,7 +221,6 @@ nav .active, nav>ul li a:hover, nav>ul li a:focus, nav>ul li button:hover, nav>u
 }
 .main {
     height: 100%;
-    display: block;
     padding: calc(74px - 2rem) 2rem 20px;
     margin-bottom: 2px;
 }
@@ -243,7 +235,7 @@ nav .active, nav>ul li a:hover, nav>ul li a:focus, nav>ul li button:hover, nav>u
     display: flex;
     float: left;
     height: 100%;
-    border-radius: 12px;
+    border-radius: 6px;
     background-color: var(--backgroundColor1);
     flex-direction: column;
     justify-content: flex-start;
@@ -310,7 +302,6 @@ nav .active, nav>ul li a:hover, nav>ul li a:focus, nav>ul li button:hover, nav>u
 }
 
 footer {
-    display: block;
     max-width: 100%;
     width: 100%;
     padding: 2rem 0;
@@ -349,6 +340,7 @@ footer ul>li a:hover {
     }
     .flexItem {
         width: calc(50% - 10px) !important;
+        height: 50%;
         margin: 5px 5px !important;
     }
     .flexItem img {
@@ -375,19 +367,14 @@ footer ul>li a:hover {
 }
 
 @media all and (max-width: 668px) {
-    nav>ul li:not(:first-child, :nth-child(2)) {
+    nav {
+        padding: 0.7rem 0.5rem;
+    }
+    nav nav-item:not(nav-item[onclick = "openNav()"]), nav nav-dropdown {
         display: none;
     }
-    nav>ul li:last-child {
-        position: fixed;
-        right: 5px;
-        top: 0px;
-        display: inline;
-    }
-    nav>ul li:last-child {
-        position: fixed;
-        right: 5px;
-        top: 0px;
+    nav nav-item[onclick = "openNav()"] {
+        font-size: larger;
         display: inline;
     }
     nav.responsive {
@@ -405,10 +392,6 @@ footer ul>li a:hover {
     }
     nav.responsive details>.dropdown a{
         margin-bottom: 8px;
-    }
-    .flexItem {
-        width: 100% !important;
-        margin: 5px 0 !important;
     }
 }
 

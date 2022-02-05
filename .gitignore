@@ -1,10 +1,6 @@
 .git*
 package*
 node_modules
-bs-config.js
-manifest.json
-Siva.png
-Siva2.png
+server.js
 .vscode
-manifest.json
 lighthouse audits

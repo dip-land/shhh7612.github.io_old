@@ -31,38 +31,30 @@
     </head>
 
     <body>
-        <nav id="navigation" class="normal">
-            <ul>
-                <li><a href="#first_clickable" id="SNButton">Skip Navigation</a></li>
-                <li><a class="active" href="/">shhh7612</a></li>
-                <li>
-                    <details>
-                        <summary>Projects</summary>
-                        <div class="dropdown">
-                            <a href="/projects/ards-client/">Ards-Client</a>
-                            <a href="/projects/widget/">Discord Widget</a>
-                            <a href="/projects/osu2/">OsuV2</a>
-                            <a href="/projects/siva/">Siva</a>
-                            <a href="/projects/">All projects</a>
-                        </div>
-                    </details>
-                </li>
-                <li><a href="/ards-client/">Ards-Client</a></li>
-                <li><a href="https://github.com/shhh7612" target="_blank" rel="noopener">github</a></li>
-                <li class="toggleNav">
-                    <button onclick="openNav()" aria-label="Open mobile navigation button">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                </li>
-            </ul>
+        <nav>
+            <nav-item href="#first_clickable" id="SNButton">Skip Navigation</nav-item>
+            <nav-item href="/">shhh7612</nav-item>
+            <nav-dropdown>
+                <dropdown-title>Projects</dropdown-title>
+                <dropdown-items>
+                    <nav-item href="/projects/ards-client/">Ards-Client</nav-item>
+                    <nav-item href="/projects/widget/">Discord Widget</nav-item>
+                    <nav-item href="/projects/osu2/">OsuV2</nav-item>
+                    <nav-item href="/projects/siva/">Siva</nav-item>
+                    <nav-item href="/projects/">All Projects</nav-item>
+                </dropdown-items>
+            </nav-dropdown>
+            <nav-item href="/ards-client/">Ards-Client</nav-item>
+            <nav-item href="https://github.com/shhh7612" target="_blank">Github</nav-item>
+            <nav-item onclick="openNav()"><i class="fa fa-bars"></i></nav-item>
         </nav>
         <section class="main" id="main">
             <div class="sectionHeader">
                 <span>My stats</span>
             </div>
-            <img src="https://github-readme-stats.vercel.app/api?username=shhh7612&count_private=true&include_all_commits=true&hide_border=true&bg_color=005fb3&text_color=fff&title_color=fff&icon_color=fff">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=shhh7612&layout=compact&hide_border=true&bg_color=005fb3&text_color=fff&title_color=fff">
-            <img src="https://github-readme-stats.vercel.app/api/wakatime?username=shhh7612&hide_border=true&bg_color=005fb3&text_color=fff&title_color=fff">
+            <img alt="Image"
+                src="https://github-readme-stats.vercel.app/api?username=shhh7612&count_private=true&include_all_commits=true&hide_border=true&bg_color=005fb3&text_color=fff&title_color=fff&icon_color=fff">
+            <img alt="Image" src="https://github-readme-stats.vercel.app/api/top-langs/?username=shhh7612&layout=compact&hide_border=true&bg_color=005fb3&text_color=fff&title_color=fff">
             <div class="sectionHeader">
                 <span>Featured Projects</span>
             </div>
@@ -126,7 +118,8 @@
                 <li><a href="/support/feedback/bug/">Submit Bug Report</a></li>
             </ul>
         </footer>
-        <script defer src="/js/main.js"></script>
+        <script src="/js/main.js"></script>
+        <script defer src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     </body>
 
 </html>
