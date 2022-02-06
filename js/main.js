@@ -1,4 +1,3 @@
-redirect();
 
 class anchor_custom extends HTMLElement {
     constructor() {
@@ -69,10 +68,10 @@ function createPopup(title, text, buttonText, buttonData) {
     popup_text.innerHTML = text;
 
     buttonText.forEach((item, index) => {
-        let b = document.createElement('popup-button');
-        b.innerText = item;
-        b.setAttribute('onclick', buttonData[index]);
-        popup_buttons.append(b);
+        let button = document.createElement('popup-button');
+        button.innerText = item;
+        button.setAttribute('onclick', buttonData[index]);
+        popup_buttons.append(button);
     })
 
     popup_container.append(popup_box);
@@ -80,16 +79,6 @@ function createPopup(title, text, buttonText, buttonData) {
     document.body.prepend(popup_container);
 }
 
-// if (localStorage.getItem('cookies') === null) {
-//     createPopup(
-//         'Cookies',
-//         "We have some cookies for you! <br> Our cookies are used to save your settings for this website, and so you won't have to see this pop up for quite a while.",
-//         ['Accept', 'Decline'],
-//         ['acceptCookies(this.parentElement.parentElement.parentElement)', 'declineCookies(this.parentElement.parentElement.parentElement)']
-//     );
-// } else {
-
-// }
 if (localStorage.getItem('is16+') === null || localStorage.getItem('is16+') === 'false') {
     createPopup(
         'Are you 16 or older?',
@@ -130,69 +119,5 @@ function copyall(block) {
                 alert(`Copied ${element.children[i].innerText}`);
             });
         }
-    }
-}
-
-function isUpper(str) {
-    return !/[a-z]/.test(str) && /[A-Z]/.test(str);
-}
-
-function redirect() {
-    if (isUpper(location.toString())) {
-        location.replace(location.toString().toLowerCase())
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/hentai`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/hentai`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/hentai/danbooru`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/hentai/danbooru`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/hentai/konachan`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/hentai/konachan`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/hentai/neko`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/hentai/neko`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/hentai/rule34`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/hentai/rule34`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/hentai/yandere`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/hentai/yandere`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/meme`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/meme`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/meme/random`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/meme/random`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn/ass`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn/ass`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn/boobs`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn/boobs`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn/panties`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn/panties`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn/pussy`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn/pussy`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn/random`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn/random`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/porn/thighs`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/porn/thighs`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/reddit`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/reddit`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/reddit/custom`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/reddit/custom`)
-    }
-    if (location.toString() === `${location.origin}/Ards-Client/classes/reddit/custom_1`) {
-        location.replace(`${location.origin}/ards-client/docs/v2/classes/reddit/custom_1`)
     }
 }
