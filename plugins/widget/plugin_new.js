@@ -26,8 +26,13 @@ window.addEventListener('load', () => {
         let footer = document.createElement('widget-footer');
         let footerText = document.createElement('widget-footer-info');
         let joinButton = document.createElement('widget-button-join');
+        joinButton.addEventListener('click', e => {
+            if (joinButton.getAttribute('href')) {
+                window.open(joinButton.getAttribute('href'), joinButton.getAttribute('target'), '');
+            }
+        });
         footerText.innerText = footer_text;
-        joinButton.innerText = 'Join'
+        joinButton.innerText = 'Join';
         footer.append(footerText, joinButton);
 
         //style
@@ -49,6 +54,10 @@ window.addEventListener('load', () => {
             data.json().then(data => {
                 //member count
                 count.innerHTML = `<strong>${data.presence_count - 1}</strong> Members Online`
+
+                //join button
+                joinButton.setAttribute('href', data.instant_invite);
+                joinButton.setAttribute('target', '_blank');
 
                 //users
                 data.members.forEach(user => {
