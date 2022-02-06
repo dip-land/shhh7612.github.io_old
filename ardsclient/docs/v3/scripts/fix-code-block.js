@@ -1,5 +1,5 @@
 /* global document */
-(function() {
+(function () {
     var targets = document.querySelectorAll('pre');
     var main = document.querySelector('#main');
 
@@ -20,8 +20,8 @@
     // eslint-disable-next-line no-undef
     var divMaxHeight = window.innerHeight - pageTitleHeight - footerHeight - 80;
 
-    setTimeout(function() {
-        targets.forEach(function(item) {
+    setTimeout(function () {
+        targets.forEach(function (item) {
             var innerHTML = item.innerHTML;
             var divElement = document.createElement('div');
 

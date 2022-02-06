@@ -1,7 +1,7 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #2aba94;
-    font-family: Consolas,"courier new";
+	font-family: Consolas, "courier new";
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
@@ -14,13 +14,13 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	background-color: #007bff80;
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre)>code[class*="language-"],
 pre[class*="language-"] {
 	background-color: var(--quaternaryBG);
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre)>code[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
 	white-space: normal;
@@ -74,9 +74,10 @@ pre[class*="language-"] {
 	color: #5678d6;
 }
 
-.token.function{
-    color: #e9cc6d;
+.token.function {
+	color: #e9cc6d;
 }
+
 .token.class-name {
 	color: #58b4df;
 }
@@ -91,6 +92,7 @@ pre[class*="language-"] {
 .token.bold {
 	font-weight: bold;
 }
+
 .token.italic {
 	font-style: italic;
 }

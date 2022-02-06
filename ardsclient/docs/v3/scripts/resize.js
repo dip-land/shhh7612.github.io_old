@@ -2,7 +2,7 @@
 
 var NAVBAR_OPTIONS = {};
 
-(function() {
+(function () {
     var NAVBAR_RESIZE_LOCAL_STORAGE_KEY = 'NAVBAR_RESIZE_LOCAL_STORAGE_KEY';
 
     var navbar = document.querySelector('#navbar');

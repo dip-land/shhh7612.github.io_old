@@ -8,8 +8,8 @@ function showSearchList() {
 }
 
 function checkClick(e) {
-    if ( e.target.id !== 'search-box-input') {
-        setTimeout(function() {
+    if (e.target.id !== 'search-box-input') {
+        setTimeout(function () {
             hideSearchList();
         }, 60);
 
@@ -50,7 +50,7 @@ function search(list, options, keys, searchKey) {
     if (result.length === 0) {
         searchUL.innerHTML += '<li class="p-h-n"> No Result Found </li>';
     } else {
-        result.forEach(function(obj) {
+        result.forEach(function (obj) {
             searchUL.innerHTML += '<li>' + obj.item.link + '</li>';
         });
     }
@@ -61,7 +61,7 @@ function setupSearch(list, options) {
     var inputBox = document.getElementById('search-box-input');
     var keys = ['title'];
 
-    inputBox.addEventListener('keyup', function() {
+    inputBox.addEventListener('keyup', function () {
         if (inputBox.value !== '') {
             showSearchList();
             search(list, options, keys, inputBox.value);
@@ -69,7 +69,7 @@ function setupSearch(list, options) {
         else { hideSearchList(); }
     });
 
-    inputBox.addEventListener('focus', function() {
+    inputBox.addEventListener('focus', function () {
         showSearchList();
         if (inputBox.value !== '') {
             search(list, options, keys, inputBox.value);

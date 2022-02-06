@@ -70,7 +70,7 @@ h2 {
     color: #aeaeae;
 }
 
-.search-box-input:focus + .search-icon {
+.search-box-input:focus+.search-icon {
     fill: #fff;
 }
 
@@ -176,6 +176,7 @@ samp {
 .prettyprint.linenums li.selected * {
     background-color: #404040;
 }
+
 /* stylelint-enable */
 
 table .name,

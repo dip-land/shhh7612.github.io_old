@@ -75,7 +75,7 @@ blockquote {
     color: #888;
 }
 
-.search-box-input:focus + .search-icon {
+.search-box-input:focus+.search-icon {
     fill: #000;
 }
 
@@ -166,6 +166,7 @@ blockquote {
 .prettyprint.linenums li.selected * {
     background-color: #404040;
 }
+
 /* stylelint-enable */
 
 table,

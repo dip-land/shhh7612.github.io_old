@@ -23,7 +23,7 @@ function showTooltip(id) {
     var tooltip = document.getElementById(id);
 
     tooltip.classList.add('show-tooltip');
-    setTimeout(function() {
+    setTimeout(function () {
         tooltip.classList.remove('show-tooltip');
     }, 3000);
 }
@@ -48,14 +48,14 @@ function copyFunction(id) {
     showTooltip('tooltip-' + id);
 }
 
-(function() {
+(function () {
     // capturing all pre element on the page
     var allPre = document.getElementsByTagName('pre');
 
 
     var i, classList;
 
-    for ( i = 0; i < allPre.length; i++) {
+    for (i = 0; i < allPre.length; i++) {
         // get the list of class in current pre element
         classList = allPre[i].classList;
         var id = 'pre-id-' + i;
@@ -76,7 +76,7 @@ function copyFunction(id) {
         /**
          * By default language name is javascript.
          */
-        if ( langName === undefined ) { langName = 'JavaScript'; }
+        if (langName === undefined) { langName = 'JavaScript'; }
 
         // if(langName != undefined)
         var langNameDiv = '<div class="code-lang-name-container"><div class="code-lang-name">' + langName.toLocaleUpperCase() + '</div></div>';
@@ -150,9 +150,8 @@ function toggleAccordion(element, isImmediate) {
         currentNodeUL.style.height = scrollHeight + 'px';
         currentNode.classList.remove('collapsed');
         setAccordionIdToLocalStorage(currentNode.id);
-        setTimeout(function() {
-            if (!currentNode.classList.contains('collapsed'))
-            { currentNodeUL.style.height = 'auto'; }
+        setTimeout(function () {
+            if (!currentNode.classList.contains('collapsed')) { currentNodeUL.style.height = 'auto'; }
         }, 600);
     } else {
         currentNodeUL.style.height = '0px';
@@ -161,9 +160,9 @@ function toggleAccordion(element, isImmediate) {
     }
 }
 
-(function() {
+(function () {
     if (localStorage.getItem(accordionLocalStorageKey) === undefined ||
-    localStorage.getItem(accordionLocalStorageKey) === null
+        localStorage.getItem(accordionLocalStorageKey) === null
     ) {
         localStorage.setItem(accordionLocalStorageKey, '{}');
     }
@@ -171,10 +170,10 @@ function toggleAccordion(element, isImmediate) {
     var ids = getAccordionIdsFromLocalStorage();
 
 
-    allAccordion.forEach(function(item) {
+    allAccordion.forEach(function (item) {
         var parent = item.parentNode;
 
-        item.addEventListener('click', function() { toggleAccordion(parent); } );
+        item.addEventListener('click', function () { toggleAccordion(parent); });
         if (parent.id in ids) {
             toggleAccordion(parent, true);
         }
@@ -205,12 +204,12 @@ function toggleNavbar(element, navbar) {
 /**
  * Navbar ham
  */
-(function() {
+(function () {
     var navbarHam = document.querySelector('#navbar-ham');
     var navbar = document.querySelector('#navbar');
 
     if (navbarHam && navbar) {
-        navbarHam.addEventListener('click', function() {
+        navbarHam.addEventListener('click', function () {
             toggleNavbar(navbarHam, navbar);
         });
     }
