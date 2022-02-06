@@ -56,7 +56,7 @@ window.addEventListener('load', ()=>{
                         flex-shrink: 0;
                     }
                     .shhh7612DiscordWidget${identifier} .widget-header .widget-logo{
-                        background: url(https://shhh7612.github.io/images/discord/WordmarkWhite.svg) 50% no-repeat;
+                        background: url(https://shhh7612.github.io/img/discord/WordmarkWhite.svg) 50% no-repeat;
                         width: 124px;
                         height: 34px;
                         background-size: 124px 34px;
@@ -193,7 +193,7 @@ window.addEventListener('load', ()=>{
                         background-color: #${(parseInt(`0x${color.replace('#', '')}FF`) - parseInt(`0x00000022`)).toString(16)}!important;
                     }
                     `
-                    parent.innerHTML = `${script.outerHTML}<style>${style}</style><div class="shhh7612DiscordWidget${identifier}""><div class="widget-header"><a class="widget-logo" href="https://discord.com/" target="_blank"></a><span class="widget-header-count"><strong></strong> Members Online</span></div><div class="widget-body"><div></div></div><div class="widget-footer"><span class="widget-footer-info">${footerText}</span><a class="widget-btn-join" href="" target="_blank">Join</a></div></div>`;
+                    parent.innerHTML = `${script.outerHTML}<link rel="stylesheet" href="https://shhh7612.github.io/plugins/widget/style.css"><div class="shhh7612DiscordWidget${identifier}""><div class="widget-header"><a class="widget-logo" href="https://discord.com/" target="_blank"></a><span class="widget-header-count"><strong></strong> Members Online</span></div><div class="widget-body"><div></div></div><div class="widget-footer"><span class="widget-footer-info">${footerText}</span><a class="widget-btn-join" href="" target="_blank">Join</a></div></div>`;
                     let widget = document.getElementsByClassName(`shhh7612DiscordWidget${identifier}`)[i], widgetHead = widget.children[0], widgetBody = widget.children[1], wdigetFooter = widget.children[2], members = [], link = `https://discord.com/api/guilds/${id}/widget.json`;
                     widget.style.width = width; widget.style.height = height;
                     fetch(link).then(data=>{
