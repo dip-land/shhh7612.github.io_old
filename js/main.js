@@ -80,16 +80,16 @@ function createPopup(title, text, buttonText, buttonData) {
     document.body.prepend(popup_container);
 }
 
-if (localStorage.getItem('cookies') === null) {
-    createPopup(
-        'Cookies',
-        "We have some cookies for you! <br> Our cookies are used to save your settings for this website, and so you won't have to see this pop up for quite a while.",
-        ['Accept', 'Decline'],
-        ['acceptCookies(this.parentElement.parentElement.parentElement)', 'declineCookies(this.parentElement.parentElement.parentElement)']
-    );
-} else {
+// if (localStorage.getItem('cookies') === null) {
+//     createPopup(
+//         'Cookies',
+//         "We have some cookies for you! <br> Our cookies are used to save your settings for this website, and so you won't have to see this pop up for quite a while.",
+//         ['Accept', 'Decline'],
+//         ['acceptCookies(this.parentElement.parentElement.parentElement)', 'declineCookies(this.parentElement.parentElement.parentElement)']
+//     );
+// } else {
 
-}
+// }
 if (localStorage.getItem('is16+') === null || localStorage.getItem('is16+') === 'false') {
     createPopup(
         'Are you 16 or older?',

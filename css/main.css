@@ -69,17 +69,6 @@ a, button, nav-item, nav-dropdown > dropdown-title {
 a:hover, button:hover, nav-item:hover, nav-dropdown > dropdown-title:hover {
     cursor: pointer !important;
 }
-.clickable:hover {
-    cursor: pointer !important;
-    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    transform: translate(-2px, -2px);
-}
-.clickable:focus {
-    -webkit-box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 50%);
-    transform: translate(-2px, -2px);
-}
 
 #SNButton {
     transform: translateX(-400%);
@@ -155,6 +144,7 @@ nav {
     backdrop-filter: blur(5px);
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+    border: 1px solid var(--themeColor);
 }
 nav-item, nav-dropdown > dropdown-title {
     box-sizing: border-box;
