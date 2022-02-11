@@ -1,54 +1,91 @@
 window.addEventListener('load', () => {
-    let i = 0;
-    for (let script of document.getElementsByTagName('script')) {
-        if (`${script.getAttribute('src')}`.includes('discordwidget.js')) {
-            let parent = script.parentElement, id, height, width, footerText, color, backgroundColor, textColor, statusTextColor, identifier = `_${(Math.random() + 1).toString(26).substring(2).replace(/[0-9]/g, '')}`;
-            if (parent.hasAttribute("data-done")) { } else {
-                if (script.hasAttribute('data-id')) { id = script.getAttribute('data-id'); if (id === "") { return alert('DiscordWidget\nNo ID was specified') } } else { return alert('DiscordWidget\nNo ID was specified') }
-                if (script.hasAttribute('data-width')) { width = script.getAttribute('data-width'); if (width === "") { width = "350px" } } else { width = "350px" }
-                if (script.hasAttribute('data-height')) { height = script.getAttribute('data-height'); if (height === "") { height = "500px" } } else { height = "500px" }
-                if (script.hasAttribute('data-footerText')) { footerText = script.getAttribute('data-footerText') } else { footerText = "" }
-                if (script.hasAttribute('data-color')) { color = script.getAttribute('data-color'); if (color === "") { color = "#5865f2" } } else { color = "#5865f2" }
-                if (script.hasAttribute('data-backgroundColor')) { backgroundColor = script.getAttribute('data-backgroundColor'); if (backgroundColor === "") { backgroundColor = "#0c0c0d" } } else { backgroundColor = "#0c0c0d" }
-                if (script.hasAttribute('data-textColor')) { textColor = script.getAttribute('data-textColor'); if (textColor === "") { textColor = "#ffffff" } } else { textColor = "#ffffff" }
-                if (script.hasAttribute('data-statusTextColor')) { statusTextColor = script.getAttribute('data-statusTextColor'); if (statusTextColor === "") { statusTextColor = "#858585" } } else { statusTextColor = "#858585" }
-                if (id && id !== "") {
-                    parent.innerHTML = `
-                    ${script.outerHTML}
-                    <link rel="stylesheet" href="https://shhh7612.github.io/plugins/widget/style.css">
-                    <div class="shhh7612DiscordWidget${identifier}"">
-                        <div class="widget-header">
-                            <a class="widget-logo" href="https://discord.com/" target="_blank"></a>
-                            <span class="widget-header-count"><strong></strong> Members Online</span>
-                        </div>
-                        <div class="widget-body">
-                        <div>
-                        <div class="widget-footer">
-                            <span class="widget-footer-info">${footerText}</span>
-                            <a class="widget-btn-join" href="" target="_blank">Join</a>
-                        </div>
-                    </div>
-                    `;
-                    let widget = document.getElementsByClassName(`shhh7612DiscordWidget${identifier}`)[i], widgetHead = widget.children[0], widgetBody = widget.children[1], wdigetFooter = widget.children[2], members = [], link = `https://discord.com/api/guilds/${id}/widget.json`;
-                    widget.style.width = width; widget.style.height = height;
-                    fetch(link).then(data => {
-                        data.json().then(data => {
-                            widgetHead.children[1].children[0].innerText = data.presence_count - 1;
-                            wdigetFooter.children[1].setAttribute('href', data.instant_invite);
-                            data.members.forEach(member => {
-                                if (member.game !== undefined) {
-                                    members.push(`<div class="widget-member"><div class="widget-member-avatar"><img alt="" src="${member.avatar_url}"><span class="widget-member-status widget-member-status-${member.status}"></span></div><span class="widget-member-name">${member.username}</span><span class="widget-member-status-text">${member.game.name}</span></div>`)
-                                } else {
-                                    members.push(`<div class="widget-member"><div class="widget-member-avatar"><img alt="" src="${member.avatar_url}"><span class="widget-member-status widget-member-status-${member.status}"></span></div><span class="widget-member-name">${member.username}</span></div>`)
-                                }
-                            })
-                            widgetBody.innerHTML = members.join('');
-                        })
-                    })
-                } else { alert('DiscordWidget\nNo ID was specified') }
-                i = i + 1;
-                parent.setAttribute('data-done', 'true')
-            }
+    for (let widget of document.getElementsByTagName('discord-widget')) {
+        //getting attributes
+        let id = widget.getAttribute('id') ?? null;
+        let width = widget.getAttribute('width') ?? '350px';
+        let height = widget.getAttribute('height') ?? '500px';
+        let footerText = widget.getAttribute('footerText') ?? '';
+        let color = widget.getAttribute('color') ?? '#5865f2';
+        let backgroundColor = widget.getAttribute('backgroundColor') ?? '#0c0c0d';
+        let textColor = widget.getAttribute('textColor') ?? '#fff';
+        let statusColor = widget.getAttribute('statusColor') ?? '#858585';
+        if (!id) {
+            console.error(`${widget.outerHTML}, No Discord server ID specified.`);
         }
+
+        //header
+        let head = document.createElement('widget-header');
+        let logo = document.createElement('widget-logo');
+        let count = document.createElement('widget-header-count');
+        head.append(logo, count);
+
+        //footer
+        let body = document.createElement('widget-body');
+
+        //footer
+        let footer = document.createElement('widget-footer');
+        let footerInfo = document.createElement('widget-footer-info');
+        let joinButton = document.createElement('widget-button-join');
+        joinButton.addEventListener('click', e => {
+            if (joinButton.getAttribute('href')) {
+                window.open(joinButton.getAttribute('href'), joinButton.getAttribute('target'), '');
+            }
+        });
+        footerInfo.innerText = footerText;
+        joinButton.innerText = 'Join';
+        footer.append(footerInfo, joinButton);
+
+        //style
+        widget.innerHTML = '<link rel="stylesheet" href="https://shhh7612.github.io/plugins/widget/style.css">'
+        widget.style.height = height;
+        widget.style.width = width;
+        widget.style.setProperty("--color", color);
+        widget.style.setProperty("--bgColor", backgroundColor);
+        widget.style.setProperty("--textColor", textColor);
+        widget.style.setProperty("--buttonColor", `#${LDColor(color.replace('#', ''), -10)}`);
+        widget.style.setProperty("--statusColor", statusColor);
+
+        //appending head, body and footer to the widget
+        widget.append(head, body, footer);
+
+        //data
+        fetch(`https://discord.com/api/guilds/${id}/widget.json`).then(data => {
+            data.json().then(data => {
+                //member count
+                count.innerHTML = `<strong>${data.presence_count - 1}</strong> Members Online`
+
+                //join button
+                joinButton.setAttribute('href', data.instant_invite);
+                joinButton.setAttribute('target', '_blank');
+
+                //users
+                data.members.forEach(user => {
+                    let member = document.createElement('widget-member');
+                    let avatar = document.createElement('widget-member-avatar');
+                    let avatarIMG = document.createElement('img');
+                    let status = document.createElement(`widget-member-status-${user.status}`);
+                    let name = document.createElement('widget-member-name');
+                    let statusText = document.createElement('widget-member-status-text');
+
+                    avatarIMG.src = user.avatar_url;
+                    status.classList.add('widget-member-status');
+                    name.innerText = user.username;
+                    if (user.game) {
+                        statusText.innerText = user.game.name;
+                    }
+                    avatar.append(avatarIMG, status);
+                    member.append(avatar, name, statusText);
+                    body.append(member);
+                })
+            })
+        })
     }
 })
+function LDColor(color, percent) {
+    let num = parseInt(color, 16);
+    let amt = Math.round(2.55 * percent);
+    let R = (num >> 16) + amt;
+    let B = (num >> 8 & 0x00FF) + amt;
+    let G = (num & 0x0000FF) + amt;
+    return (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
+};

@@ -48,16 +48,15 @@ const debounce = (fn) => {
     }
 };
 const storeScroll = () => {
-    let limit = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    document.documentElement.dataset.maxScroll = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     document.documentElement.dataset.scroll = window.scrollY;
-    document.body.style.setProperty('--scroll', `${-100 + ((window.scrollY / (limit - window.innerHeight)) * 100)}px`)
 }
 document.addEventListener('scroll', debounce(storeScroll), {
     passive: true
 });
 storeScroll();
 
-function createPopup(title, text, buttonText, buttonData) {
+function createPopup(title, text, buttons) {
     let popup_container = document.createElement('popup-container');
     let popup_box = document.createElement('popup-box');
     let popup_title = document.createElement('popup-title');
@@ -67,11 +66,11 @@ function createPopup(title, text, buttonText, buttonData) {
     popup_title.innerText = title;
     popup_text.innerHTML = text;
 
-    buttonText.forEach((item, index) => {
-        let button = document.createElement('popup-button');
-        button.innerText = item;
-        button.setAttribute('onclick', buttonData[index]);
-        popup_buttons.append(button);
+    buttons.forEach(button => {
+        let btn = document.createElement('popup-button');
+        btn.innerText = button.name;
+        btn.setAttribute('onclick', button.click);
+        popup_buttons.append(btn);
     })
 
     popup_container.append(popup_box);
@@ -83,8 +82,16 @@ if (localStorage.getItem('is16+') === null || localStorage.getItem('is16+') === 
     createPopup(
         'Are you 16 or older?',
         "This website contains some things that some users might find disturbing, so we require you to be 16 or older.",
-        ['Yes', 'No'],
-        ['is16(this.parentElement.parentElement.parentElement)', 'not16(this.parentElement)']
+        [
+            {
+                name: 'Yes',
+                click: 'is16(this.parentElement.parentElement.parentElement)'
+            },
+            {
+                name: 'No',
+                click: 'not16(this.parentElement)'
+            }
+        ]
     );
 } else {
 

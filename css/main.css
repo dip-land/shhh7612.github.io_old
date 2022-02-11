@@ -7,8 +7,6 @@
     --backgroundColor2: hsl(208, 100%, 12%);
     --backgroundColor3: hsl(208, 100%, 16%);
     --backgroundTransparent: hsla(208, 100%, 35%, 0.25);
-
-    --scroll: -100px;
 }
 
 * {
@@ -31,7 +29,7 @@ body::before {
     background-image: url('/img/Background.webp');
     background-size: cover;
     position: fixed;
-    top: var(--scroll);
+    top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
@@ -160,7 +158,7 @@ nav {
     backdrop-filter: blur(5px);
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-    border: 1px solid var(--themeColor);
+    /* border: 1px solid var(--themeColor); */
 }
 
 nav-item, nav-dropdown>dropdown-title {
