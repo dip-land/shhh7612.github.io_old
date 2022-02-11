@@ -1,17 +1,3 @@
-
-class anchor_custom extends HTMLElement {
-    constructor() {
-        super();
-        this.href = this.getAttribute('href');
-        this.target = this.getAttribute('target');
-        this.setAttribute('tabindex', 0);
-        if (this.target === null) this.target = '_self';
-        this.addEventListener('click', e => {
-            if (this.href) window.open(this.href, this.target, '');
-        });
-    }
-}
-
 class details_custom extends HTMLElement {
     constructor() {
         super();
@@ -22,7 +8,6 @@ class details_custom extends HTMLElement {
     }
 }
 
-window.customElements.define("nav-item", anchor_custom);
 window.customElements.define("nav-dropdown", details_custom);
 
 function openNav() {
@@ -31,10 +16,8 @@ function openNav() {
     let y = document.getElementById("main");
     if (x.className === "normal") {
         x.className += " responsive";
-        y.className += " hidden";
     } else {
         x.className = "normal";
-        y.className = "main";
     }
 }
 
@@ -95,16 +78,6 @@ if (localStorage.getItem('is16+') === null || localStorage.getItem('is16+') === 
     );
 } else {
 
-}
-
-function acceptCookies(popup) {
-    popup.remove();
-    localStorage.setItem('cookies', true);
-}
-
-function declineCookies(popup) {
-    popup.remove();
-    localStorage.setItem('cookies', false);
 }
 
 function is16(popup) {
