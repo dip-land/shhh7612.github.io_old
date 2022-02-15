@@ -1,0 +1,47 @@
+urlset {
+    background-color: hsl(240, 6%, 6%);
+    color: white;
+}
+
+url:before {
+    display: block;
+    width: 8em;
+    font-weight: bold;
+    font-size: 1rem;
+    content: "URL";
+    margin: -.75em 0px .25em -.25em;
+    padding: .1em .25em;
+    background-color: hsl(240, 15%, 15%);
+}
+
+url {
+    display: block;
+    margin: 2em 1em;
+    border: 1px solid hsl(240, 18%, 18%);
+    padding: 0px 1em;
+    background-color: hsl(240, 9%, 9%);
+}
+
+loc:before {
+    content: "Location: ";
+}
+
+loc {
+    display: block;
+}
+
+lastmod:before {
+    content: "Last Modified: ";
+}
+
+lastmod {
+    display: block;
+}
+
+priority:before {
+    content: "Priority: ";
+}
+
+priority {
+    display: block;
+}
