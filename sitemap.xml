@@ -2,7 +2,7 @@
 <?xml-stylesheet href="./css/xml.css"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://shhh7612.github.io/</loc>
-		<lastmod>2022-02-15T08:30:03.756Z</lastmod>
+		<lastmod>2022-02-15T19:13:07.155Z</lastmod>
 		<priority>1</priority>
 	</url>
 	<url>
@@ -36,14 +36,19 @@
 		<priority>0.64</priority>
 	</url>
 	<url>
+		<loc>https://shhh7612.github.io/projects/siva/</loc>
+		<lastmod>2022-02-06T17:16:20.575Z</lastmod>
+		<priority>0.64</priority>
+	</url>
+	<url>
 		<loc>https://shhh7612.github.io/projects/aika/</loc>
 		<lastmod>2022-02-06T17:16:20.574Z</lastmod>
 		<priority>0.64</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/projects/widget/</loc>
-		<lastmod>2022-02-06T18:19:56.413Z</lastmod>
-		<priority>0.64</priority>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/</loc>
+		<lastmod>2022-02-06T17:16:20.492Z</lastmod>
+		<priority>0.512</priority>
 	</url>
 	<url>
 		<loc>https://shhh7612.github.io/ardsclient/docs/v3/</loc>
@@ -51,7 +56,117 @@
 		<priority>0.512</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_Danbooru.js.html</loc>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_Danbooru.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.480Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/BaseHandler.html</loc>
+		<lastmod>2022-02-06T17:16:20.473Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_handlers_RedditHandler.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.483Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_handlers_BaseHandler.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.483Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_E621.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.480Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_Konachan.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.481Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_Neko.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.481Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_RedditCustom.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.482Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/ClientError.html</loc>
+		<lastmod>2022-02-06T17:16:20.473Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_Yandere.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.482Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/client_Rule34.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.482Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/E621.html</loc>
+		<lastmod>2022-02-06T17:16:20.475Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/Danbooru.html</loc>
+		<lastmod>2022-02-06T17:16:20.474Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/global.html</loc>
+		<lastmod>2022-02-06T17:16:20.492Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/index.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.493Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/Konachan.html</loc>
+		<lastmod>2022-02-06T17:16:20.475Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/Neko.html</loc>
+		<lastmod>2022-02-06T17:16:20.476Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/RedditHandler.html</loc>
+		<lastmod>2022-02-06T17:16:20.478Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/RedditCustom.html</loc>
+		<lastmod>2022-02-06T17:16:20.477Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/utils_ClientError.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.502Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/Rule34.html</loc>
+		<lastmod>2022-02-06T17:16:20.478Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/dev/Yandere.html</loc>
+		<lastmod>2022-02-06T17:16:20.479Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_E621.js.html</loc>
 		<lastmod>2022-02-06T17:16:20.480Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
@@ -61,7 +176,7 @@
 		<priority>0.4096</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_E621.js.html</loc>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_Danbooru.js.html</loc>
 		<lastmod>2022-02-06T17:16:20.480Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
@@ -81,8 +196,8 @@
 		<priority>0.4096</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_RedditCustom.js.html</loc>
-		<lastmod>2022-02-06T17:16:20.482Z</lastmod>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_Neko.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.481Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
 	<url>
@@ -91,8 +206,8 @@
 		<priority>0.4096</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_Neko.js.html</loc>
-		<lastmod>2022-02-06T17:16:20.481Z</lastmod>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/client_RedditCustom.js.html</loc>
+		<lastmod>2022-02-06T17:16:20.482Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
 	<url>
@@ -101,13 +216,13 @@
 		<priority>0.4096</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/ClientError.html</loc>
-		<lastmod>2022-02-06T17:16:20.473Z</lastmod>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/Danbooru.html</loc>
+		<lastmod>2022-02-06T17:16:20.474Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/Danbooru.html</loc>
-		<lastmod>2022-02-06T17:16:20.474Z</lastmod>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/ClientError.html</loc>
+		<lastmod>2022-02-06T17:16:20.473Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
 	<url>
@@ -136,11 +251,6 @@
 		<priority>0.4096</priority>
 	</url>
 	<url>
-		<loc>https://shhh7612.github.io/ardsclient/docs/v3/RedditHandler.html</loc>
-		<lastmod>2022-02-06T17:16:20.478Z</lastmod>
-		<priority>0.4096</priority>
-	</url>
-	<url>
 		<loc>https://shhh7612.github.io/ardsclient/docs/v3/Neko.html</loc>
 		<lastmod>2022-02-06T17:16:20.476Z</lastmod>
 		<priority>0.4096</priority>
@@ -153,6 +263,11 @@
 	<url>
 		<loc>https://shhh7612.github.io/ardsclient/docs/v3/utils_ClientError.js.html</loc>
 		<lastmod>2022-02-06T17:16:20.502Z</lastmod>
+		<priority>0.4096</priority>
+	</url>
+	<url>
+		<loc>https://shhh7612.github.io/ardsclient/docs/v3/RedditHandler.html</loc>
+		<lastmod>2022-02-06T17:16:20.478Z</lastmod>
 		<priority>0.4096</priority>
 	</url>
 	<url>
