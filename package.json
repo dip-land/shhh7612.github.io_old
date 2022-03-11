@@ -4,7 +4,7 @@
   "main": "sitemap.js",
   "scripts": {
     "build:sass": "sass  --no-source-map src/sass:public/css",
-    "copy:assets": "copyfiles -u 1 ./src/assets/**/* public/assets",
+    "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
     "copy:html": "copyfiles -u 1 ./src/*.html public",
     "copy": "npm-run-all --parallel copy:*",
     "watch:assets": "onchange \"src/*.html\" -- npm run copy:assets",
