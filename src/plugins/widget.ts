@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    for (let widget of document.getElementsByTagName('discord-widget')) {
+    for (let widget of document.getElementsByTagName('discord-widget') as HTMLCollectionOf<HTMLElement>) {
         //getting attributes
         let id = widget.getAttribute('id') ?? null;
         let width = widget.getAttribute('width') ?? '350px';
@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
         let joinButton = document.createElement('widget-button-join');
         joinButton.addEventListener('click', e => {
             if (joinButton.getAttribute('href')) {
-                window.open(joinButton.getAttribute('href'), joinButton.getAttribute('target'), '');
+                window.open(joinButton.getAttribute('href') || '', joinButton.getAttribute('target') || '', '');
             }
         });
         footerInfo.innerText = footerText;
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
         footer.append(footerInfo, joinButton);
 
         //style
-        widget.innerHTML = '<link rel="stylesheet" href="https://shhh7612.github.io/plugins/widget/style.css">'
+        widget.innerHTML = '<link rel="stylesheet" href="https://shhh7612.github.io/plugins/discordWidget.css">'
         widget.style.height = height;
         widget.style.width = width;
         widget.style.setProperty("--color", color);
@@ -59,7 +59,7 @@ window.addEventListener('load', () => {
                 joinButton.setAttribute('target', '_blank');
 
                 //users
-                data.members.forEach(user => {
+                data.members.forEach((user: member) => {
                     let member = document.createElement('widget-member');
                     let avatar = document.createElement('widget-member-avatar');
                     let avatarIMG = document.createElement('img');
@@ -81,7 +81,8 @@ window.addEventListener('load', () => {
         })
     }
 })
-function LDColor(color, percent) {
+
+function LDColor(color: string, percent: number) {
     let num = parseInt(color, 16);
     let amt = Math.round(2.55 * percent);
     let R = (num >> 16) + amt;
@@ -89,3 +90,15 @@ function LDColor(color, percent) {
     let G = (num & 0x0000FF) + amt;
     return (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
 };
+
+type member = {
+    id: string,
+    username: string,
+    discriminator: string,
+    avatar: string | null,
+    status: string,
+    avatar_url: string,
+    game?: {
+        name: string,
+    },
+}
