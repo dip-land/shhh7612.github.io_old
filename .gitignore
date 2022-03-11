@@ -1,6 +1,5 @@
-.git*
-package*
+.svelte-kit
 node_modules
-server.js
-.vscode
-lighthouse audits
+package-lock.json
+sitemap.js
+/public
