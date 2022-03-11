@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
         footer.append(footerInfo, joinButton);
 
         //style
-        widget.innerHTML = '<link rel="stylesheet" href="https://shhh7612.github.io/plugins/discordWidget.css">'
+        widget.innerHTML = '<link rel="stylesheet" href="https://shhh7612.github.io/css/discordWidget.css">'
         widget.style.height = height;
         widget.style.width = width;
         widget.style.setProperty("--color", color);
