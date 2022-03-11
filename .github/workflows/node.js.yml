@@ -5,9 +5,9 @@ name: Node.js Deploy
 
 on:
   push:
-    branches: [ Dev-Env ]
+    branches: [ master]
   pull_request:
-    branches: [ Dev-Env ]
+    branches: [ master ]
 
 jobs:
   build-and-deploy:

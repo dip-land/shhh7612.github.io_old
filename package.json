@@ -1,0 +1,35 @@
+{
+  "name": "shhh-7612.github.io",
+  "version": "1.0.0",
+  "main": "sitemap.js",
+  "scripts": {
+    "build:sass": "sass  --no-source-map src/sass:public/css",
+    "copy:assets": "copyfiles -u 1 ./src/assets/**/* public/assets",
+    "copy:html": "copyfiles -u 1 ./src/*.html public",
+    "copy": "npm-run-all --parallel copy:*",
+    "watch:assets": "onchange \"src/*.html\" -- npm run copy:assets",
+    "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
+    "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
+    "watch:ts": "tsc --watch",
+    "watch": "npm-run-all --parallel watch:*",
+    "serve": "browser-sync start --server public --files public",
+    "start": "npm-run-all copy --parallel watch serve",
+    "build": "npm-run-all copy:html build:*",
+    "deploy": "npm run build && gh-pages -d public",
+    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "browser-sync": "^2.27.7",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.0.17",
+    "gh-pages": "^3.2.3",
+    "glob": "^7.2.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.46.0",
+    "typescript": "^4.5.5",
+    "xml": "^1.0.1"
+  }
+}
