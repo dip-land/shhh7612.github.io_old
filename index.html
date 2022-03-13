@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html class="dark_mode">
+
     <head>
         <link rel="stylesheet" href="/css/main.css">
     </head>
+
     <body>
-        <nav>
-            <a href="/">Home</a>
+        <nav class="primary-nav">
+            <ul role="list" class="nav-list">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/projects/">Projects</a>
+                </li>
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+                <li>
+                    <a href="/">lorem</a>
+                </li>
+                <li>
+                    <a href="/">ipsum</a>
+                </li>
+                <li>
+                    <button onclick="toggleDM()">Dark Mode Toggle</button>
+                </li>
+            </ul>
         </nav>
-        <main>
-            200
-        </main>
+        <main>200</main>
+        <script src="/scripts/index.js"></script>
     </body>
+
 </html>
