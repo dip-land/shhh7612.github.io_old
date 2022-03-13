@@ -1,19 +1,105 @@
-/* Variables and mixins declared here will be available in all other SCSS files */
-$color-1: hsl(0, 0%, 100%);
-$color-2: hsl(0, 0%, 95%);
-$color-2: hsl(0, 0%, 90%);
-$color-4: hsl(0, 0%, 85%);
-$color-5: hsl(0, 0%, 80%);
-$color-6: hsl(0, 0%, 75%);
-/* BACKGROUND COLOURS */
-$background-1: hsl(240, 1%, 2.5%);
-$background-2: hsl(240, 2%, 5%);
-$background-3: hsl(240, 3%, 7.5%);
-$background-4: hsl(240, 4%, 10%);
-$background-5: hsl(240, 5%, 12.5%);
-/* BRAND COLOURS */
+/* COLORS */
+$color-1: hsl(0, 0%, 0%);
+$color-2: hsl(0, 0%, 5%);
+$color-3: hsl(0, 0%, 10%);
+$color-4: hsl(0, 0%, 15%);
+$color-5: hsl(0, 0%, 20%);
+$color-6: hsl(0, 0%, 25%);
+
+$DM_color-1: hsl(0, 0%, 100%);
+$DM_color-2: hsl(0, 0%, 95%);
+$DM_color-3: hsl(0, 0%, 90%);
+$DM_color-4: hsl(0, 0%, 85%);
+$DM_color-5: hsl(0, 0%, 80%);
+$DM_color-6: hsl(0, 0%, 75%);
+/* BACKGROUND COLORS */
+$background-1: hsl(0, 0%, 97.5%);
+$background-2: hsl(240, 2%, 95%);
+$background-3: hsl(240, 3%, 92.5%);
+$background-4: hsl(240, 4%, 90%);
+$background-5: hsl(240, 5%, 87.5%);
+
+$DM_background-1: hsl(0, 0%, 12.5%);
+$DM_background-2: hsl(240, 2%, 10%);
+$DM_background-3: hsl(240, 3%, 7.5%);
+$DM_background-4: hsl(240, 4%, 5%);
+$DM_background-5: hsl(240, 5%, 2.5%);
+/* BRAND COLORS */
 $brand-1: hsl(214, 100%, 60%);
 $brand-2: hsl(214, 80%, 50%);     
 $brand-3: hsl(214, 60%, 40%);
 
 $link-visited: hsl(246, 100%, 60%);
+
+/* COLOR DEFAULTS */
+@mixin name {
+    
+}
+.default .color-1 {
+    color: $color-1;
+}
+.dark_mode .color-1 {
+    color: $DM_color-1;
+}
+.default .color-2 {
+    color: $color-2;
+}
+.dark_mode .color-2 {
+    color: $DM_color-2;
+}
+.default .color-3 {
+    color: $color-3;
+}
+.dark_mode .color-3 {
+    color: $DM_color-3;
+}
+.default .color-4 {
+    color: $color-4;
+}
+.dark_mode .color-4 {
+    color: $DM_color-4;
+}
+.default .color-5 {
+    color: $color-5;
+}
+.dark_mode .color-5 {
+    color: $DM_color-5;
+}
+.default .color-6 {
+    color: $color-6;
+}
+.dark_mode .color-6 {
+    color: $DM_color-6;
+}
+
+/* BACKGROUND COLOR DEFAULTS */
+.default .background-1 {
+    background: $background-1;
+}
+.dark_mode .background-1 {
+    background: $DM_background-1;
+}
+.default .background-2 {
+    background: $background-2;
+}
+.dark_mode .background-2 {
+    background: $DM_background-2;
+}
+.default .background-3 {
+    background: $background-3 !important;
+}
+.dark_mode .background-3 {
+    background: $DM_background-3 !important;
+}
+.default .background-4 {
+    background: $background-4;
+}
+.dark_mode .background-4 {
+    background: $DM_background-4;
+}
+.default .background-5 {
+    background: $background-5;
+}
+.dark_mode .background-5 {
+    background: $DM_background-5;
+}

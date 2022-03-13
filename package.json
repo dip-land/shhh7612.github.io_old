@@ -13,7 +13,7 @@
     "watch:ts": "tsc --watch",
     "tsc": "tsc",
     "watch": "npm-run-all --parallel watch:*",
-    "serve": "browser-sync start --server public --files public",
+    "serve": "browser-sync start --config 'bsconfig.js'",
     "start": "npm-run-all copy --parallel watch serve",
     "build": "npm-run-all copy:html build:* tsc copy:assets",
     "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"

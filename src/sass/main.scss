@@ -2,117 +2,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import './variables.scss';
 
-*::selection {
-    background: $brand-1 !important;
-}
-
-body, html {
+body {
+    @extend .color-1;
+    @extend .background-3;
     font-family: 'Nunito', sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: $color-1;
-    background: $background-1;
     margin: 0;
     padding: 0;
 }
 
-a {
-    color: $brand-1;
-    &:hover, &:focus {
-        color: $link-visited;
-    }
-    &:visited {
-        color: $link-visited;
-        &:hover, &:focus {
-            color: $brand-1;
-        }
-    }
+ol[role=list], ul[role=list] {
+    list-style: none;
 }
 
-nav {
-    user-select: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
-    font-weight: 700;
-    background-color: $background-3;
-    a { 
-        outline: 0px solid $brand-1;
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: $background-3;
-        text-decoration: none;
-        color: $color-1 !important;
-        transition: background 400ms, color 200ms, transform 200ms, font-size 200ms, padding 350ms;
-        &:hover, &:focus {
-            cursor: pointer;
-            color: $brand-1 !important;
-            background: $background-5;
-            font-weight: 900;
-        }
-    }
-    #SkipNavigation {
-        transform: translateX(-200%);
-        font-size: 0;
-        padding: 0;
+.primary-nav {
+    // position: fixed;
+    // left: 0;
+    // right: 0;
+    font-weight: 600;
+    @extend .background-1;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1rem;
+        justify-content: center;
         margin: 0;
-        &:focus {
-            font-size: unset;
-            padding: 1rem 2rem;
-            transform: translateX(0);
+        padding: 0;
+        text-transform: uppercase;
+        > * {
+            margin: 0 0.5em;
+            padding: 0.5em;
         }
-    }
-    #OpenNavigation {
-        display: none;
-    }
-
-}
-
-main {
-    margin: 3.4rem 0 0;
-
-    .welcome {
-        background: $brand-2;
-        display: grid;
-        grid-template-columns: 1fr 1px 1fr;
-        hr {
-            height: 90%;
-            margin: auto;
-            border: 1px solid $brand-1;
-        }
-        div {
-            height: 20rem;
-            padding: 5rem;
-            text-align: center;
-        }   
-    }
-}
-
-#projects {
-    margin: 0;
-    h1 {
-        margin-left: 5%;
-    }
-    .row {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        a, button {
-            height: 22rem;
-            line-height: 22rem;
-            background: none;
-            color: $color-1;
-            text-decoration: none;
-            text-align: center;
-            align-items: flex-start;
-            transition: background 400ms, color 200ms;
-            &:hover {
-                background: $brand-2;
-                cursor: pointer;
+        li.active {
+            a {
+                text-decoration-thickness: 0.25em;
+                color: $brand-1;
             }
         }
     }
+    a {
+        text-underline-offset: 0.25em;
+        color: $brand-2;
+        &:hover {
+            @extend .color-3;
+            text-decoration: none;
+        }
+    }
+}
+
+main {
+    @extend .color-1;
+    @extend .background-3;
 }
 
 /*Medias*/
@@ -121,12 +65,7 @@ main {
 }
 
 @media all and (max-width: 1024px) {
-    main .welcome div {
-        padding: 4rem;
-    }
-    #projects .row {
-        grid-template-columns: repeat(4, 1fr);
-    }
+
 }
 
 @media all and (max-width: 959px) {
@@ -134,24 +73,7 @@ main {
 }
 
 @media all and (max-width: 800px) {
-    nav {
-        a {
-            display: none;
-        }
-        #OpenNavigation {
-            display: inline-block;
-        }
-    }
-    main .welcome div {
-        padding: 3rem;
-    }
-    #projects .row {
-        grid-template-columns: repeat(3, 1fr);
-        a, button {
-            height: 20rem;
-            line-height: 20rem;
-        }
-    }
+
 }
 
 @media all and (max-width: 768px) {
@@ -159,24 +81,7 @@ main {
 }
 
 @media all and (max-width: 668px) {
-    main .welcome {
-        grid-template-columns: 1fr;
-        div {
-            padding: 2rem;
-        }
-        hr {
-            height: 0px;
-            width: 90%;
-            margin: auto;
-            border: 1.5px solid $brand-1;
-        }
-    }
-    #projects .row {
-        a, button {
-            height: 18rem;
-            line-height: 18rem;
-        }
-    }
+
 }
 
 @media all and (max-width: 568px) {
@@ -184,21 +89,9 @@ main {
 }
 
 @media all and (max-width: 480px) {
-    #projects .row {
-        grid-template-columns: repeat(2, 1fr);
-        a, button {
-            height: 16rem;
-            line-height: 16rem;
-        }
-    }
+
 }
 
 @media all and (max-width: 320px) {
-    #projects .row {
-        grid-template-columns: repeat(1, 1fr);
-        a, button {
-            height: 14rem;
-            line-height: 14rem;
-        }
-    }
+
 }
