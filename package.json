@@ -1,21 +1,24 @@
 {
-  "name": "shhh-7612.github.io",
+  "name": "shhh7612.github.io",
   "version": "1.0.0",
   "main": "sitemap.js",
   "scripts": {
     "build:sass": "sass  --no-source-map src/sass:public/css",
     "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
     "copy:html": "copyfiles -u 1 ./src/*.html public",
+    "copy:json": "copyfiles -u 1 ./src/*.json public",
     "copy": "npm-run-all --parallel copy:*",
     "watch:assets": "onchange \"src/*.html\" -- npm run copy:assets",
     "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
+    "watch:json": "onchange \"src/*.json\" -- npm run copy:json",
     "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
     "watch:ts": "tsc --watch",
     "tsc": "tsc",
+    "gen:sitemap": "node sitemap.js",
     "watch": "npm-run-all --parallel watch:*",
-    "serve": "browser-sync start --config 'bsconfig.js'",
-    "start": "npm-run-all copy --parallel watch serve",
-    "build": "npm-run-all copy:html build:* tsc copy:assets",
+    "serve": "browser-sync start --config bsconfig.js",
+    "start": "npm-run-all copy --parallel watch serve gen:sitemap",
+    "build": "npm-run-all copy:html build:* tsc copy:assets gen:sitemap",
     "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
   },
   "devDependencies": {
