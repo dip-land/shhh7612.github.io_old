@@ -1,1 +1,384 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");.default .color-1,.default body,.default main{color:#000}.dark_mode .color-1,.dark_mode body,.dark_mode main{color:#fff}.default .color-2{color:#0d0d0d}.dark_mode .color-2{color:#f2f2f2}.default .color-3,.default .primary-nav a:hover,.primary-nav .default a:hover{color:#1a1a1a}.dark_mode .color-3,.dark_mode .primary-nav a:hover,.primary-nav .dark_mode a:hover{color:#e6e6e6}.default .color-4{color:#262626}.dark_mode .color-4{color:#d9d9d9}.default .color-5{color:#333}.dark_mode .color-5{color:#ccc}.default .color-6{color:#404040}.dark_mode .color-6{color:#bfbfbf}.default .background-1,.default .primary-nav{background:#f9f9f9}.dark_mode .background-1,.dark_mode .primary-nav{background:#202020}.default .background-2{background:#f2f2f3}.dark_mode .background-2{background:#19191a}.default .background-3,.default body,.default main{background:#ebebec!important}.dark_mode .background-3,.dark_mode body,.dark_mode main{background:#131314!important}.default .background-4{background:#e4e4e7}.dark_mode .background-4{background:#0c0c0d}.default .background-5{background:#dedee1}.dark_mode .background-5{background:#060607}body{font-family:Nunito,sans-serif;font-size:1rem;font-weight:400;margin:0;padding:0}ol[role=list],ul[role=list]{list-style:none}.primary-nav{box-shadow:0 0 .5em rgba(0,0,0,.2);font-weight:600;margin-bottom:3rem;padding:2rem 0}.primary-nav ul{display:flex;flex-wrap:wrap;font-size:1rem;justify-content:center;margin:0;padding:0;text-transform:uppercase}.primary-nav ul>*{margin:0 .5em;padding:.5em}.primary-nav ul li.active a{color:#338bff;text-decoration-thickness:.25em}.primary-nav a{color:#1a72e6;text-underline-offset:.25em}.primary-nav a:hover{text-decoration:none}
+/* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* COLORS */
+.default .color-1, .default button:focus, .default button:hover, .default .primary-nav ul li .toggle:focus, .primary-nav ul li .default .toggle:focus, .default .primary-nav ul li .toggle:hover, .primary-nav ul li .default .toggle:hover, .default .primary-nav ul li a:focus, .primary-nav ul li .default a:focus, .default .primary-nav ul li a:hover, .primary-nav ul li .default a:hover, .default body {
+  color: white;
+}
+
+.light_mode .color-1, .light_mode button:focus, .light_mode button:hover, .light_mode .primary-nav ul li .toggle:focus, .primary-nav ul li .light_mode .toggle:focus, .light_mode .primary-nav ul li .toggle:hover, .primary-nav ul li .light_mode .toggle:hover, .light_mode .primary-nav ul li a:focus, .primary-nav ul li .light_mode a:focus, .light_mode .primary-nav ul li a:hover, .primary-nav ul li .light_mode a:hover, .light_mode body {
+  color: black;
+}
+
+.default .color-2 {
+  color: #f2f2f2;
+}
+
+.light_mode .color-2 {
+  color: #0d0d0d;
+}
+
+.default .color-3 {
+  color: #e6e6e6;
+}
+
+.light_mode .color-3 {
+  color: #1a1a1a;
+}
+
+.default .color-4 {
+  color: #d9d9d9;
+}
+
+.light_mode .color-4 {
+  color: #262626;
+}
+
+.default .color-5, .default button, .default .primary-nav ul li .toggle, .primary-nav ul li .default .toggle, .default .primary-nav ul li a, .primary-nav ul li .default a {
+  color: #cccccc;
+}
+
+.light_mode .color-5, .light_mode button, .light_mode .primary-nav ul li .toggle, .primary-nav ul li .light_mode .toggle, .light_mode .primary-nav ul li a, .primary-nav ul li .light_mode a {
+  color: #333333;
+}
+
+.default .color-6 {
+  color: #bfbfbf;
+}
+
+.light_mode .color-6 {
+  color: #404040;
+}
+
+/* BACKGROUND COLORS */
+.default .background-1 {
+  background: linear-gradient(180deg, #181c28 0%, #1e1f21 100%);
+}
+
+.light_mode .background-1 {
+  background: linear-gradient(180deg, #eff1f5 0%, #f2f2f3 100%);
+}
+
+.default .background-2, .default body {
+  background: linear-gradient(180deg, #131720 0%, #18191b 100%);
+}
+
+.light_mode .background-2, .light_mode body {
+  background: linear-gradient(180deg, #dfe3ec 0%, #e4e5e7 100%);
+}
+
+.default .background-3 {
+  background: linear-gradient(180deg, #0e1118 0%, #121314 100%);
+}
+
+.light_mode .background-3 {
+  background: linear-gradient(180deg, #cfd4e2 0%, #d7d8db 100%);
+}
+
+.default .background-4 {
+  background: linear-gradient(180deg, #0a0b10 0%, #0c0c0d 100%);
+}
+
+.light_mode .background-4 {
+  background: linear-gradient(180deg, #bfc6d9 0%, #c9cbcf 100%);
+}
+
+.default .background-5 {
+  background: linear-gradient(180deg, #050608 0%, #060607 100%);
+}
+
+.light_mode .background-5 {
+  background: linear-gradient(180deg, #afb8cf 0%, #bcbec2 100%);
+}
+
+/* BRAND COLORS */
+.light_mode .brand {
+  color: white;
+  background-color: #f53d56 !important;
+}
+
+.default .brand {
+  color: white;
+  background-color: #e61a35 !important;
+}
+
+/* SPECIAL */
+.default .nav-background, .default .primary-nav {
+  background: linear-gradient(180deg, rgba(24, 28, 40, 0.9) 0%, rgba(24, 28, 40, 0.1) 100%);
+}
+
+.light_mode .nav-background, .light_mode .primary-nav {
+  background: linear-gradient(180deg, rgba(239, 241, 245, 0.9) 0%, rgba(239, 241, 245, 0.1) 100%);
+}
+
+.default .toggle-default {
+  background-color: #cccccc;
+}
+
+.light_mode .toggle-default {
+  background-color: #333333;
+}
+
+.default .toggle-hover {
+  background-color: white;
+}
+
+.light_mode .toggle-hover {
+  background-color: black;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline-color: #fb5168;
+  outline-offset: -10px;
+}
+
+.primary-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  justify-content: right;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-transform: uppercase;
+}
+.primary-nav ul li {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  line-height: 4rem;
+}
+.primary-nav ul li:last-child {
+  margin-right: 1rem;
+}
+.primary-nav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  text-decoration: none;
+  transition: color 200ms ease;
+  box-sizing: border-box;
+}
+.primary-nav ul li a:hover::after {
+  left: 0%;
+  right: 0%;
+}
+.primary-nav ul li a:focus::after {
+  left: 0%;
+  right: 0%;
+}
+.primary-nav ul li a::after {
+  content: "";
+  transition: all 200ms ease;
+  position: absolute;
+  left: 100%;
+  right: 100%;
+  display: block;
+  height: 0.25rem;
+  background-color: #fb5168;
+  bottom: 0rem;
+}
+.primary-nav ul li .toggle {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  margin: 1.4rem 1rem;
+  padding: 0 2rem;
+  text-decoration: none;
+  transition: color 200ms ease;
+  box-sizing: border-box;
+  outline-offset: 10px;
+}
+.primary-nav ul li .toggle:hover::after {
+  left: 0%;
+  right: 0%;
+}
+.primary-nav ul li .toggle:focus::after {
+  left: 0%;
+  right: 0%;
+}
+.primary-nav ul li .toggle::after {
+  content: "";
+  transition: all 200ms ease;
+  position: absolute;
+  left: 100%;
+  right: 100%;
+  display: block;
+  height: 0.25rem;
+  background-color: #fb5168;
+  bottom: 0rem;
+}
+
+.hidden {
+  opacity: 0;
+  position: absolute;
+  top: -20000000000px;
+  left: -20000000000px;
+}
+
+main {
+  height: auto;
+  margin: 5rem 1rem 1rem 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button {
+  appearance: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  border: none;
+  transition: color 200ms ease;
+  box-sizing: border-box;
+  background: none;
+  backdrop-filter: blur(5px);
+}
+button:hover {
+  cursor: pointer;
+}
+button:hover::after {
+  left: 0%;
+  right: 0%;
+}
+button:focus {
+  outline-offset: 5px;
+}
+button:focus::after {
+  left: 0%;
+  right: 0%;
+}
+button::after {
+  content: "";
+  transition: all 200ms ease;
+  position: absolute;
+  left: 100%;
+  right: 100%;
+  display: block;
+  height: 0.25rem;
+  background-color: #fb5168;
+  bottom: 0rem;
+}
+
+.card {
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  border-radius: 0.6rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 25vw;
+  transition: all 200ms ease;
+  color: #e6e6e6;
+}
+.card > img {
+  position: absolute;
+  filter: blur(0px);
+  height: 100%;
+  z-index: 1;
+}
+.card > .cardBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0c0c0d;
+  opacity: 0.3;
+  z-index: 2;
+}
+.card.open {
+  position: fixed;
+  top: 5rem;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: auto;
+  width: auto;
+  z-index: 5;
+  border-radius: 0.5rem;
+}
+.card.open > img {
+  filter: blur(2px);
+}
+.card.open .cardCloseButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  opacity: 1;
+}
+.card.open .cardHeading {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  right: 1rem;
+  text-align: center;
+  z-index: 2;
+}
+.card.open .cardContent {
+  position: absolute;
+  top: 6rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  height: auto;
+  overflow-y: auto;
+  z-index: 2;
+}
+.card:not(.open):hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px #f53d56;
+  z-index: 5;
+  transform: translate(-2px, -2px);
+}
+.card:not(.open):hover > img {
+  filter: blur(2px);
+}
+.card:not(.open) .cardCloseButton {
+  opacity: 0;
+}
+.card:not(.open) .cardHeading {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 1rem;
+  right: 0;
+  z-index: 2;
+}
+.card:not(.open) .cardContent {
+  position: absolute;
+  top: calc(100% - 2rem);
+  left: 1rem;
+  right: 5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 1.2rem;
+  z-index: 2;
+}
+
+/*Medias*/
