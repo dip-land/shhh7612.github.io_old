@@ -7,14 +7,12 @@ const statAsync = promisify(stat);
 const start = Date.now();
 
 console.log("\x1b[36mStarting Sitemap Generator...\x1b[0m");
-
 glob("./src/**/!(404|google*).html", function (error, files) {
     let count = 0;
     const sitemapItems = new Array();
     console.log(`\x1b[36mFiles Found: ${files.length}\x1b[0m`);
-    files.forEach(async (file, index) => {
-        let file_stats = await statAsync(file);
-        let date_mod = new Date(file_stats.mtime).toISOString();
+    files.forEach(async (file) => {
+        let date_mod = new Date((await statAsync(file)).mtime).toISOString();
         let file_dir_count = (file.match(/\//g) || []).length - 2;
         let priority = 1;
         if (!file.includes("index.html")) file_dir_count++;
@@ -26,15 +24,9 @@ glob("./src/**/!(404|google*).html", function (error, files) {
         sitemapItems.push(
             {
                 url: [
-                    {
-                        loc: "https://shhh7612.github.io/" + file.replace(/\.\/src\/|index.html/g, ''),
-                    },
-                    {
-                        lastmod: date_mod,
-                    },
-                    {
-                        priority: priority,
-                    },
+                    { loc: "https://shhh7612.github.io/" + file.replace(/\.\/src\/|index.html/g, '') },
+                    { astmod: date_mod },
+                    { priority: priority },
                 ],
             }
         );
@@ -43,14 +35,12 @@ glob("./src/**/!(404|google*).html", function (error, files) {
             const sitemapObject = {
                 urlset: [
                     {
-                        _attr: {
-                            xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9",
-                        },
+                        _attr: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
                     },
                     ...sitemapItems,
                 ],
             };
-            const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet href="./css/xml.css"?>${xml(sitemapObject, { indent: '\t' })}`;
+            const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet href="./css/xml.css"?>\n${xml(sitemapObject, { indent: '\t' })}`;
             await writeFileAsync("public/sitemap.xml", sitemap, "utf8");
             console.log(`\x1b[36mDone Generating Sitemap. Time:\x1b[34m${Date.now() - start}ms \x1b[0m`);
         }
