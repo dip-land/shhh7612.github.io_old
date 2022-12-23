@@ -206,10 +206,10 @@ body {
 
 main {
     height: auto;
-    margin: 5rem 1rem 1rem 1rem;
+    margin: 5rem 2rem 2rem 2rem;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 button {
@@ -256,15 +256,95 @@ button {
     }
 }
 
+.videoContainer {
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    position: relative;
+    z-index: 1;
+    width: 75%;
+    //transition: all 200ms ease;
+    color: $color-3;
+    video {
+        width: 100%;
+    }
+    .controlsContainer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-inline: 1rem;
+        .seeker {
+            position: absolute;
+            bottom: 3rem;
+            left: 0;
+            right: 0;
+            height: 5px;
+            &:hover {
+                cursor: pointer;
+            }
+            .seekerBar {
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            .seekerPreload {
+                position: absolute;
+                left: 0;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            .seekerCurrent {
+                left: 0;
+                position: absolute;
+                height: 100%;
+                background-color: rgba(255, 0, 0, 0.5);
+                transition: width 100ms linear;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -2.5px;
+                    top: -2.5px;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 100%;
+                    background-color: red;
+                }
+            }
+        }
+        .controlsLeft {
+            position: absolute;
+            left: 0;
+            bottom: 0.5rem;
+            .videoTime {
+                display: inline;
+            }
+        }
+        .controlsRight {
+            position: absolute;
+            right: 0;
+            bottom: 0.5rem;
+        }
+    }
+    button {
+        display: inline;
+        background: none;
+        backdrop-filter: none;
+        &::after {
+            display: none;
+        }
+    }
+}
+
 .card {
     box-sizing: border-box;
     border: 0px solid transparent;
-    border-radius: 0.6rem;
     position: relative;
     z-index: 1;
     overflow: hidden;
     width: 100%;
-    height: 25vw;
+    height: 20vw;
     transition: all 200ms ease;
     color: $color-3;
 
@@ -275,30 +355,33 @@ button {
         z-index: 1;
     }
 
-    >.cardBackground {
+    .cardBackground {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: $background-4;
-        opacity: 0.3;
+        background: linear-gradient(180deg, hsla(230, 23%, 5%, 0.2) 0%, hsla(224, 12.5%, 5%, 0.2) 50%, hsla(224, 25%, 5%, 0.2) 100%);
         z-index: 2;
+    }
+
+    .cardCloseButton {
+        color: $color-3 !important;
     }
 
     &.open {
         position: fixed;
-        top: 5rem;
-        bottom: 1rem;
-        left: 1rem;
-        right: 1rem;
+        top: 4rem;
+        bottom: 0rem;
+        left: 0rem;
+        right: 0rem;
         height: auto;
         width: auto;
         z-index: 5;
-        border-radius: 0.5rem;
+        border-radius: 0;
 
-        >img {
-            filter: blur(2px);
+        .cardBackground {
+            backdrop-filter: blur(5px);
         }
 
         .cardCloseButton {
@@ -336,9 +419,9 @@ button {
     &:not(.open) {
         &:hover {
             cursor: pointer;
-            box-shadow: 2px 2px 2px 2px $brand-3;
+            box-shadow: 0px 0px 6px 3px $brand-3;
             z-index: 5;
-            transform: translate(-2px, -2px);
+            transform: translateY(-2px);
 
             >img {
                 filter: blur(2px);
@@ -377,18 +460,30 @@ button {
 /*Medias*/
 @media all and (min-width:1025px) {}
 
-@media all and (max-width: 1024px) {}
+@media all and (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
 
 @media all and (max-width: 959px) {}
 
 @media all and (max-width: 800px) {}
 
-@media all and (max-width: 768px) {}
+@media all and (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
 
 @media all and (max-width: 668px) {}
 
 @media all and (max-width: 568px) {}
 
-@media all and (max-width: 480px) {}
+@media all and (max-width: 490px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
 @media all and (max-width: 320px) {}

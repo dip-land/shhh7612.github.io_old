@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <base href="/" />
+        <meta charset="UTF-8" />
+        <meta name="language" content="English" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv=" X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="preconnect" />
+        <title>shhh7612</title>
+        <meta property="og:title" content="shhh7612" />
+        <meta property="twitter:title" content="shhh7612" />
+        <meta property="og:site_name" content="shhh7612 homepage" />
+        <link rel="shortcut icon" type="image/svg+xml" href="./img/favicon.png" />
+        <meta property="og:image" content="/img/favicon.png" />
+        <link rel="apple-touch-icon" href="/img/favicon.png">
+        <meta name="description" content="A webiste made to share all my projects to the world!" />
+        <meta property="og:description" content="A webiste made to share all my projects to the world!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://shhh7612.github.io/" />
+        <meta name="theme-color" content="#002c52" />
+        <link rel="stylesheet" href="/css/main.css" preload />
+        <script defer src="https://kit.fontawesome.com/8bbb202c47.js" crossorigin="anonymous"></script>
+        <meta name="google-site-verification" content="xEw_CL9H26pODRswlA5GvDN47ohNPnt17cg44WFb0rs" />
+        <meta name="google-site-verification" content="l9SZk5mQeykA9dL6uR-GZ5HMMrk6NsJMZghndTgWh-E" />
+        <script defer async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9668088754221394"
+            crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <style>
+            body {
+                padding: 12px;
+                color: white;
+            }
+
+            #videoContainer {
+                border-radius: 12px;
+                overflow: hidden;
+                text-align: center;
+                background: hsl(0, 0%, 1%);
+                position: relative;
+                width: 768px;
+                height: 432px;
+            }
+
+            @media screen and (max-width:768px) {
+                #videoContainer {
+                    width: 100%;
+                    height: calc(100vw / 1.777777777777778 - 14px);
+                }
+            }
+
+            #videoContainer #bottom {
+                z-index: 200;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                text-align: center;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-transition: all ease-in-out 0.2s;
+                -o-transition: all ease-in-out 0.2s;
+                transition: all ease-in-out 0.2s;
+            }
+
+            #videoContainer #subtitles {
+                position: relative;
+                font-size: 1.5rem;
+                width: max-content;
+                height: max-content;
+                max-width: 75%;
+                border-radius: 6px;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            #videoContainer #controls {
+                padding: 5px;
+                background: rgb(0, 0, 0);
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+                display: grid;
+                grid-template-rows: auto auto;
+                grid-template-columns: max-content max-content max-content auto max-content max-content max-content max-content;
+            }
+
+            video {
+                position: relative;
+                height: 100%;
+            }
+
+            #seekbar {
+                margin: 20px 5px;
+                grid-column: 1 / 9;
+                grid-row: 1 / 1;
+                cursor: pointer;
+                height: 7.5px;
+                background-color: rgba(255, 255, 255, 0.25);
+                overflow: hidden;
+                position: relative;
+                top: 16px;
+            }
+
+            #videoTime {
+                font-weight: 700;
+                font-size: 16px;
+                text-align: center;
+                padding: 12px 16px 0px;
+            }
+
+            #seekbar span {
+                background-color: rgb(255, 255, 255);
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 7.5px;
+                width: 0px;
+                -webkit-transition: all ease-in-out 0.2s;
+                -o-transition: all ease-in-out 0.2s;
+                transition: all ease-in-out 0.2s;
+            }
+
+            #buffered {
+                background-color: rgba(255, 255, 255, 0.25) !important;
+            }
+
+            button {
+                font-size: 20px;
+                background: none !important;
+                color: var(--buttonText) !important;
+                padding: 10px;
+            }
+
+            button:hover {
+                background: none !important;
+                color: var(--primaryText) !important;
+            }
+
+            #volume {
+                position: relative;
+                padding: 10px;
+                font-size: 20px;
+                color: var(--buttonText) !important;
+                overflow: hidden;
+                -webkit-transition: all ease-in-out 0.4s;
+                -o-transition: all ease-in-out 0.4s;
+                transition: all ease-in-out 0.4s;
+            }
+
+            #volume:hover {
+                color: var(--primaryText) !important;
+                width: 140px;
+                text-align: left;
+            }
+
+            #volume i {
+                vertical-align: text-bottom;
+            }
+
+            #volume input {
+                position: absolute;
+                display: block;
+                top: calc(50% - 5px);
+                left: 55px;
+                right: 0;
+                width: calc(100% - 18px - 55px);
+            }
+
+            input {
+                height: 7.5px;
+                background: rgba(255, 255, 255, 0.1);
+                background-image: linear-gradient(rgba(255, 255, 255), rgba(255, 255, 255));
+                background-size: 70% 100%;
+                background-repeat: no-repeat;
+                -webkit-appearance: none;
+            }
+
+            input:hover {
+                cursor: pointer;
+            }
+
+            input::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                background-color: white;
+                width: 0;
+                height: 0;
+            }
+
+            input::-moz-range-thumb {
+                background-color: white;
+            }
+
+            google-cast-launcher {
+                width: 20px;
+                --connected-color: rgba(255, 255, 255);
+                --disconnected-color: rgba(255, 255, 255, 0.5);
+            }
+
+            .videoMenu {
+                display: none;
+                padding: 10px;
+                background: rgba(0, 0, 0, 0.75);
+                position: absolute;
+                right: 10px;
+                bottom: 80px;
+                border-radius: 6px;
+            }
+
+            #captionsMenu button,
+            #playbackSpeedMenu button {
+                display: block;
+                font-size: 16px;
+                padding: 4px 10px;
+            }
+        </style>
+        <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    </head>
+
+    <body>
+        <div id="videoContainer">
+            <div id="bottom">
+                <center>
+                    <div id="subtitles">
+                    </div>
+                </center>
+                <div id="controls">
+                    <div class="videoMenu" id="videoSettings">
+                        <button onclick="openMenu(captionsMenu, this)"><i class="fas fa-closed-captioning"></i></button>
+                        <button onclick="openMenu(playbackSpeedMenu, this)"><i class="fas fa-clock"></i></button>
+                    </div>
+                    <div class="videoMenu" id="playbackSpeedMenu">
+                        <button onclick="openMenu(videoSettings, this)">Back</button>
+                        <input id="playbackSpeed" type="range" min="0.1" max="2" value="1" step="0.1">
+                    </div>
+                    <div class="videoMenu" id="captionsMenu">
+                        <button onclick="openMenu(videoSettings, this)">Back</button>
+                    </div>
+                    <div id="seekbar">
+                        <span></span>
+                        <span id="buffered"></span>
+                    </div>
+                    <button id="playpauseButton" onclick="playPause()"><i class="fas fa-play"></i></button>
+                    <div id="volume">
+                        <i class="fas fa-volume-up"></i>
+                        <input id="volumeControl" type="range" min="1" max="100" value="100" step="1">
+                    </div>
+                    <span id="videoTime"></span>
+                    <span style="width: 100%;"></span>
+                    <button onclick="openMenu(videoSettings, this)"><i class="fas fa-cog"></i></button>
+                    <google-cast-launcher></google-cast-launcher>
+                    <button id="pipButton" onclick="pip()"><svg style="width:25px; vertical-align: text-bottom;"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 136">
+                            <path fill="currentColor"
+                                d="m 83.077846,71.433945 h 33.261504 c 2.34527,0 4.23334,1.888066 4.23334,4.233333 v 17.991668 c 0,2.345266 -1.88807,4.233333 -4.23334,4.233333 H 83.077846 c -2.345266,0 -4.233333,-1.888067 -4.233333,-4.233333 V 75.667278 c 0,-2.345267 1.888067,-4.233333 4.233333,-4.233333 z M 5.9140625 22.490234 A 5.9146415 5.9146415 0 0 0 0 28.404297 L 0 106.79883 A 5.9146415 5.9146415 0 0 0 5.9140625 112.71289 L 129.55273 112.71289 A 5.9146415 5.9146415 0 0 0 135.4668 106.79883 L 135.4668 28.404297 A 5.9146415 5.9146415 0 0 0 129.55273 22.490234 L 5.9140625 22.490234 z M 11.828125 34.318359 L 123.63867 34.318359 L 123.63867 100.88477 L 11.828125 100.88477 L 11.828125 34.318359 z "
+                                id="pip" />
+                        </svg></button>
+                    <button id="fullscreenButton" onclick="fullscreen()"><i class="fas fa-expand-alt"></i></button>
+                </div>
+            </div>
+            <video playsinline onclick="playPause()" oncontextmenu="false" preload="metadata">
+                <source src="./assets/video/1/Video/original.webm" type="video/webm">
+                <track label="English" kind="subtitles" srclang="en" src="./videos/the-web-is-always-changing.vtt">
+                <track label="Japanese" kind="subtitles" srclang="jp" src="./videos/the-web-is-always-changing-jp.vtt">
+                HTML5 video not supported. See <a href="https://en.wikipedia.org/wiki/HTML5_video#Browser_support">this
+                    article</a> for supported browsers.
+            </video>
+        </div>
+        <script>
+            let video = document.getElementsByTagName('VIDEO').item(0);
+            let container = video.parentElement;
+            let seekbar = document.getElementById('seekbar');
+            let controls = seekbar.parentElement;
+            let videoTime = document.getElementById('videoTime');
+            let playButton = document.getElementById('playpauseButton');
+            let fullscreenButton = document.getElementById('fullscreenButton').children[0];
+            let timeout;
+            let duration = 2500;
+            let currentTrack = null;
+            let subtitles = document.getElementById('subtitles');
+            let subtitleMenu = document.getElementById('captionsMenu');
+            document.querySelectorAll('input[type="range"]').forEach(input => {
+                let val = parseFloat(input.value);
+                input.style.backgroundSize = (val - input.min) * 100 / (input.max - input.min) + '% 100%'
+                input.addEventListener('input', function handleInputChange(e) {
+                    let target = e.target
+                    let val = parseFloat(target.value);
+                    target.style.backgroundSize = (val - target.min) * 100 / (target.max - target.min) + '% 100%'
+                    if (target.id === 'volumeControl') {
+                        Math.round(100 * (((val - target.min) * 100 / (target.max - target.min)) / 100)) / 100;
+                        video.volume = Math.round(100 * (((val - target.min) * 100 / (target.max - target.min)) / 100)) / 100;
+                    }
+                    if (target.id === "playbackSpeed") {
+                        video.playbackRate = val;
+                    }
+                })
+            })
+            function getOS() {
+                let platform = window.navigator.platform;
+                let macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+                let windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+                let iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+                let os = null;
+                if (macosPlatforms.indexOf(platform) !== -1) {
+                    os = 'Mac OS';
+                } else if (iosPlatforms.indexOf(platform) !== -1) {
+                    os = 'iOS';
+                } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                    os = 'Windows';
+                } else if (/Android/.test(window.navigator.userAgent)) {
+                    os = 'Android';
+                } else if (!os && /Linux/.test(platform)) {
+                    os = 'Linux';
+                }
+                return os;
+            }
+            if (getOS() === 'Mac OS' || getOS() === 'iOS') {
+                controls.parentElement.remove();
+                video.setAttribute('controls', 'true');
+            } else {
+                container.addEventListener('dblclick', function (e) {
+                    if (isVideoInFullscreen()) {
+                        document.exitFullscreen();
+                    } else {
+                        container.requestFullscreen();
+                    }
+                });
+                container.addEventListener("mouseover", function (event) {
+                    container.addEventListener('mousemove', function () {
+                        playButton.focus();
+                        controls.style.opacity = "1";
+                        video.style.cursor = "initial";
+                        subtitles.style.transform = "translateY(12px)"
+                        clearTimeout(timeout);
+                        timeout = setTimeout(function () {
+                            controls.style.opacity = "0";
+                            subtitles.style.transform = "translateY(75px)"
+                            video.style.cursor = "none";
+                        }, duration)
+                    });
+                }, false);
+                window.addEventListener(`load`, () => {
+                    for (var i = 0; i < video.textTracks.length; i++) {
+                        let button = document.createElement('button');
+                        button.setAttribute('onclick', 'subtitle(this)');
+                        button.setAttribute('data-id', i);
+                        button.innerText = video.textTracks[i].label;
+                        video.textTracks[i].mode = 'hidden';
+                        subtitleMenu.appendChild(button)
+                    }
+                    setTimeout(() => {
+                        videoTime.innerHTML = `${format(0)} / ${format(video.duration)}`;
+                    }, 550)
+                })
+
+                video.ontimeupdate = function () {
+                    if (currentTrack) {
+                        if (video.textTracks[currentTrack].activeCues.length === 1) {
+                            subtitles.innerHTML = video.textTracks[currentTrack].activeCues[0].text;
+                            subtitles.style.padding = "7.5px 12.5px";
+                        } else {
+                            subtitles.innerHTML = "";
+                            subtitles.style.padding = "0px";
+                        }
+                    }
+                    let percentage = (video.currentTime / video.duration) * 100;
+                    let buffPercent = (video.buffered.end(video.buffered.length - 1) / video.duration) * 100;
+                    seekbar.children[0].style.width = percentage + "%";
+                    seekbar.children[1].style.width = buffPercent + "%";
+                    videoTime.innerHTML = `${format(video.currentTime)} / ${format(video.duration)}`;
+                };
+
+                seekbar.addEventListener('click', function (click) {
+                    let left = click.pageX - seekbar.offsetLeft - 10;
+                    let totalWidth = seekbar.offsetWidth;
+                    let percentage = left / totalWidth;
+                    let vidTime = video.duration * percentage;
+                    video.currentTime = vidTime;
+                })
+
+                video.addEventListener('ended', end => {
+                    playButton.children[0].classList.replace('fa-pause', 'fa-redo-alt');
+                });
+            }
+
+            function format(num) {
+                if (num > 3600) {
+                    return new Date(Math.round(num) * 1000).toISOString().substr(11, 8);
+                } else {
+                    return new Date(Math.round(num) * 1000).toISOString().substr(14, 5);
+                }
+            }
+            function playPause() {
+                playButton.focus();
+                if (video.paused) {
+                    video.play();
+                    if (playButton.children[0].classList.contains('fa-redo-alt')) {
+                        playButton.children[0].classList.replace('fa-redo-alt', 'fa-pause');
+                    } else {
+                        playButton.children[0].classList.replace('fa-play', 'fa-pause');
+                    }
+                } else {
+                    video.pause();
+                    playButton.children[0].classList.replace('fa-pause', 'fa-play');
+                }
+            }
+
+            function fullscreen() {
+                playButton.focus();
+                if (isVideoInFullscreen()) {
+                    container.style.borderRadius = "6px";
+                    fullscreenButton.classList.replace('fa-compress-alt', 'fa-expand-alt');
+                    document.exitFullscreen();
+                } else {
+                    container.style.borderRadius = "0";
+                    fullscreenButton.classList.replace('fa-expand-alt', 'fa-compress-alt');
+                    container.requestFullscreen();
+                }
+            }
+            function pip() {
+                if (isInPiP()) {
+                    document.exitPictureInPicture();
+                } else {
+                    video.requestPictureInPicture();
+                }
+            }
+            function openMenu(menu, button) {
+                if (menu.style.display === "none" || menu.style.display === "") {
+                    Array.from(document.getElementsByClassName('videoMenu')).forEach(menu => {
+                        menu.style.display = "none";
+                    })
+                    menu.style.display = "block";
+                } else {
+                    menu.style.display = "none";
+                }
+            }
+            function subtitle(button) {
+                currentTrack = button.getAttribute('data-id')
+            }
+
+            function isVideoInFullscreen() {
+                if (document.fullscreenElement && document.fullscreenElement.children[1].nodeName == 'VIDEO') {
+                    return true;
+                }
+                return false;
+            }
+            function isInPiP() {
+                if (document.pictureInPictureElement) {
+                    return true;
+                }
+                return false;
+            }
+        </script>
+        <script src="script.min.js"></script>
+    </body>
+
+</html>

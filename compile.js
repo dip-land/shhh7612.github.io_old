@@ -6,18 +6,22 @@ const args = process.argv.slice(2);
 
 if (args[0] === 'dev') {
     makeDir('./public', 'addDir');
-    chokidar.watch('./src').on('all', (event, path) => {
-        console.log(event);
-        compile(path, event);
-    });
-} else {
-    makeDir('./public', 'addDir');
-    glob('src/**/*', (err, paths) => {
-        paths.forEach(path => {
-            let event = path.includes('.') ? 'add' : 'addDir';
+    setTimeout(e => {
+        chokidar.watch('./src').on('all', (event, path) => {
+            console.log(event);
             compile(path, event);
         });
-    });
+    }, 100);
+} else {
+    makeDir('./public', 'addDir');
+    setTimeout(e => {
+        glob('src/**/*', (err, paths) => {
+            paths.forEach(path => {
+                let event = path.includes('.') ? 'add' : 'addDir';
+                compile(path, event);
+            });
+        });
+    }, 100);
 }
 
 function compile(path, event) {
@@ -26,6 +30,9 @@ function compile(path, event) {
         return makeDir(newPath, event);
     }
     if (event === 'unlinkDir') {
+        return deleteDir(newPath, event);
+    }
+    if (event === 'unlink') {
         return deleteDir(newPath, event);
     }
     if (path.includes('.scss')) {

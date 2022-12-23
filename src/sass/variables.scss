@@ -50,21 +50,21 @@ $lm_color-6: hsl(0, 0%, 25%);
 }
 
 /* BACKGROUND COLORS */
-$background-1: hsl(224, 5%, 12.5%);
-$background-2: hsl(224, 5%, 10%);
-$background-3: hsl(224, 5%, 7.5%);
-$background-4: hsl(224, 5%, 5%);
-$background-5: hsl(224, 5%, 2.5%);
+$background-1: hsl(224, 12.5%, 12.5%);
+$background-2: hsl(224, 12.5%, 10%);
+$background-3: hsl(224, 12.5%, 7.5%);
+$background-4: hsl(224, 12.5%, 5%);
+$background-5: hsl(224, 12.5%, 2.5%);
 $background-1_grad: hsl(224, 25%, 12.5%);
 $background-2_grad: hsl(224, 25%, 10%);
 $background-3_grad: hsl(224, 25%, 7.5%);
 $background-4_grad: hsl(224, 25%, 5%);
 $background-5_grad: hsl(224, 25%, 2.5%);
-$lm_background-1: hsl(224, 5%, 95%);
-$lm_background-2: hsl(224, 5%, 90%);
-$lm_background-3: hsl(224, 5%, 85%);
-$lm_background-4: hsl(224, 5%, 80%);
-$lm_background-5: hsl(224, 5%, 75%);
+$lm_background-1: hsl(224, 12.5%, 95%);
+$lm_background-2: hsl(224, 12.5%, 90%);
+$lm_background-3: hsl(224, 12.5%, 85%);
+$lm_background-4: hsl(224, 12.5%, 80%);
+$lm_background-5: hsl(224, 12.5%, 75%);
 $lm_background-1_grad: hsl(224, 25%, 95%);
 $lm_background-2_grad: hsl(224, 25%, 90%);
 $lm_background-3_grad: hsl(224, 25%, 85%);
@@ -77,34 +77,34 @@ $lm_nav-1_grad: hsla(224, 25%, 95%, 0.9);
 $lm_nav-2_grad: hsla(224, 25%, 95%, 0.1);
 
 .default .background-1 {
-    background: linear-gradient(180deg, $background-1_grad 0%, $background-1 100%);
+    background: linear-gradient(180deg, $background-1_grad 0%, $background-1 50%, $background-1_grad 100%);
 }
 .light_mode .background-1 {
-    background: linear-gradient(180deg, $lm_background-1_grad 0%, $lm_background-1 100%);
+    background: linear-gradient(180deg, $lm_background-1_grad 0%, $lm_background-1 50%, $lm_background-1_grad 100%);
 }
 .default .background-2 {
-    background: linear-gradient(180deg, $background-2_grad 0%, $background-2 100%);
+    background: linear-gradient(180deg, $background-2_grad 0%, $background-2 50%, $background-2_grad 100%);
 }
 .light_mode .background-2 {
-    background: linear-gradient(180deg, $lm_background-2_grad 0%, $lm_background-2 100%);
+    background: linear-gradient(180deg, $lm_background-2_grad 0%, $lm_background-2 50%, $lm_background-2_grad 100%);
 }
 .default .background-3 {
-    background: linear-gradient(180deg, $background-3_grad 0%, $background-3 100%);
+    background: linear-gradient(180deg, $background-3_grad 0%, $background-3 50%, $background-3_grad 100%);
 }
 .light_mode .background-3 {
-    background: linear-gradient(180deg, $lm_background-3_grad 0%, $lm_background-3 100%);
+    background: linear-gradient(180deg, $lm_background-3_grad 0%, $lm_background-3 50%, $lm_background-3_grad 100%);
 }
 .default .background-4 {
-    background: linear-gradient(180deg, $background-4_grad 0%, $background-4 100%);
+    background: linear-gradient(180deg, $background-4_grad 0%, $background-4 50%, $background-4_grad 100%);
 }
 .light_mode .background-4 {
-    background: linear-gradient(180deg, $lm_background-4_grad 0%, $lm_background-4 100%);
+    background: linear-gradient(180deg, $lm_background-4_grad 0%, $lm_background-4 50%, $lm_background-4_grad 100%);
 }
 .default .background-5 {
-    background: linear-gradient(180deg, $background-5_grad 0%, $background-5 100%);
+    background: linear-gradient(180deg, $background-5_grad 0%, $background-5 50%, $background-5_grad 100%);
 }
 .light_mode .background-5 {
-    background: linear-gradient(180deg, $lm_background-5_grad 0%, $lm_background-5 100%);
+    background: linear-gradient(180deg, $lm_background-5_grad 0%, $lm_background-5 50%, $lm_background-5_grad 100%);
 }
 
 /* BRAND COLORS */
